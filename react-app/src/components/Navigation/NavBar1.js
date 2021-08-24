@@ -33,7 +33,9 @@ const NavBar1 = () => {
          <Link className={styles.link} to='/create'>
          <p className={styles.start}>Start a Project</p>
          </Link>
+         <Link className={styles.link} to='/profile'>
          <p className={styles.start}>Welcome, {user.username}! </p>
+         </Link>
           <LogoutButton />
           </div>
         </div>
