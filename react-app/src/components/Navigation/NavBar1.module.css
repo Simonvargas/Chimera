@@ -1,14 +1,26 @@
 .container {
     display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid black;
+    justify-content: space-around;
+    border-bottom: 1px solid lightgrey;
     padding: 5px;
-    height: 50px;
-}
+    height: 60px;
+    box-shadow: 0 0.125rem 0.1875rem -0.125rem rgb(0 0 0 / 20%);
+}   
 
 .start {
     display: inline-block;
-    padding: 5px;
+    padding: 10px;
+
+}
+
+.endContainer {
+    position: relative;
+    bottom: 5px;
+}
+
+.startContainer {
+    position: relative;
+    bottom: 5px;
 }
 
 .h1 {
@@ -17,5 +29,20 @@
 
 .photoContainer {
     position: relative;
-    bottom: 40px;
+    bottom: 35px;
+}
+
+
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.searchBar {
+    width: 150px;
+    height: 20px;
+    position: relative;
+    bottom: 3px;
+
 }

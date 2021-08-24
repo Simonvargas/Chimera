@@ -1,9 +1,10 @@
 .container {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid lightgrey;
     padding: 5px;
-    height: 50px;
+    height: 60px;
+    box-shadow: 0 0.125rem 0.1875rem -0.125rem rgb(0 0 0 / 20%);
 }
 
 .btn {
@@ -19,6 +20,7 @@
     margin: 5px;
     width: 140px;
     position: relative;
+    top: 7px;
     transition: all ease 0.3s;
 }
 
@@ -35,5 +37,6 @@
 
 .photoContainer {
     position: relative;
-    bottom: 40px;
+    bottom: 35px;
+    left: 5px;
 }

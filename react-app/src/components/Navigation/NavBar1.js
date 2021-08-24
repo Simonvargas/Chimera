@@ -12,8 +12,17 @@ const NavBar1 = () => {
     <nav>
        <div className={styles.container}>
          <div className={styles.startContainer}>
-         <p className={styles.start}>Explore Projects |</p>
-         <p className={styles.start}>| Start a Project</p>
+
+<input
+  placeholder='Search..'
+  type='text'
+  className={styles.searchBar}
+  // onChange={(e) => setSearchInput((e.target.value).toLowerCase())}
+  />
+           <Link className={styles.link} to='/categories'>
+         <p className={styles.start}>Explore Projects</p>
+         </Link>
+         
          </div>
          <div className={styles.photoContainer}>
       <Link  className={styles.link} to='/'>
@@ -21,6 +30,9 @@ const NavBar1 = () => {
       </Link>
       </div>
          <div className={styles.endContainer}>
+         <Link className={styles.link} to='/create'>
+         <p className={styles.start}>Start a Project</p>
+         </Link>
          <p className={styles.start}>Welcome, {user.username}! </p>
           <LogoutButton />
           </div>
