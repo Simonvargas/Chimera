@@ -1,0 +1,14 @@
+.container {
+    border-top: 1px solid black;
+}
+
+.startContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.start {
+    display: inline-block;
+    padding: 5px;
+}
