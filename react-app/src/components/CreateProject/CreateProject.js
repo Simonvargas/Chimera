@@ -20,7 +20,7 @@ function AddEvent() {
   
     const projectCreate = async (e) => {
         e.preventDefault()
-        await dispatch(projectActions.createProject(hostId, categoryId, name, image, details, funding))
+         await dispatch(projectActions.createProject(hostId, categoryId, name, image, details, funding))
          history.push('/')
     }
   return  (
