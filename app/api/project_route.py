@@ -15,6 +15,13 @@ def get_projects():
     return {'Projects' : [project.to_dict() for project in projects]}
 # 'watchs' : [watch.to_dict() for watch in watchs]
 
+@project_routes.route('/<int:id>')
+@login_required
+def one_project(id):
+    project = Project.query.get(id)
+    return project.to_dict()
+
+
 
 # post route
 @project_routes.route('/create', methods=['POST'])

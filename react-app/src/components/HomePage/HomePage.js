@@ -21,7 +21,9 @@ const HomePage = () => {
       
       <div className={styles.mainContent}>
         <div className={styles.categories}>categories</div>
+        
         <div className={styles.projects}>{allProjects?.map(projects => 
+        
         <Link className={styles.link} to={`/projects/${projects.id}`}>
           <div className={styles.projectContainer}>
             <img className={styles.projectImg} src={projects.image}></img>
@@ -30,7 +32,9 @@ const HomePage = () => {
             <p className={styles.raised}><span className={styles.span}>${projects.funding_raised} raised</span> of {projects.funding_goal}</p>
           </div>
           </Link>
-          )}</div>
+          
+          )}
+          </div>
 
       </div>
       <Footer />

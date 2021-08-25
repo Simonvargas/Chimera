@@ -1,16 +1,75 @@
 .mainContent {
-    width: 70%;
+    width: 80%;
     height: 650px;
     display: block;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 25px;
-    border-bottom: 1px solid lightgrey;
-    border-right: 1px solid lightgrey;
-    border-left: 1px solid lightgrey;
-    border: 1px solid lightgrey;
+
 }
 
-.categories {
+.photo {
+    width: 520px;
+}
 
+.left {
+    float: left;
+    width: 50%;
+}
+
+.right {
+    float: right;
+    width: 50%;
+}
+
+.text {
+    border-bottom: 1px solid lightgrey
+}
+
+.funded {
+    color: green;
+    font-size: 30px;
+}
+
+.goal {
+    margin: 0;
+    padding: 0;
+}
+
+.supportContainer {
+    display: inline-block;
+    padding: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 380px;
+    height: 280px;
+    padding: 5px;
+    margin: 10px;
+    position: relative;
+    top: 67px;
+}
+
+.btn {
+    border-radius: 6px;
+    border: 1px blue;
+    background: radial-gradient(900px 900px at top center, #5e5e5e, #2d3334, #262626);
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 5px;
+    width: 140px;
+    position: relative;
+    top: 7px;
+    transition: all ease 0.3s;
+    float: right;
+}
+
+.btn:hover {
+    color: #ffffff !important;
+    background-color: #f8f9d2;
+    background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
+    transition: all 0.4s ease 0s;
 }

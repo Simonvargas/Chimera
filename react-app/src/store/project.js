@@ -2,7 +2,7 @@
 const ADD_PROJECT= 'projects/ADD_PROJECT';
 const LOAD_PROJECT = 'projects/LOAD_PROJECT';
 const UPDATE_LIST = 'watchlist/UPDATE_LIST';
-const DELETE_LIST = 'watchlist/DELETE_LIST';
+const DELETE_PROJECT = 'projects/DELETE_PROJECT';
 
 
 
@@ -19,14 +19,15 @@ const loadProject = (project) => ({
     project
 });
 
+
 const updateList = (list) => ({
     type: UPDATE_LIST,
     list
 });
 
-const deleteList = (listId) => ({
-    type: DELETE_LIST,
-    listId
+const deleteProject = (projectId) => ({
+    type: DELETE_PROJECT,
+    projectId
 });
 
 
@@ -52,6 +53,7 @@ export const getProjects = () => async (dispatch) => {
     return allProjects;
 }
 
+
 export const editList = (list_name, user_id, id) => async (dispatch) => {
     const response = await fetch(`/api/watchlist/edit/${id}`, {
         method: 'PUT',
@@ -64,13 +66,14 @@ export const editList = (list_name, user_id, id) => async (dispatch) => {
     return list;
 }
 
-export const removeList = (id) => async (dispatch) => {
+export const removeProject = (id) => async (dispatch) => {
     console.log(id, "THIS IS ID")
-    const res = await fetch(`/api/watchlist/delete/${id}`, {
+    const res = await fetch(`/api/projects/delete/${id}`, {
         method : 'DELETE',
     });
 
-    dispatch(deleteList(res))
+    dispatch(deleteProject(res))
+    return 
 }
 
 // reducer.
@@ -97,7 +100,7 @@ const ProjectReducer = (state = initialState, action) => {
                 ...state,
                 [action.list.id]: action.list
             }
-        case DELETE_LIST:{
+        case DELETE_PROJECT:{
            const newState = {...state}
            return newState
         }
