@@ -20,11 +20,8 @@ function AddEvent() {
   
     const projectCreate = async (e) => {
         e.preventDefault()
-        console.log(details)
-       let createdProject = await dispatch(projectActions.createProject(hostId, categoryId, name, image, details, funding))
-       if (createdProject) {
+        await dispatch(projectActions.createProject(hostId, categoryId, name, image, details, funding))
          history.push('/')
-       }
     }
   return  (
   <div className={styles.container}>
