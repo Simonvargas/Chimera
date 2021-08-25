@@ -1,10 +1,11 @@
 .mainContent {
     width: 80%;
-    height: 650px;
+    height: 750px;
     display: block;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 25px;
+    font-family: 'Muli', sans-serif;
 
 }
 
@@ -20,6 +21,9 @@
 .right {
     float: right;
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
 }
 
 .text {
@@ -46,7 +50,9 @@
     padding: 5px;
     margin: 10px;
     position: relative;
-    top: 67px;
+    top: 40px;
+    font-family: 'Muli', sans-serif;
+
 }
 
 .btn {
@@ -62,7 +68,6 @@
     margin: 5px;
     width: 140px;
     position: relative;
-    top: 7px;
     transition: all ease 0.3s;
     float: right;
 }
@@ -72,4 +77,20 @@
     background-color: #f8f9d2;
     background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
     transition: all 0.4s ease 0s;
+}
+
+.commentsContainer {
+    width: 40%;
+    display: block;
+    /* margin: auto; */
+    position: relative;
+    left: 145px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid lightgrey;
+    font-family: 'Muli', sans-serif;
+
+}
+
+.commentDiv {
+    border: 1px solid lightgrey;
 }

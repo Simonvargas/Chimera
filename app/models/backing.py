@@ -5,7 +5,7 @@ class Backing(db.Model):
     __tablename__ = 'backings'
 
     id = db.Column(db.Integer, primary_key=True)
-    project_id = db.Column(db.Integer,db.ForeignKey('projects.id'), nullable=False)
+    project_id = db.Column(db.Integer, db.ForeignKey('projects.id'), nullable=False)
     user_id= db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     amount = db.Column(db.Integer, nullable=False)
     comment = db.Column(db.String(255), nullable=False)
@@ -21,4 +21,5 @@ class Backing(db.Model):
             'project_id': self.project_id,
             'user_id': self.user_id,
             'amount': self.amount,
+            'comment': self.comment
         }

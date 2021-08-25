@@ -1,10 +1,8 @@
 // action verbs
 const ADD_PROJECT= 'projects/ADD_PROJECT';
 const LOAD_PROJECT = 'projects/LOAD_PROJECT';
-const UPDATE_LIST = 'watchlist/UPDATE_LIST';
+const UPDATE_PROJECT = 'projects/UPDATE_PROJECT';
 const DELETE_PROJECT = 'projects/DELETE_PROJECT';
-
-
 
 // action creators
 
@@ -20,9 +18,9 @@ const loadProject = (project) => ({
 });
 
 
-const updateList = (list) => ({
-    type: UPDATE_LIST,
-    list
+const updateProject = (project) => ({
+    type: UPDATE_PROJECT,
+    project
 });
 
 const deleteProject = (projectId) => ({
@@ -54,16 +52,16 @@ export const getProjects = () => async (dispatch) => {
 }
 
 
-export const editList = (list_name, user_id, id) => async (dispatch) => {
-    const response = await fetch(`/api/watchlist/edit/${id}`, {
+export const editProject = (user_id, category_id, name, image, details, funding_goal, id) => async (dispatch) => {
+    const response = await fetch(`/api/projects/edit/${id}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({list_name, user_id}),
+        body: JSON.stringify({user_id, category_id, name, image, details, funding_goal}),
     });
     if(!response.ok) throw response
-    const list = await response.json();
-    dispatch(updateList(list));
-    return list;
+    const editedProject = await response.json();
+    dispatch(updateProject(editedProject));
+    return editedProject;
 }
 
 export const removeProject = (id) => async (dispatch) => {
@@ -95,10 +93,10 @@ const ProjectReducer = (state = initialState, action) => {
                 all[oneProject.id] = oneProject;
             });
             return all;
-        case UPDATE_LIST:
+        case UPDATE_PROJECT:
             return {
                 ...state,
-                [action.list.id]: action.list
+                [action.project.id]: action.project
             }
         case DELETE_PROJECT:{
            const newState = {...state}

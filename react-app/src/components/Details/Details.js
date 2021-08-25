@@ -6,15 +6,41 @@ import Footer from '../Navigation/Footer';
 import NavBar from '../Navigation/NavBar';
 import styles from './Details.module.css'
 import { useParams } from 'react-router-dom';
-import { removeProject } from '../../store/project'
+import { removeProject, editProject } from '../../store/project'
+import EditForm from './EditForm'
+import { getbackings } from '../../store/backing';
+import { getUsers } from '../../store/session';
 
 const Details = () => {
   const dispatch = useDispatch()
   const history = useHistory()
-  const [project, setProject] = useState([])
   const { id } = useParams()
-  const user = useSelector(state => state.session.user)
   
+  const [project, setProject] = useState([])
+  const [showForm, setShowForm] = useState(false)
+  const [users, setUsers] = useState([])
+  const user = useSelector(state => state.session.user)
+  const backings = Object.values(useSelector(state => state.backing))
+  const allUsers = Object.values(useSelector(state => state.session))
+
+  useEffect(() => {
+    (async function(){
+      const res = await fetch(`/api/backings/users`)
+
+      if (res.ok) {
+        const ones = await res.json()
+        setUsers(ones)
+      }
+    })()
+  }, [])
+// 
+console.log('all', allUsers)
+
+
+  useEffect(() => {
+    dispatch(getbackings())
+    dispatch(getUsers())
+  }, [])
   useEffect(() => {
     (async function(){
       const res = await fetch(`/api/projects/${id}`)
@@ -27,9 +53,12 @@ const Details = () => {
   }, [id])
 
   async function deleteProject(){
-    console.log('hello')
     await dispatch(removeProject(id))
     history.push('/')
+  }
+
+  function show() {
+    setShowForm(true)
   }
 
   return (
@@ -37,12 +66,14 @@ const Details = () => {
       <NavBar />
       <div className={styles.mainContent}>
         <div className={styles.categories}>hello
+        
         {user.id === project.user_id ? <>
         <button onClick={deleteProject} className={styles.btn}>Delete dream</button> 
-        <button className={styles.btn}>Edit dream</button>
+        <button onClick={show} className={styles.btn}>Edit dream</button>
         </>
         : ''}
         </div>
+        
         <div className={styles.left}>
         <h1>{project.name}</h1>
         <img className={styles.photo} src={project.image}></img>
@@ -58,8 +89,29 @@ const Details = () => {
           <p className={styles.goal}>Backers</p>
           <button>Support a dream</button>
           </div>
+          {showForm ? <EditForm setShowForm={setShowForm} /> : ''}
         </div>
       </div>
+      
+      <div className={styles.commentsContainer}>
+        <h2>Backers Donations & Comments</h2>
+          <div>
+            {backings?.map(backing => {
+              for (let i = 0; i < allUsers.length; i++) {
+                if (project.id === backing.project_id && allUsers[i].id === backing.user_id) {
+                  return (
+                    <div className={styles.commentDiv}>
+                    <p>{allUsers[i].username} donated {backing.amount}</p>
+                     <p>{backing.comment}</p>
+                     {user.id === backing.user_id ? <button>Edit</button> : ''}
+                    </div>
+                  )
+      }}
+})}
+                  
+          </div>
+         
+        </div>
       <Footer />
       </div>
   )

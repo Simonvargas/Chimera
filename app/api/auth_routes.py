@@ -80,3 +80,8 @@ def unauthorized():
     Returns unauthorized JSON when flask-login authentication fails
     """
     return {'errors': ['Unauthorized']}, 401
+
+@auth_routes.route('/users')
+def get_users():
+    users = User.query.all()
+    return { 'users': [user.to_dict() for user in users]}
