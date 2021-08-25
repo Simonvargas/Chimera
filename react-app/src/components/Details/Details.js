@@ -11,7 +11,7 @@ import EditForm from './EditForm'
 import BackForm from './BackForm';
 import { getbackings } from '../../store/backing';
 import { getUsers } from '../../store/session';
-
+import  { Redirect } from 'react-router-dom'
 const Details = () => {
   const dispatch = useDispatch()
   const history = useHistory()
