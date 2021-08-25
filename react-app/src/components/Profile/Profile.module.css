@@ -3,7 +3,7 @@
     height: 660px;
     position: relative;
     display: inline-block;
-
+    font-family: 'Muli', sans-serif;
 }
 
 .createdProjects {
@@ -57,14 +57,15 @@
     align-items: center;
     border-top: 1px solid #E3E9ED;
     border-bottom: 1px solid #E3E9ED;
+
 }
 
-.test1 {
-    height: 1000px;
-}
+
 
 .link {
     text-decoration: none;
     color: black;
 }
+
+
 

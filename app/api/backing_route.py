@@ -44,8 +44,8 @@ def create_backing():
 @backing_routes.route('/delete/<int:id>', methods=['DELETE'])
 @login_required
 def delete_backing(id):
-    project = Project.query.get(id)
-    db.session.delete(project)
+    backing = Backing.query.get(id)
+    db.session.delete(backing)
     db.session.commit()
     return {}, 200
 

@@ -12,6 +12,7 @@ import BackForm from './BackForm';
 import { getbackings } from '../../store/backing';
 import { getUsers } from '../../store/session';
 import  { Redirect } from 'react-router-dom'
+import { removeBacking } from '../../store/backing';
 const Details = () => {
   const dispatch = useDispatch()
   const history = useHistory()
@@ -55,6 +56,13 @@ const Details = () => {
     setShowForm2(true)
   }
 
+  async function deleteBacking(e){
+    let answer = window.confirm('Are you sure you want to take your backing back?')
+    if (answer) {
+    await dispatch(removeBacking(Number(e.target.id)))
+    history.go(0)
+    }
+  }
   return (
     <div className={styles.overall}>
       <NavBar />
@@ -81,7 +89,7 @@ const Details = () => {
           <p className={styles.goal}>pledge of {project.funding_goal}</p>
           <div>{project.backers}</div>
           <p className={styles.goal}>Backers</p>
-          <button onClick={show2}>Support a dream</button>
+          {user.id !== project.user_id ?<button onClick={show2}>Support a dream</button> : ''}
           </div>
           {showForm ? <EditForm setShowForm={setShowForm} /> : ''}
           {showForm2 ? <BackForm setShowForm2={setShowForm2} /> : ''}
@@ -98,7 +106,8 @@ const Details = () => {
                     <div className={styles.commentDiv}>
                     <p>{allUsers[i].username} donated {backing.amount}</p>
                      <p>{backing.comment}</p>
-                     {user.id === backing.user_id ? <button>Edit</button> : ''}
+                     {user.id === backing.user_id ? <button id={backing.id}>Edit</button> : ''}
+                     {user.id === backing.user_id ? <button onClick={deleteBacking} id={backing.id}>Delete</button> : ''}
                     </div>
                   )
       }}
