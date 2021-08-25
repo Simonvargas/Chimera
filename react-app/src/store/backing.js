@@ -32,16 +32,16 @@ const deleteBacking = (backingId) => ({
 
 // thunk
 
-export const createBacking= (user_id, category_id, name, image, details, funding_goal) => async (dispatch) => {
+export const createBacking = (user_id, project_id, amount, comment) => async (dispatch) => {
     const res = await fetch(`/api/backings/create`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({user_id, category_id, name, image, details, funding_goal }),
+        body: JSON.stringify({project_id, user_id, amount, comment }),
     });
     if(!res.ok) throw res
-    const new_project = await res.json();
-    dispatch(addBacking(new_project));
-    return new_project;
+    const new_backing = await res.json();
+    dispatch(addBacking(new_backing));
+    return new_backing;
 }
 
 export const getbackings = () => async (dispatch) => {
@@ -85,7 +85,7 @@ const BackingReducer = (state = initialState, action) => {
         case ADD_BACKING:
             return {
                 ...state,
-                [action.project.id]: action.project
+                [action.backing.id]: action.backing
             }
         case LOAD_BACKING:
             const all = {...state};

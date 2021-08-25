@@ -8,6 +8,7 @@ import styles from './Details.module.css'
 import { useParams } from 'react-router-dom';
 import { removeProject, editProject } from '../../store/project'
 import EditForm from './EditForm'
+import BackForm from './BackForm';
 import { getbackings } from '../../store/backing';
 import { getUsers } from '../../store/session';
 
@@ -18,29 +19,17 @@ const Details = () => {
   
   const [project, setProject] = useState([])
   const [showForm, setShowForm] = useState(false)
-  const [users, setUsers] = useState([])
+  const [showForm2, setShowForm2] = useState(false)
   const user = useSelector(state => state.session.user)
   const backings = Object.values(useSelector(state => state.backing))
   const allUsers = Object.values(useSelector(state => state.session))
-
-  useEffect(() => {
-    (async function(){
-      const res = await fetch(`/api/backings/users`)
-
-      if (res.ok) {
-        const ones = await res.json()
-        setUsers(ones)
-      }
-    })()
-  }, [])
-// 
-console.log('all', allUsers)
 
 
   useEffect(() => {
     dispatch(getbackings())
     dispatch(getUsers())
   }, [])
+
   useEffect(() => {
     (async function(){
       const res = await fetch(`/api/projects/${id}`)
@@ -50,15 +39,20 @@ console.log('all', allUsers)
         setProject(oneProject)
       }
     })()
-  }, [id])
+  }, [id, showForm])
 
   async function deleteProject(){
     await dispatch(removeProject(id))
     history.push('/')
+    history.go(0)
   }
 
   function show() {
     setShowForm(true)
+  }
+
+  function show2() {
+    setShowForm2(true)
   }
 
   return (
@@ -87,9 +81,10 @@ console.log('all', allUsers)
           <p className={styles.goal}>pledge of {project.funding_goal}</p>
           <div>{project.backers}</div>
           <p className={styles.goal}>Backers</p>
-          <button>Support a dream</button>
+          <button onClick={show2}>Support a dream</button>
           </div>
           {showForm ? <EditForm setShowForm={setShowForm} /> : ''}
+          {showForm2 ? <BackForm setShowForm2={setShowForm2} /> : ''}
         </div>
       </div>
       

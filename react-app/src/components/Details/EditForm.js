@@ -14,8 +14,6 @@ function EditForm({ setShowForm }) {
     const [funding, setFunding] = useState(0)
 
     const dispatch = useDispatch();
-    const history = useHistory()
-    const [isLoaded, setIsLoaded] = useState(false);
     const { id } = useParams() 
     const sessionUser = useSelector(state => state.session.user);
 
@@ -33,15 +31,16 @@ function EditForm({ setShowForm }) {
     //    }
     // }
 
-    async function update(){
-        console.log('hello')
+    async function update(e){
+        e.preventDefault()
         await dispatch(projectActions.editProject(hostId, categoryId, name, image, details, funding, id))
+        setShowForm(false)
       }
   return  (
   <div className={styles.container}>
      
       <div className={styles.container2}>
-    <form  onSubmit={update} className={styles.inputForm}>
+    <form  className={styles.inputForm}>
       <div className={styles.container3}>
       <input
       placeholder={sessionUser.username}
@@ -84,7 +83,7 @@ function EditForm({ setShowForm }) {
           <option value='3'>Tech</option>
           <option value='4'>Art</option>
         </select>
-      <button onClick={() => setShowForm(true)} className={styles.btn} type='submit'>edit</button>
+      <button onClick={update} className={styles.btn} type='submit'>edit</button>
       </div>
       </form>
       </div>

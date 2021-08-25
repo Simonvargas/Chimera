@@ -14,26 +14,13 @@ function AddEvent() {
 
     const dispatch = useDispatch();
     const history = useHistory()
-    const [isLoaded, setIsLoaded] = useState(false);
-    const { id } = useParams() 
     const sessionUser = useSelector(state => state.session.user);
 
-    // function number1() {
-    //   set
-    // }
     const hostId = sessionUser?.id
   
     const projectCreate = async (e) => {
         e.preventDefault()
-        // const payload = {
-        //     hostId,
-        //     categoryId,
-        //     name,
-        //     image,
-        //     details,
-        //     funding,
-        // };
-        // console.log(payload)
+        console.log(details)
        let createdProject = await dispatch(projectActions.createProject(hostId, categoryId, name, image, details, funding))
        if (createdProject) {
          history.push('/')

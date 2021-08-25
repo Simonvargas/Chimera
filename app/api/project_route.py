@@ -36,7 +36,7 @@ def create_project():
             category_id = form.data['category_id'],
             name = form.data['name'],
             image = form.data['image'],
-            details = form.data['name'],
+            details = form.data['details'],
             funding_goal = form.data['funding_goal'],
         )
         db.session.add(project)

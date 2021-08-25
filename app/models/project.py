@@ -20,7 +20,7 @@ class Project(db.Model):
     users = db.relationship("User", back_populates="projects")
     category = db.relationship('Category', back_populates='projects')
     rewards = db.relationship('Reward', back_populates='project_rewards')
-    funds = db.relationship('Backing', back_populates='project_funds')
+    funds = db.relationship('Backing', back_populates='project_funds', cascade="all, delete")
     
     def to_dict(self):
         return {
