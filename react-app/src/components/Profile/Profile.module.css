@@ -2,35 +2,35 @@
     width: 100%;
     height: 660px;
     position: relative;
+    display: inline-block;
 
 }
 
 .createdProjects {
     width: 90%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     position: relative;
-    bottom: 150px;
+    margin-top: 8px;
+    width: 100%;
+    height: 130px;
+    overflow: scroll;
+    position: relative;
 }
 
-.backedProjects {
-    width: 90%;
-    border: 1px solid black;
-}
 
 .projects {
     width: 95%;
     padding: 15px;
-    position: absolute;
-    bottom: 0;
+    /* position: absolute;
+    bottom: 0; */
+    height: 60px;
 }
 
 .profileInfo {
     width: 100%;
-    height: 240px;
-    display: block;
+    height: 250px;
+    display: inline-block;
     position: relative;
-    top: 30px;
-    margin: auto;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
 			0 10px 10px rgba(0,0,0,0.22);
      background-color: #f8f9d2;
@@ -42,3 +42,29 @@
     position: relative;
     top: 50px;
 }
+
+.image {
+    width: 150px;
+    height: 100px;
+}
+
+.createdProjectsContainer {
+    display: flex;
+    padding: 10px;
+    height: 120px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #E3E9ED;
+    border-bottom: 1px solid #E3E9ED;
+}
+
+.test1 {
+    height: 1000px;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+

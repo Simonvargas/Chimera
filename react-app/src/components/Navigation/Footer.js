@@ -7,7 +7,7 @@ import styles from './Footer.module.css'
 const Footer = () => {
   const user = useSelector(state => state.session.user)
   return (
-    <>
+    <div>
        <div className={styles.container}>
          <div className={styles.startContainer}>
          <p className={styles.start}>Github</p>
@@ -15,7 +15,7 @@ const Footer = () => {
          <p className={styles.start}>Angel's List</p>
          </div>
         </div>
-    </>
+    </div>
   );
 }
 

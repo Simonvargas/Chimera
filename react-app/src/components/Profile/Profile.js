@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../store/session';
 import Footer from '../Navigation/Footer';
 import NavBar from '../Navigation/NavBar';
-
+import { getProjects } from '../../store/project';
+import { getbackings } from '../../store/backing';
 import styles from './Profile.module.css'
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
     const user = useSelector(state => state.session.user)
-
+    const backings = Object.values(useSelector(state => state.backing))
+    const allProjects = Object.values(useSelector(state => state.project))
+  console.log('prp', user)
+    useEffect(() => {
+      dispatch(getProjects())
+      dispatch(getbackings())
+    }, [])
+  
   const dispatch = useDispatch()
   const onLogout = async (e) => {
     await dispatch(logout());
@@ -24,18 +33,56 @@ const HomePage = () => {
               <p className={styles.text}>Email: {user.email}</p>
           </div>
           <div className={styles.projects}>
-        <div className={styles.createdProjects}>
         <h2>Created Dreams</h2>
+        <div className={styles.createdProjects}>
+          
+        <div className={styles.test1}>
+        {allProjects?.map(project => {
+          if (user.id === project.user_id)
+          return (
+            <Link  className={styles.link} to={`/projects/${project.id}`} >
+          <div className={styles.createdProjectsContainer}>
+            <img className={styles.image} src={project.image}></img>
+            <p>{project.name}</p>
+            {/* <p className={styles.details}>{project.details}</p> */}
+            <p>Funded: ${project.funding_raised}</p>
+            <p>Funding Goal: ${project.funding_goal}</p>
+          </div>
+          </Link>
+        )})}
         </div>
-
-        <div className={styles.backedProjects}>
+        </div>
         <h2>Dreams backed</h2>
+        <div className={styles.createdProjects}>
+        {allProjects.map(project => {
+          for (let i = 0; i < backings.length; i++) {
+            if (project.id === backings[i].project_id && user.id === backings[i].user_id) {
+              return (
+                <div>
+                    <Link  className={styles.link} to={`/projects/${project.id}`} >
+          <div className={styles.createdProjectsContainer}>
+            <img className={styles.image} src={project.image}></img>
+            <p>{project.name}</p>
+            {/* <p className={styles.details}>{project.details}</p> */}
+            <p>Funded: ${project.funding_raised}</p>
+            <p>Funding Goal: ${project.funding_goal}</p>
+          </div>
+          </Link>
+                </div>
+              )
+            }
+          }
+        })}
         </div>
         </div>
 
       </div>
+      <div className={styles.footer}>
       <Footer />
       </div>
+      </div>
+      
+
   )
 };
 
