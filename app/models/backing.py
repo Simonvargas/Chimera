@@ -8,7 +8,7 @@ class Backing(db.Model):
     project_id = db.Column(db.Integer,db.ForeignKey('projects.id'), nullable=False)
     user_id= db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     amount = db.Column(db.Integer, nullable=False)
-    reward_id = db.Column(db.Integer, db.ForeignKey('rewards.id'), nullable=False)
+    comment = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 

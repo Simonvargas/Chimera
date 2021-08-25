@@ -2,15 +2,15 @@ import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams, Link } from 'react-router-dom';
 import * as sessionActions from '../../store/session'
+import * as projectActions from '../../store/project'
 
 import styles from './CreateProject.module.css'
 function AddEvent() {
     const [name, setName] = useState('')
     const [image, setImage] = useState('')
-    const [date, setDate] = useState('')
-    const [location, setLocation] = useState('')
     const [details, setDetails] = useState('')
     const [categoryId, setCategory] = useState(1)
+    const [funding, setFunding] = useState(0)
 
     const dispatch = useDispatch();
     const history = useHistory()
@@ -23,24 +23,22 @@ function AddEvent() {
     // }
     const hostId = sessionUser?.id
   
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault()
-
-    //     const payload = {
-    //         hostId,
-    //         name,
-    //         image,
-    //         details,
-    //         date,
-    //         location,
-    //         categoryId
-    //     };
-    //     console.log(payload)
-    //     let createdEvent = await dispatch(addEvent(payload))
-    //     if (createdEvent) {
-    //       history.push(`/details/${createdEvent.id}`)
-    //     }
-    // }
+    const projectCreate = async (e) => {
+        e.preventDefault()
+        // const payload = {
+        //     hostId,
+        //     categoryId,
+        //     name,
+        //     image,
+        //     details,
+        //     funding,
+        // };
+        // console.log(payload)
+       let createdProject = await dispatch(projectActions.createProject(hostId, categoryId, name, image, details, funding))
+       if (createdProject) {
+         history.push('/')
+       }
+    }
   return  (
   <div className={styles.container}>
       <div className={styles.photoContainer}>
@@ -49,7 +47,7 @@ function AddEvent() {
       </Link>
       </div>
       <div className={styles.container2}>
-    <form  className={styles.inputForm}>
+    <form  onclassName={styles.inputForm}>
         <h2 className={styles.h2}>Create an Event!</h2>
       <div className={styles.container3}>
       <input
@@ -84,8 +82,8 @@ function AddEvent() {
       placeholder='Funding Goal'
       className={styles.input}
       type='number'
-      value={location}
-      onChange={(e) => setLocation(e.target.value)}/>
+      value={funding}
+      onChange={(e) => setFunding(e.target.value)}/>
       
         <select className={`${styles.input} ${styles.select}`} onChange={(e) => setCategory(+e.target.value)} defaultValue={categoryId}>
           <option value='1'>Games</option>
@@ -93,7 +91,7 @@ function AddEvent() {
           <option value='3'>Tech</option>
           <option value='4'>Art</option>
         </select>
-      <button className={styles.btn} type='submit'>Create your Dream!</button>
+      <button onClick={projectCreate} className={styles.btn} type='submit'>Create your Dream!</button>
       </div>
       </form>
       </div>

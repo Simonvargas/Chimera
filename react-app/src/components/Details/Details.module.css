@@ -1,0 +1,16 @@
+.mainContent {
+    width: 70%;
+    height: 650px;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+    border-left: 1px solid lightgrey;
+    border: 1px solid lightgrey;
+}
+
+.categories {
+
+}

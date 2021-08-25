@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import Home from './components/HomePage/Home';
 import CreateProject from './components/CreateProject/CreateProject'
 import Profile from './components/Profile/Profile'
+import Details from './components/Details/Details'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -57,6 +58,10 @@ function App() {
 
       <ProtectedRoute path='/profile'>
         <Profile />
+      </ProtectedRoute>
+
+      <ProtectedRoute path='/projects/:id'>
+        <Details />
       </ProtectedRoute>
 
       </Switch>

@@ -12,9 +12,8 @@ class Project(db.Model):
     image = db.Column(db.String(1000), nullable=False)
     details = db.Column(db.String(2000), nullable=False)
     funding_goal = db.Column(db.Integer, nullable=False)
-    funding_raised = db.Column(db.Integer, nullable=False)
-    backers = db.Column(db.Integer, nullable=False)
-    deadline = db.Column(db.DateTime(timezone=True), server_default=func.now())
+    funding_raised = db.Column(db.Integer, nullable=True)
+    backers = db.Column(db.Integer, nullable=True)
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
@@ -34,5 +33,4 @@ class Project(db.Model):
             'funding_goal': self.funding_goal,
             'funding_raised': self.funding_raised,
             'backers': self.backers,
-            'deadline': self.deadline,
         }
