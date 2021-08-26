@@ -40,17 +40,14 @@ const HomePage = () => {
       <div className={styles.mainContent}>
         <div className={styles.categories}>categories</div>
         <div className={styles.left}>
-          <div>
-            {/* <img className= src={ramdon.image}></img> */}
-            {/* <p>{allProjects[Math.floor(Math.random()*allProjects.length)].image}</p> */}
-            <img className={styles.projectImg} src={numba.image}></img>
+            <h2>Spotlight</h2>
+            <img className={styles.projectImg2} src={numba.image}></img>
             <p>{numba.name}</p>
-          </div>
-
         </div>
         
-        <div className={styles.projects}>{allProjects?.map(projects => 
-        
+        <div className={styles.right}>
+        <div className={styles.projects}>
+          {allProjects?.map(projects => 
         <Link className={styles.link} to={`/projects/${projects.id}`}>
           <div className={styles.projectContainer}>
             <img className={styles.projectImg} src={projects.image}></img>
@@ -61,6 +58,7 @@ const HomePage = () => {
           </Link>
           
           )}
+          </div>
           </div>
 
       </div>
