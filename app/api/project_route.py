@@ -69,3 +69,5 @@ def update_project(id):
     db.session.commit()
     return res.to_dict()
     # return {'error' : 'Invalid request'}
+
+

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../store/session';
 import Footer from '../Navigation/Footer';
@@ -9,18 +9,45 @@ import { getProjects } from '../../store/project';
 import styles from './HomePage.module.css'
 
 const HomePage = () => {
-  const dispatch = useDispatch()
   const allProjects = Object.values(useSelector(state => state.project))
-  console.log('project', allProjects)
-
+  let total = 0
+  allProjects.forEach(project => total+=1)
+  const id = Math.floor(Math.random() * 3) + 1
+  console.log('niiim', id)
+  const dispatch = useDispatch()
+  const [numba, setNumba] = useState([])
+  console.log('oh', numba)
   useEffect(() => {
     dispatch(getProjects())
+    
   }, [])
+ 
+  useEffect(() => {
+    (async function(){
+      const res = await fetch(`/api/projects/${id}`)
+
+      if (res.ok) {
+        const oneProject = await res.json()
+        setNumba(oneProject)
+      }
+    })()
+  }, [])
+
+
   return (
     <div>
       
       <div className={styles.mainContent}>
         <div className={styles.categories}>categories</div>
+        <div className={styles.left}>
+          <div>
+            {/* <img className= src={ramdon.image}></img> */}
+            {/* <p>{allProjects[Math.floor(Math.random()*allProjects.length)].image}</p> */}
+            <img className={styles.projectImg} src={numba.image}></img>
+            <p>{numba.name}</p>
+          </div>
+
+        </div>
         
         <div className={styles.projects}>{allProjects?.map(projects => 
         
