@@ -1,6 +1,7 @@
 .mainContent {
-    width: 80%;
-    height: 750px;
+
+    width: 85%;
+    height: 600px;
     display: block;
     margin: auto;
     margin-top: 20px;
@@ -9,8 +10,16 @@
 
 }
 
+.categories {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+
 .photo {
-    width: 520px;
+    height: 350px;
+    width: 675px;
+    
 }
 
 .left {
@@ -26,9 +35,7 @@
     align-items:center;
 }
 
-.text {
-    border-bottom: 1px solid lightgrey
-}
+
 
 .funded {
     color: green;
@@ -41,17 +48,15 @@
 }
 
 .supportContainer {
-    display: inline-block;
-    padding: 15px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
+    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
     width: 380px;
     height: 280px;
     padding: 5px;
-    margin: 10px;
     position: relative;
-    top: 40px;
     font-family: 'Muli', sans-serif;
+    display: flex;
+    flex-direction: column;
+    left: 25px;
 
 }
 
@@ -69,7 +74,6 @@
     width: 140px;
     position: relative;
     transition: all ease 0.3s;
-    float: right;
 }
 
 .btn:hover {
@@ -84,13 +88,57 @@
     display: block;
     /* margin: auto; */
     position: relative;
-    left: 145px;
+    left: 107px;
     margin-bottom: 20px;
-    border-bottom: 1px solid lightgrey;
     font-family: 'Muli', sans-serif;
 
 }
 
 .commentDiv {
-    border: 1px solid lightgrey;
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.btn1 {
+    border:greenyellow;
+    background-color: #21d190;
+    background-image: linear-gradient(315deg, #21d190 0%, #d65bca 74%);
+    font-size: 16px;
+    padding: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    width: 390px;
+    left: 0px;
+    position: absolute;
+    bottom: 0;
+    transition: all ease 0.3s;
+    color: white;
+}
+
+.btn1:hover {
+        color: #ffffff !important;
+        background-color: #08e1ae;
+        background-image: linear-gradient(315deg, #08e1ae 0%, #98de5b 74%);
+        transition: all 0.4s ease 0s;
+}
+
+.text {
+    line-height: 1.7;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: 22px;
+}
+
+
+
+.btn2 {
+    position: relative;
+    top: 23px;
 }

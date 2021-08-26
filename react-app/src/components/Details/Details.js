@@ -13,6 +13,8 @@ import { getbackings } from '../../store/backing';
 import { getUsers } from '../../store/session';
 import  { Redirect } from 'react-router-dom'
 import { removeBacking, editBacking } from '../../store/backing';
+
+
 const Details = () => {
   const dispatch = useDispatch()
   const history = useHistory()
@@ -45,10 +47,12 @@ const Details = () => {
     })()
   }, [id, showForm])
 
+  
   async function deleteProject(){
     await dispatch(removeProject(id))
     history.push('/')
     history.go(0)
+    
   }
 
   function show() {
@@ -73,45 +77,50 @@ const Details = () => {
 
   async function update(e) {
     e.preventDefault()
-    // console.log(idOf)
-    // console.log(comment)
     await dispatch(editBacking(comment, idOf))
     setShowForm3(false)
+    setComment('')
   }
 
   return (
     <div className={styles.overall}>
       <NavBar />
       <div className={styles.mainContent}>
-        <div className={styles.categories}>hello
-        
+        <div className={styles.categories}>
+        <div>
+        <h2>{project.name}</h2>
+        </div>
+        <div>
         {user.id === project.user_id ? <>
+          <button onClick={show} className={styles.btn}>Edit dream</button>
         <button onClick={deleteProject} className={styles.btn}>Delete dream</button> 
-        <button onClick={show} className={styles.btn}>Edit dream</button>
         </>
         : ''}
         </div>
+        </div>
         
         <div className={styles.left}>
-        <h1>{project.name}</h1>
         <img className={styles.photo} src={project.image}></img>
         <p className={styles.text}>About dream</p>
-        <p>{project.details}</p>
+        <div className={styles.text}>{project.details}</div>
         </div>
 
         <div className={styles.right}>
           <div className={styles.supportContainer}>
+            <br></br>
+            <br></br>
           <div className={styles.funded}>${project.funding_raised}</div>
           <p className={styles.goal}>pledge of {project.funding_goal}</p>
+          <br></br>
+          <br></br>
           <div>{project.backers}</div>
           <p className={styles.goal}>Backers</p>
-          {user.id !== project.user_id ?<button onClick={show2}>Support a dream</button> : ''}
+          <button className={styles.btn1} onClick={show2}>Support a dream</button>
           </div>
           {showForm ? <EditForm setShowForm={setShowForm} /> : ''}
           {showForm2 ? <BackForm setShowForm2={setShowForm2} /> : ''}
         </div>
-      </div>
-      
+      </div>  
       <div className={styles.commentsContainer}>
         <h2>Backers Donations & Comments</h2>
           <div>
@@ -120,22 +129,23 @@ const Details = () => {
                 if (project.id === backing.project_id && allUsers[i].id === backing.user_id) {
                   return (
                     <div className={styles.commentDiv}>
+                      <img className={styles.avatar} src='https://i.imgur.com/gUNurve.png'></img>
+                    <div className={styles.commentText}>
                     <p>{allUsers[i].username} donated {backing.amount}</p>
-                     <p>{backing.comment}</p>
-                     {user.id === backing.user_id ? <button onClick={(e) => (show3(), setIdOf(backing.id))}  id={backing.id}>Edit</button> : ''}
-                     {showForm3 ? <form>
-                    <input onChange={(e) => setComment(e.target.value)} value={comment} placeholder="comment"></input>
-                    <button onClick={update}>Submit</button>
-                    </form> : ''}
-                     {user.id === backing.user_id ? <button onClick={deleteBacking} id={backing.id}>Delete</button> : ''}
+                    <p >{backing.comment}</p>
+                    </div>
+                    <div>
+                     {user.id === backing.user_id ? <button className={styles.btn2} onClick={(e) => (show3(), setIdOf(backing.id))}  id={backing.id}>Edit</button> : ''}
+                     {user.id === backing.user_id ? <button className={styles.btn2} onClick={deleteBacking} id={backing.id}>Delete</button> : ''}
+                    </div>
                     </div>
                   )
       }}
 })}
-                   {/* {showForm3 ? <form>
+                   {showForm3 ? <form>
                     <input onChange={(e) => setComment(e.target.value)} value={comment} placeholder="comment"></input>
                     <button onClick={update}>Submit</button>
-                    </form> : ''} */}
+                    </form> : ''}
           </div>
          
         </div>

@@ -33,9 +33,9 @@ const LoginForm = () => {
   }
 
   const loginDemoUser = async(e) =>  {
+    e.preventDefault()
     const email = "demo@aa.io"
     const password = "password"
-
     await dispatch(login(email, password))
   }
 
