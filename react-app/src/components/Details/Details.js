@@ -12,7 +12,7 @@ import BackForm from './BackForm';
 import { getbackings } from '../../store/backing';
 import { getUsers } from '../../store/session';
 import  { Redirect } from 'react-router-dom'
-import { removeBacking } from '../../store/backing';
+import { removeBacking, editBacking } from '../../store/backing';
 const Details = () => {
   const dispatch = useDispatch()
   const history = useHistory()
@@ -21,6 +21,9 @@ const Details = () => {
   const [project, setProject] = useState([])
   const [showForm, setShowForm] = useState(false)
   const [showForm2, setShowForm2] = useState(false)
+  const [showForm3, setShowForm3] = useState(false)
+  const [idOf, setIdOf] = useState(0)
+  const [comment, setComment] = useState('')
   const user = useSelector(state => state.session.user)
   const backings = Object.values(useSelector(state => state.backing))
   const allUsers = Object.values(useSelector(state => state.session))
@@ -56,6 +59,10 @@ const Details = () => {
     setShowForm2(true)
   }
 
+  function show3() {
+    setShowForm3(true)
+  }
+
   async function deleteBacking(e){
     let answer = window.confirm('Are you sure you want to take your backing back?')
     if (answer) {
@@ -63,6 +70,15 @@ const Details = () => {
     history.go(0)
     }
   }
+
+  async function update(e) {
+    e.preventDefault()
+    // console.log(idOf)
+    // console.log(comment)
+    await dispatch(editBacking(comment, idOf))
+    setShowForm3(false)
+  }
+
   return (
     <div className={styles.overall}>
       <NavBar />
@@ -106,13 +122,20 @@ const Details = () => {
                     <div className={styles.commentDiv}>
                     <p>{allUsers[i].username} donated {backing.amount}</p>
                      <p>{backing.comment}</p>
-                     {user.id === backing.user_id ? <button id={backing.id}>Edit</button> : ''}
+                     {user.id === backing.user_id ? <button onClick={(e) => (show3(), setIdOf(backing.id))}  id={backing.id}>Edit</button> : ''}
+                     {showForm3 ? <form>
+                    <input onChange={(e) => setComment(e.target.value)} value={comment} placeholder="comment"></input>
+                    <button onClick={update}>Submit</button>
+                    </form> : ''}
                      {user.id === backing.user_id ? <button onClick={deleteBacking} id={backing.id}>Delete</button> : ''}
                     </div>
                   )
       }}
 })}
-                  
+                   {/* {showForm3 ? <form>
+                    <input onChange={(e) => setComment(e.target.value)} value={comment} placeholder="comment"></input>
+                    <button onClick={update}>Submit</button>
+                    </form> : ''} */}
           </div>
          
         </div>

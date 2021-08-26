@@ -18,9 +18,9 @@ const loadBackings = (backing) => ({
 });
 
 
-const updateBacking = (project) => ({
+const updateBacking = (backing) => ({
     type: UPDATE_BACKING,
-    project
+    backing
 });
 
 const deleteBacking = (backingId) => ({
@@ -52,16 +52,16 @@ export const getbackings = () => async (dispatch) => {
 }
 
 
-export const editBacking = (user_id, category_id, name, image, details, funding_goal, id) => async (dispatch) => {
+export const editBacking = (comment, id) => async (dispatch) => {
     const response = await fetch(`/api/backings/edit/${id}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({user_id, category_id, name, image, details, funding_goal}),
+        body: JSON.stringify({comment}),
     });
     if(!response.ok) throw response
-    const editedProject = await response.json();
-    dispatch(updateBacking(editedProject));
-    return editedProject;
+    const editedBacking = await response.json();
+    dispatch(updateBacking(editedBacking));
+    return editedBacking
 }
 
 export const removeBacking = (id) => async (dispatch) => {
@@ -96,7 +96,7 @@ const BackingReducer = (state = initialState, action) => {
         case UPDATE_BACKING:
             return {
                 ...state,
-                [action.project.id]: action.project
+                [action.backing.id]: action.backing
             }
         case DELETE_BACKING:{
            const newState = {...state}

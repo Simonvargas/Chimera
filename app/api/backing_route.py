@@ -53,15 +53,10 @@ def delete_backing(id):
 @backing_routes.route('/edit/<int:id>', methods=['PUT'])
 @login_required
 def update_backing(id):
-    res = Project.query.get(id)
-    form = ProjectForm()
+    res = Backing.query.get(id)
+    form = BackingForm()
 
-    res.user_id = form.data['user_id']
-    res.category_id = form.data['category_id']
-    res.name = form.data['name']
-    res.image = form.data['image']
-    res.details = form.data['name']
-    res.funding_goal = form.data['funding_goal']
+    res.comment = form.data['comment']
     db.session.commit()
     return res.to_dict()
     # return {'error' : 'Invalid request'}
