@@ -70,7 +70,7 @@ export const removeProject = (id) => async (dispatch) => {
         method : 'DELETE',
     });
 
-    dispatch(deleteProject(res))
+    dispatch(deleteProject(id))
     return 
 }
 
@@ -100,6 +100,7 @@ const ProjectReducer = (state = initialState, action) => {
             }
         case DELETE_PROJECT:{
            const newState = {...state}
+           delete newState[action.projectId];
            return newState
         }
 

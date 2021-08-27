@@ -69,9 +69,9 @@ export const removeBacking = (id) => async (dispatch) => {
     const res = await fetch(`/api/backings/delete/${id}`, {
         method : 'DELETE',
     });
-
-    dispatch(deleteBacking(res))
-    return 
+    // if (!res.ok) throw res
+    dispatch(deleteBacking(id))
+    return res
 }
 
 // reducer.
@@ -99,9 +99,14 @@ const BackingReducer = (state = initialState, action) => {
                 [action.backing.id]: action.backing
             }
         case DELETE_BACKING:{
-           const newState = {...state}
-           return newState
-        }
+        //    let newState = {...state}
+        //    newState = Object.values(newState).filter(back => back.id !== action.backingId)
+        //    return {...newState}
+        // }
+            const newState = {...state}
+            delete newState[action.backingId];
+            return newState
+         }
 
         default:
             return state;
