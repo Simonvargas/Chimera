@@ -76,11 +76,9 @@ const HomePage = () => {
         })}
         </div>
         </div>
-
+        
       </div>
-      <div className={styles.footer}>
       <Footer />
-      </div>
       </div>
       
 

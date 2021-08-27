@@ -12,17 +12,32 @@ function AddEvent() {
     const [categoryId, setCategory] = useState(1)
     const [funding, setFunding] = useState(0)
 
+    const [errors, setErrors] = useState([])
+
     const dispatch = useDispatch();
     const history = useHistory()
     const sessionUser = useSelector(state => state.session.user);
 
     const hostId = sessionUser?.id
-  
     const projectCreate = async (e) => {
-        e.preventDefault()
+         e.preventDefault()
+         if (name === '') {
+           setErrors('Name Field is empty')
+         } 
+         if (image === '') {
+           setErrors('Image field is empty')
+         } 
+         if (details === '')  {
+          setErrors('Description field is empty')
+         }
+         if (funding === 0) {
+           setErrors('Amount funding has to be greater than 0') 
+         } 
+        
          await dispatch(projectActions.createProject(hostId, categoryId, name, image, details, funding))
          history.push('/')
     }
+  
   return  (
   <div className={styles.container}>
       <div className={styles.photoContainer}>
@@ -31,6 +46,7 @@ function AddEvent() {
       </Link>
       </div>
       <div className={styles.container2}>
+      {/* {errors.map(err => <p>{err}</p>)} */}
     <form  onclassName={styles.inputForm}>
         <h2 className={styles.h2}>Create an Event!</h2>
       <div className={styles.container3}>
