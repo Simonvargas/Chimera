@@ -3,6 +3,7 @@ const ADD_PROJECT= 'projects/ADD_PROJECT';
 const LOAD_PROJECT = 'projects/LOAD_PROJECT';
 const UPDATE_PROJECT = 'projects/UPDATE_PROJECT';
 const DELETE_PROJECT = 'projects/DELETE_PROJECT';
+const LOAD_ONE = 'projects/LOAD_ONE'
 
 // action creators
 
@@ -17,6 +18,10 @@ const loadProject = (project) => ({
     project
 });
 
+const loadOne = (project) => ({
+    type: LOAD_ONE,
+    project
+})
 
 const updateProject = (project) => ({
     type: UPDATE_PROJECT,
@@ -32,11 +37,11 @@ const deleteProject = (projectId) => ({
 
 // thunk
 
-export const createProject = (user_id, category_id, name, image, details, funding_goal) => async (dispatch) => {
+export const createProject = (user_id, category_id, name, image, details, funding_goal, funding_raised, backers) => async (dispatch) => {
     const res = await fetch(`/api/projects/create`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({user_id, category_id, name, image, details, funding_goal }),
+        body: JSON.stringify({user_id, category_id, name, image, details, funding_goal, funding_raised, backers }),
     });
     if(!res.ok) throw res
     const new_project = await res.json();
@@ -51,12 +56,36 @@ export const getProjects = () => async (dispatch) => {
     return allProjects;
 }
 
+export const getOneProject = (id) => async (dispatch) => {
+    console.log('id', id)
+    const res = await fetch(`/api/projects/${id}`)
+
+    if (res.ok) {
+        const oneProject = await res.json()
+        dispatch(loadOne(oneProject))
+        return oneProject
+    }
+}
+
 
 export const editProject = (user_id, category_id, name, image, details, funding_goal, id) => async (dispatch) => {
     const response = await fetch(`/api/projects/edit/${id}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({user_id, category_id, name, image, details, funding_goal}),
+    });
+    if(!response.ok) throw response
+    const editedProject = await response.json();
+    dispatch(updateProject(editedProject));
+    return editedProject;
+}
+
+
+export const editProjectFunding = (funding_raised, id) => async (dispatch) => {
+    const response = await fetch(`/api/projects/editfunds/${id}`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({funding_raised}),
     });
     if(!response.ok) throw response
     const editedProject = await response.json();
@@ -93,6 +122,14 @@ const ProjectReducer = (state = initialState, action) => {
                 all[oneProject.id] = oneProject;
             });
             return all;
+        case LOAD_ONE:
+                // const one = {...state};
+                console.log('hi', action.project)
+                // const oneP = {...state, action.project}
+                // return oneP;
+                return {
+                    ...action.project
+                }
         case UPDATE_PROJECT:
             return {
                 ...state,

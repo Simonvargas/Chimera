@@ -6,13 +6,14 @@ import Footer from '../Navigation/Footer';
 import NavBar from '../Navigation/NavBar';
 import styles from './Details.module.css'
 import { useParams } from 'react-router-dom';
-import { removeProject, editProject } from '../../store/project'
+import { removeProject, editProject, getOneProject } from '../../store/project'
 import EditForm from './EditForm'
 import BackForm from './BackForm';
 import { getbackings } from '../../store/backing';
 import { getUsers } from '../../store/session';
 import  { Redirect } from 'react-router-dom'
 import { removeBacking, editBacking } from '../../store/backing';
+import * as projectActions from '../../store/project'
 
 
 const Details = () => {
@@ -20,37 +21,42 @@ const Details = () => {
   const history = useHistory()
   const { id } = useParams()
   
-  const [project, setProject] = useState([])
+  // const [project, setProject] = useState([])
   const [showForm, setShowForm] = useState(false)
   const [showForm2, setShowForm2] = useState(false)
   const [showForm3, setShowForm3] = useState(false)
   const [idOf, setIdOf] = useState(0)
   const [comment, setComment] = useState('')
+  const [amount, setAmount] = useState(0)
 
   
 
   const user = useSelector(state => state.session.user)
   const backings = Object.values(useSelector(state => state.backing))
   const allUsers = Object.values(useSelector(state => state.session))
+  const project = useSelector(state => state.project)
 
   const [test, setTest] = useState(backings)
 
+  console.log('what', project)
 
   useEffect(() => {
     dispatch(getbackings())
     dispatch(getUsers())
+    dispatch(getOneProject(id))
+    
   }, [])
 
-  useEffect(() => {
-    (async function(){
-      const res = await fetch(`/api/projects/${id}`)
+  // useEffect(() => {
+  //   (async function(){
+  //     const res = await fetch(`/api/projects/${id}`)
 
-      if (res.ok) {
-        const oneProject = await res.json()
-        setProject(oneProject)
-      }
-    })()
-  }, [id, showForm])
+  //     if (res.ok) {
+  //       const oneProject = await res.json()
+  //       setProject(oneProject)
+  //     }
+  //   })()
+  // }, [id, showForm])
 
   
   async function deleteProject(){
@@ -78,12 +84,15 @@ const Details = () => {
   }
 
   async function deleteBacking(e){
+    // console.log('amount', amount)
     e.preventDefault()
+    console.log('hello', e.target.getAttribute('hello'))
     let answer = window.confirm('Are you sure you want to take your backing back?')
     if (answer) {
+    const updateAmount = Number(project.funding_raised) - Number(e.target.getAttribute('hello'))
     await dispatch(removeBacking(Number(e.target.id)))
-    console.log(e.target.id)
-    // history.go(0)
+    await dispatch(projectActions.editProjectFunding(updateAmount, id))
+    await dispatch(getOneProject(id))
     }
   }
 
@@ -132,7 +141,7 @@ const Details = () => {
                     </div>
                     <div>
                      {user.id === backing.user_id ? <i  onClick={(e) => (show3(), setIdOf(backing.id))}  id={backing.id} className="icon fas fa-edit"></i> : ''}
-                     {user.id === backing.user_id ? <i  onClick={deleteBacking} id={backing.id} className="icon fas fa-trash"></i> : ''}
+                     {user.id === backing.user_id ? <i  hello={backing.amount} onClick={deleteBacking} id={backing.id} className="icon fas fa-trash"></i> : ''}
                     </div>
                     </div>
                   )
@@ -162,7 +171,7 @@ const Details = () => {
           <button className={styles.btn1} onClick={show2}>Support a dream</button>
           </div>
           {showForm ? <EditForm project={project} setShowForm={setShowForm} /> : ''}
-          {showForm2 ? <BackForm setShowForm2={setShowForm2} /> : ''}
+          {showForm2 ? <BackForm project={project} setShowForm2={setShowForm2} /> : ''}
         </div>
       </div>  
       </div>

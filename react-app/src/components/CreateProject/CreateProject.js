@@ -11,6 +11,8 @@ function AddEvent() {
     const [details, setDetails] = useState('')
     const [categoryId, setCategory] = useState(1)
     const [funding, setFunding] = useState(0)
+    const [raised, setRaised] = useState(0)
+    const [backers, setBackers] = useState(0)
 
     const [errors, setErrors] = useState([])
 
@@ -37,7 +39,7 @@ function AddEvent() {
          } 
          setErrors(data)
          if (data.length === 0) {
-         await dispatch(projectActions.createProject(hostId, categoryId, name, image, details, funding))
+         await dispatch(projectActions.createProject(hostId, categoryId, name, image, details, funding, raised, backers))
          history.push('/')
          }
     }

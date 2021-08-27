@@ -4,10 +4,11 @@ import { useHistory, useParams, Link } from 'react-router-dom';
 import * as sessionActions from '../../store/session'
 import * as projectActions from '../../store/project'
 import * as backingActions from '../../store/backing'
+import { removeProject, editProject, getOneProject } from '../../store/project'
 
 import styles from './EditForm.module.css'
 
-function BackForm({ setShowForm2 }) {
+function BackForm({ setShowForm2, project }) {
     const [comment, setComment] = useState('')
     const [amount, setAmount] = useState(1)
 
@@ -20,19 +21,14 @@ function BackForm({ setShowForm2 }) {
     // }
     const hostId = sessionUser?.id
   
-    // const projectCreate = async (e) => {
-    //     e.preventDefault()
-      
-    //    let createdProject = await dispatch(projectActions.createProject(hostId, categoryId, name, image, details, funding))
-    //    if (createdProject) {
-    //      history.push('/')
-    //    }
-    // }
+
 
     async function post(e){
         e.preventDefault()
-        console.log(hostId, id, amount, comment)
+        const updateAmount = Number(project.funding_raised) + Number(amount)
         await dispatch(backingActions.createBacking(hostId, id, amount, comment))
+        await dispatch(projectActions.editProjectFunding(updateAmount, id))
+        await dispatch(getOneProject(id))
         setShowForm2(false)
       }
   return  (

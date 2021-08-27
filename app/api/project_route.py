@@ -38,6 +38,8 @@ def create_project():
             image = form.data['image'],
             details = form.data['details'],
             funding_goal = form.data['funding_goal'],
+            funding_raised = form.data['funding_raised'],
+            backers = form.data['backers']
         )
         db.session.add(project)
         db.session.commit()
@@ -70,4 +72,14 @@ def update_project(id):
     return res.to_dict()
     # return {'error' : 'Invalid request'}
 
+
+@project_routes.route('/editfunds/<int:id>', methods=['PUT'])
+@login_required
+def update_funding(id):
+    res = Project.query.get(id)
+    form = ProjectForm()
+
+    res.funding_raised = form.data['funding_raised']
+    db.session.commit()
+    return res.to_dict()
 
