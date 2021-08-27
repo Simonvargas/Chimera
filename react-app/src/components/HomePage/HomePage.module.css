@@ -1,10 +1,13 @@
+.overall {
+
+}
+
 .mainContent {
         width: 80%;
         height: 650px;
         display: block;
+        position: relative;
         margin: auto;
-        margin-top: 20px;
-        margin-bottom: 25px;
         font-family: 'Muli', sans-serif;
 }
 
@@ -74,8 +77,6 @@
 .left {
         float: left;
         width: 45%;
-        /* border-right: 1px solid lightgray; */
-        height: 630px;
 }
 
 .right {
@@ -88,8 +89,8 @@
 }
 
 .projectImg2 {
-    width: 500px;
-    border-radius: 3px;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .projects {

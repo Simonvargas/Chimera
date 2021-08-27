@@ -12,7 +12,7 @@ function AddEvent() {
     const [categoryId, setCategory] = useState(1)
     const [funding, setFunding] = useState(0)
 
-    const [errors, setErrors] = useState(['first', 1, 2])
+    const [errors, setErrors] = useState([])
 
     const dispatch = useDispatch();
     const history = useHistory()
@@ -22,21 +22,24 @@ function AddEvent() {
     
     const projectCreate = async (e) => {
          e.preventDefault()
-        //  if (name === '') {
-        //    setErrors('Name Field is empty')
-        //  } 
-        //  if (image === '') {
-        //    setErrors('Image field is empty')
-        //  } 
-        //  if (details === '')  {
-        //   setErrors('Description field is empty')
-        //  }
-        //  if (funding === 0) {
-        //    setErrors('Amount funding has to be greater than 0') 
-        //  } 
-        // console.log(errors)
+         const data = []
+         if (name === '') {
+           data.push('Name Field is empty')
+         } 
+         if (image === '') {
+           data.push('Image field is empty')
+         } 
+         if (details === '')  {
+          data.push('Description field is empty')
+         }
+         if (funding === '' || funding < 1) {
+           data.push('Amount funding has to be greater than 0') 
+         } 
+         setErrors(data)
+         if (data.length === 0) {
          await dispatch(projectActions.createProject(hostId, categoryId, name, image, details, funding))
          history.push('/')
+         }
     }
   
   return  (
@@ -47,10 +50,13 @@ function AddEvent() {
       </Link>
       </div>
       <div className={styles.container2}>
-      {/* {errors.map(err =>( <div>{err}</div>))} */}
     <form  onclassName={styles.inputForm}>
+    <div className={styles.errors1}>
+      {errors.map(err =>( <ul><li>{err}</li></ul>))}
+      </div>
         <h2 className={styles.h2}>Create an Event!</h2>
       <div className={styles.container3}>
+        
       <input
       placeholder={sessionUser.username}
       className={styles.input}

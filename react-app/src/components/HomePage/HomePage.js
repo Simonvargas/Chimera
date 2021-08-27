@@ -37,7 +37,7 @@ const HomePage = () => {
 
 
   return (
-    <div>
+    <div className={styles.overall1}>
       
       <div className={styles.mainContent}>
         {/* <div className={styles.categories}>categories</div> */}
@@ -46,7 +46,6 @@ const HomePage = () => {
             <p>SPOTLIGHT</p>
             <img className={styles.projectImg2} src={numba.image}></img>
             <p>{numba.name}</p>
-            <p className={styles.details}>{numba.details}</p>
             {allUsers.map(user => {
             if (user.id === numba.user_id) {
               return (
