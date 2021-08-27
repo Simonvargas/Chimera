@@ -119,3 +119,13 @@
     font-size: 13px;
     
 }
+
+.currencyinput .input {
+    margin-right: 8px;
+}
+
+.monay {
+    position: relative;
+    left: -10px;
+    color: green
+}

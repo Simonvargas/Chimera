@@ -13,8 +13,6 @@ const HomePage = () => {
   const allProjects = Object.values(useSelector(state => state.project))
   const allUsers = Object.values(useSelector(state => state.session))
   
-  const id = Math.floor(Math.random() * 4) + 1
-  console.log('niiim', id)
 
   const dispatch = useDispatch()
   const [numba, setNumba] = useState([])
@@ -26,7 +24,7 @@ const HomePage = () => {
  
   useEffect(() => {
     (async function(){
-      const res = await fetch(`/api/projects/${id}`)
+      const res = await fetch(`/api/projects/${3}`)
 
       if (res.ok) {
         const oneProject = await res.json()

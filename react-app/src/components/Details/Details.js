@@ -38,7 +38,6 @@ const Details = () => {
 
   const [test, setTest] = useState(backings)
 
-  console.log('what', project)
 
   useEffect(() => {
     dispatch(getbackings())
@@ -60,8 +59,9 @@ const Details = () => {
 
   
   async function deleteProject(){
-    await dispatch(removeProject(id))
-    history.push('/')
+    await dispatch(removeProject(Number(id)))
+    // history.push('/')
+    // await dispatch(projectActions.getProjects())
     
   }
 
@@ -86,7 +86,6 @@ const Details = () => {
   async function deleteBacking(e){
     // console.log('amount', amount)
     e.preventDefault()
-    console.log('hello', e.target.getAttribute('hello'))
     let answer = window.confirm('Are you sure you want to take your backing back?')
     if (answer) {
     const updateAmount = Number(project.funding_raised) - Number(e.target.getAttribute('hello'))

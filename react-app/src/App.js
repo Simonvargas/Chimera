@@ -60,7 +60,7 @@ function App() {
         <Profile />
       </ProtectedRoute>
 
-      <ProtectedRoute path='/projects/:id'>
+      <ProtectedRoute path='/projects/:id' exact={true}>
         <Details />
       </ProtectedRoute>
 

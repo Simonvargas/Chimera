@@ -51,13 +51,15 @@ export const createProject = (user_id, category_id, name, image, details, fundin
 
 export const getProjects = () => async (dispatch) => {
     const res = await fetch(`/api/projects`)
+
+    if (!res.ok) throw res
     const allProjects = await res.json();
     dispatch(loadProject(allProjects));
     return allProjects;
 }
 
 export const getOneProject = (id) => async (dispatch) => {
-    console.log('id', id)
+    // console.log('id', id)
     const res = await fetch(`/api/projects/${id}`)
 
     if (res.ok) {
@@ -94,16 +96,13 @@ export const editProjectFunding = (funding_raised, id) => async (dispatch) => {
 }
 
 export const removeProject = (id) => async (dispatch) => {
-    console.log(id, "THIS IS ID")
     const res = await fetch(`/api/projects/delete/${id}`, {
         method : 'DELETE',
     });
-
     dispatch(deleteProject(id))
-    return 
+    return res
 }
 
-// reducer.
 
 const initialState = {
 
@@ -117,16 +116,13 @@ const ProjectReducer = (state = initialState, action) => {
                 [action.project.id]: action.project
             }
         case LOAD_PROJECT:
+            // console.log('projectjh', action.project)
             const all = {...state};
             action.project.Projects.forEach((oneProject) => {
                 all[oneProject.id] = oneProject;
             });
             return all;
         case LOAD_ONE:
-                // const one = {...state};
-                console.log('hi', action.project)
-                // const oneP = {...state, action.project}
-                // return oneP;
                 return {
                     ...action.project
                 }
@@ -137,6 +133,7 @@ const ProjectReducer = (state = initialState, action) => {
             }
         case DELETE_PROJECT:{
            const newState = {...state}
+           console.log('deleted12', newState[action.ProjectId] )
            delete newState[action.projectId];
            return newState
         }

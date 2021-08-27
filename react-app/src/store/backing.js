@@ -65,7 +65,7 @@ export const editBacking = (comment, id) => async (dispatch) => {
 }
 
 export const removeBacking = (id) => async (dispatch) => {
-    console.log(id, "THIS IS ID")
+    // console.log(id, "THIS IS ID")
     const res = await fetch(`/api/backings/delete/${id}`, {
         method : 'DELETE',
     });
@@ -104,6 +104,7 @@ const BackingReducer = (state = initialState, action) => {
         //    return {...newState}
         // }
             const newState = {...state}
+            console.log('here', newState[action.backingId])
             delete newState[action.backingId];
             return newState
          }

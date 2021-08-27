@@ -37,21 +37,22 @@ function BackForm({ setShowForm2, project }) {
       <div className={styles.container2}>
     <form  className={styles.inputForm}>
       <div className={styles.container3}>
-     
+     <div className={styles.currencyinput}><span className={styles.monay}>$</span>
       <input 
       placeholder='Amount'
       className={styles.input}
       type='number'
+      min='1'
       value={amount}
       onChange={(e) => setAmount(e.target.value)}/>
-
+      </div>
       <input 
       placeholder='Comment'
       className={styles.input}
       type='text'
       value={comment}
       onChange={(e) => setComment(e.target.value)}/>
-   
+     
 
       <button onClick={post} className={styles.btn} type='submit'>Pledge!</button>
       </div>
