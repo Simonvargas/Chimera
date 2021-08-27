@@ -11,6 +11,7 @@ import styles from './EditForm.module.css'
 function BackForm({ setShowForm2, project, setToggle, toggle }) {
     const [comment, setComment] = useState('')
     const [amount, setAmount] = useState(1)
+    const [value, setValue] = useState(0)
 
     const dispatch = useDispatch();
     const { id } = useParams() 
@@ -46,7 +47,7 @@ function BackForm({ setShowForm2, project, setToggle, toggle }) {
       placeholder='Amount'
       className={styles.input}
       type='number'
-      min='1'
+      min='0'
       value={amount}
       onChange={(e) => setAmount(e.target.value)}/>
       </div>

@@ -168,7 +168,7 @@ const Details = () => {
           <p className={styles.goal}>pledge of {project.funding_goal}</p>
           <br></br>
           <br></br>
-          <div>{project1.backers}</div>
+          <div>{project.backers}</div>
           <p className={styles.goal}>Backers</p>
           <button className={styles.btn1} onClick={show2}>Support a dream</button>
           </div>
