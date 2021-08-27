@@ -6,40 +6,53 @@ import * as projectActions from '../../store/project'
 
 import styles from './EditForm.module.css'
 
-function EditForm({ setShowForm }) {
-    const [name, setName] = useState('')
-    const [image, setImage] = useState('')
-    const [details, setDetails] = useState('')
+function EditForm({ setShowForm, project }) {
+    const [name, setName] = useState(project.name)
+    const [image, setImage] = useState(project.image)
+    const [details, setDetails] = useState(project.details)
     const [categoryId, setCategory] = useState(1)
-    const [funding, setFunding] = useState(0)
+    const [funding, setFunding] = useState(project.funding_goal)
 
+    const [errors, setErrors] = useState([])
+
+    
     const dispatch = useDispatch();
     const { id } = useParams() 
     const sessionUser = useSelector(state => state.session.user);
 
-    // function number1() {
-    //   set
-    // }
+   
     const hostId = sessionUser?.id
   
-    // const projectCreate = async (e) => {
-    //     e.preventDefault()
-      
-    //    let createdProject = await dispatch(projectActions.createProject(hostId, categoryId, name, image, details, funding))
-    //    if (createdProject) {
-    //      history.push('/')
-    //    }
-    // }
+    
 
     async function update(e){
         e.preventDefault()
+        const data = []
+        if (name === '') {
+          data.push('Name Field is empty')
+        } 
+        if (image === '') {
+          data.push('Image field is empty')
+        } 
+        if (details === '')  {
+         data.push('Description field is empty')
+        }
+        if (funding === '' || funding < 1) {
+          data.push('Amount funding has to be greater than 0') 
+        } 
+        setErrors(data)
+        if (data.length === 0) {
         await dispatch(projectActions.editProject(hostId, categoryId, name, image, details, funding, id))
         setShowForm(false)
       }
+    }
   return  (
   <div className={styles.container}>
      
       <div className={styles.container2}>
+      <div className={styles.errors1}>
+      {errors.map(err =>( <ul><li>{err}</li></ul>))}
+      </div>
     <form  className={styles.inputForm}>
       <div className={styles.container3}>
       <input

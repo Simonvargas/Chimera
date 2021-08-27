@@ -64,7 +64,7 @@ def update_project(id):
     res.category_id = form.data['category_id']
     res.name = form.data['name']
     res.image = form.data['image']
-    res.details = form.data['name']
+    res.details = form.data['details']
     res.funding_goal = form.data['funding_goal']
     db.session.commit()
     return res.to_dict()

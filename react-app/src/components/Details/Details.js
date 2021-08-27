@@ -161,7 +161,7 @@ const Details = () => {
           <p className={styles.goal}>Backers</p>
           <button className={styles.btn1} onClick={show2}>Support a dream</button>
           </div>
-          {showForm ? <EditForm setShowForm={setShowForm} /> : ''}
+          {showForm ? <EditForm project={project} setShowForm={setShowForm} /> : ''}
           {showForm2 ? <BackForm setShowForm2={setShowForm2} /> : ''}
         </div>
       </div>  
