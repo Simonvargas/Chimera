@@ -8,7 +8,7 @@ import { removeProject, editProject, getOneProject } from '../../store/project'
 
 import styles from './EditForm.module.css'
 
-function BackForm({ setShowForm2, project }) {
+function BackForm({ setShowForm2, project, setToggle, toggle }) {
     const [comment, setComment] = useState('')
     const [amount, setAmount] = useState(1)
 
@@ -28,7 +28,11 @@ function BackForm({ setShowForm2, project }) {
         const updateAmount = Number(project.funding_raised) + Number(amount)
         await dispatch(backingActions.createBacking(hostId, id, amount, comment))
         await dispatch(projectActions.editProjectFunding(updateAmount, id))
-        await dispatch(getOneProject(id))
+        if (toggle) {
+          setToggle(false)
+        } else {
+          setToggle(true)
+        }
         setShowForm2(false)
       }
   return  (

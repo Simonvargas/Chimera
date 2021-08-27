@@ -43,7 +43,6 @@ function EditForm({ setShowForm, project }) {
         setErrors(data)
         if (data.length === 0) {
         await dispatch(projectActions.editProject(hostId, categoryId, name, image, details, funding, id))
-        await dispatch(projectActions.getOneProject(id))
         setShowForm(false)
       }
     }

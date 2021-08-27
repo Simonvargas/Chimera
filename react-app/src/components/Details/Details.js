@@ -21,7 +21,7 @@ const Details = () => {
   const history = useHistory()
   const { id } = useParams()
   
-  // const [project, setProject] = useState([])
+  const [project, setProject] = useState([])
   const [showForm, setShowForm] = useState(false)
   const [showForm2, setShowForm2] = useState(false)
   const [showForm3, setShowForm3] = useState(false)
@@ -34,33 +34,32 @@ const Details = () => {
   const user = useSelector(state => state.session.user)
   const backings = Object.values(useSelector(state => state.backing))
   const allUsers = Object.values(useSelector(state => state.session))
-  const project = useSelector(state => state.project)
-
+  const project1 = useSelector(state => state.project)
+  const [toggle, setToggle] = useState(false)
   const [test, setTest] = useState(backings)
 
 
   useEffect(() => {
     dispatch(getbackings())
     dispatch(getUsers())
-    dispatch(getOneProject(id))
     
   }, [])
 
-  // useEffect(() => {
-  //   (async function(){
-  //     const res = await fetch(`/api/projects/${id}`)
+  useEffect(() => {
+    (async function(){
+      const res = await fetch(`/api/projects/${id}`)
 
-  //     if (res.ok) {
-  //       const oneProject = await res.json()
-  //       setProject(oneProject)
-  //     }
-  //   })()
-  // }, [id, showForm])
+      if (res.ok) {
+        const oneProject = await res.json()
+        setProject(oneProject)
+      }
+    })()
+  }, [id, toggle, showForm])
 
   
   async function deleteProject(){
     await dispatch(removeProject(Number(id)))
-    // history.push('/')
+    history.push('/')
     // await dispatch(projectActions.getProjects())
     
   }
@@ -91,8 +90,12 @@ const Details = () => {
     const updateAmount = Number(project.funding_raised) - Number(e.target.getAttribute('hello'))
     await dispatch(removeBacking(Number(e.target.id)))
     await dispatch(projectActions.editProjectFunding(updateAmount, id))
-    await dispatch(getOneProject(id))
+    if (toggle) {
+    setToggle(false)
+    } else {
+      setToggle(true)
     }
+  }
   }
 
   async function update(e) {
@@ -165,12 +168,12 @@ const Details = () => {
           <p className={styles.goal}>pledge of {project.funding_goal}</p>
           <br></br>
           <br></br>
-          <div>{project.backers}</div>
+          <div>{project1.backers}</div>
           <p className={styles.goal}>Backers</p>
           <button className={styles.btn1} onClick={show2}>Support a dream</button>
           </div>
           {showForm ? <EditForm project={project} setShowForm={setShowForm} /> : ''}
-          {showForm2 ? <BackForm project={project} setShowForm2={setShowForm2} /> : ''}
+          {showForm2 ? <BackForm toggle={toggle} setToggle={setToggle} project={project} setShowForm2={setShowForm2} /> : ''}
         </div>
       </div>  
       </div>
