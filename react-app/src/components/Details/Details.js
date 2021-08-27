@@ -131,18 +131,18 @@ const Details = () => {
                     <p >{backing.comment}</p>
                     </div>
                     <div>
-                     {user.id === backing.user_id ? <button className={styles.btn3} onClick={(e) => (show3(), setIdOf(backing.id))}  id={backing.id}><i class="fas fa-edit"></i></button> : ''}
-                     {user.id === backing.user_id ? <i className={styles.btn3} onClick={deleteBacking} id={backing.id} class="fas fa-trash"></i> : ''}
+                     {user.id === backing.user_id ? <i  onClick={(e) => (show3(), setIdOf(backing.id))}  id={backing.id} className="icon fas fa-edit"></i> : ''}
+                     {user.id === backing.user_id ? <i  onClick={deleteBacking} id={backing.id} className="icon fas fa-trash"></i> : ''}
                     </div>
                     </div>
                   )
       }}
 })}
-                   {showForm3 ? <form>
+                   {showForm3 ? <div className={styles.inputBox}>
                     <input className={styles.input} onChange={(e) => setComment(e.target.value)} value={comment} placeholder="comment"></input>
                     <button className={styles.btn3} onClick={update}><i class="fas fa-paper-plane"></i></button>
                     <button className={styles.btn3} onClick={() => setShowForm3(false)}><i class="fas fa-trash"></i></button>
-                    </form> : ''}
+                    </div> : ''}
           </div>
          
         </div>

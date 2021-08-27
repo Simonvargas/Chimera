@@ -40,7 +40,7 @@ const HomePage = () => {
     <div>
       
       <div className={styles.mainContent}>
-        <div className={styles.categories}>categories</div>
+        {/* <div className={styles.categories}>categories</div> */}
         <div className={styles.overall}>
         <div className={styles.left}>
             <p>SPOTLIGHT</p>
