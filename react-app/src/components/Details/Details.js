@@ -26,6 +26,7 @@ const Details = () => {
   const [showForm3, setShowForm3] = useState(false)
   const [idOf, setIdOf] = useState(0)
   const [comment, setComment] = useState('')
+
   const user = useSelector(state => state.session.user)
   const backings = Object.values(useSelector(state => state.backing))
   const allUsers = Object.values(useSelector(state => state.session))
@@ -131,20 +132,21 @@ const Details = () => {
                     <div className={styles.commentDiv}>
                       <img className={styles.avatar} src='https://i.imgur.com/gUNurve.png'></img>
                     <div className={styles.commentText}>
-                    <p>{allUsers[i].username} donated {backing.amount}</p>
+                    <p>{allUsers[i].username} donated <span className={styles.funded1}>${backing.amount}</span></p>
                     <p >{backing.comment}</p>
                     </div>
                     <div>
-                     {user.id === backing.user_id ? <button className={styles.btn2} onClick={(e) => (show3(), setIdOf(backing.id))}  id={backing.id}>Edit</button> : ''}
-                     {user.id === backing.user_id ? <button className={styles.btn2} onClick={deleteBacking} id={backing.id}>Delete</button> : ''}
+                     {user.id === backing.user_id ? <button className={styles.btn3} onClick={(e) => (show3(), setIdOf(backing.id))}  id={backing.id}><i class="fas fa-edit"></i></button> : ''}
+                     {user.id === backing.user_id ? <button className={styles.btn3} onClick={deleteBacking} id={backing.id}><i class="fas fa-trash"></i></button> : ''}
                     </div>
                     </div>
                   )
       }}
 })}
                    {showForm3 ? <form>
-                    <input onChange={(e) => setComment(e.target.value)} value={comment} placeholder="comment"></input>
-                    <button onClick={update}>Submit</button>
+                    <input className={styles.input} onChange={(e) => setComment(e.target.value)} value={comment} placeholder="comment"></input>
+                    <button className={styles.btn3} onClick={update}><i class="fas fa-paper-plane"></i></button>
+                    <button className={styles.btn3} onClick={() => setShowForm3(false)}><i class="fas fa-trash"></i></button>
                     </form> : ''}
           </div>
          

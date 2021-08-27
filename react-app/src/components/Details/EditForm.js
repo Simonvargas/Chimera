@@ -84,6 +84,7 @@ function EditForm({ setShowForm }) {
           <option value='4'>Art</option>
         </select>
       <button onClick={update} className={styles.btn} type='submit'>edit</button>
+      <button onClick={() => setShowForm(false)} className={styles.btn}>Cancel</button>
       </div>
       </form>
       </div>
