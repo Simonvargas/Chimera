@@ -28,10 +28,14 @@ function BackForm({ setShowForm2, project, setToggle, toggle }) {
         e.preventDefault()
         const updateAmount = Number(project.funding_raised) + Number(amount)
         const data = []
-        if (amount < 1) {
+        if (amount < 1 || amount.toString()[0] == 0) {
           data.push('Your donation must be at least 1 one dollar')
+        } 
+        if (hostId === project.user_id) {
+          data.push('You cannot donate to your own cause')
         }
         setErrors(data)
+        
         if (data.length === 0) {
         await dispatch(backingActions.createBacking(hostId, id, amount, comment))
         await dispatch(projectActions.editProjectFunding(updateAmount, id))

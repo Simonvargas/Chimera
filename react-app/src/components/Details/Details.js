@@ -16,6 +16,8 @@ import { removeBacking, editBacking } from '../../store/backing';
 import * as projectActions from '../../store/project'
 import { getbackings } from '../../store/backing';
 
+import ProgressBar from 'react-bootstrap/ProgressBar'
+
 const Details = () => {
   const dispatch = useDispatch()
   const history = useHistory()
@@ -162,6 +164,7 @@ const Details = () => {
 
         <div className={styles.right}>
           <div className={styles.supportContainer}>
+            {/* <ProgressBar className={styles.progress} label='60' min={0} max={100} now='45' striped variant="success" now={60}/> */}
             <br></br>
             <br></br>
           <div className={styles.funded}>${project.funding_raised}</div>
