@@ -16,7 +16,8 @@ import { removeBacking, editBacking } from '../../store/backing';
 import * as projectActions from '../../store/project'
 import { getbackings } from '../../store/backing';
 
-import ProgressBar from 'react-bootstrap/ProgressBar'
+import { ProgressBar, Button } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Details = () => {
   const dispatch = useDispatch()
@@ -40,6 +41,10 @@ const Details = () => {
   const [toggle, setToggle] = useState(false)
   const [test, setTest] = useState(backings)
   console.log('backings', backings)
+
+  const percentage = project.funding_raised / project.funding_goal * 100
+  console.log('percentage', Math.round(percentage))
+  console.log('hello')
 
   useEffect(() => {
     dispatch(getbackings())
@@ -164,15 +169,18 @@ const Details = () => {
 
         <div className={styles.right}>
           <div className={styles.supportContainer}>
-            {/* <ProgressBar className={styles.progress} label='60' min={0} max={100} now='45' striped variant="success" now={60}/> */}
+          <div className={styles.progressBar}>
+       <ProgressBar style={ { height: '3rem', backgroundColor: '#08e1ae', backgroundImage: 'linear-gradient(315deg, #08e1ae 0%, #98de5b 74%)'}} now={percentage} label={Math.round(percentage) + '%'} animated />
+    </div>
+   
             <br></br>
             <br></br>
           <div className={styles.funded}>${project.funding_raised}</div>
           <p className={styles.goal}>pledge of {project.funding_goal}</p>
           <br></br>
-          <br></br>
           <div>{project.backers}</div>
           <p className={styles.goal}>Backers</p>
+          <br></br>
           <button className={styles.btn1} onClick={show2}>Support a dream</button>
           </div>
           {showForm ? <EditForm project={project} setShowForm={setShowForm} /> : ''}

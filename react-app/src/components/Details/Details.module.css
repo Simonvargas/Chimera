@@ -54,21 +54,20 @@
     color: green
 }
 
-.goal {
+/* .goal {
     margin: 0;
     padding: 0;
-}
+} */
 
 .supportContainer {
     /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
-    width: 380px;
-    height: 280px;
-    padding: 5px;
+    width: 63.7%;
     position: relative;
     font-family: 'Muli', sans-serif;
-    display: flex;
+    display: block;
     flex-direction: column;
     justify-content:center;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
 }
 
@@ -117,17 +116,13 @@
     border:greenyellow;
     background-color: #08e1ae;
     background-image: linear-gradient(315deg, #08e1ae 0%, #98de5b 74%);
-    
     font-size: 16px;
-    padding: 12px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    width: 390px;
-    left: 0px;
-    position: absolute;
-    bottom: 0;
+    width: 100%;
     transition: all ease 0.3s;
     color: white;
+    padding: 10px;
 }
 
 .btn1:hover {
@@ -205,4 +200,3 @@
 .inputBox {
     width: 100%;
 }
-
