@@ -51,11 +51,8 @@ export const createProject = (user_id, category_id, name, image, details, fundin
 
 export const getProjects = () => async (dispatch) => {
     const res = await fetch(`/api/projects`)
-
-    if (!res.ok) throw res
     const allProjects = await res.json();
     dispatch(loadProject(allProjects));
-    return allProjects;
 }
 
 export const getOneProject = (id) => async (dispatch) => {
