@@ -2,8 +2,7 @@
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 const LOAD_USER = 'session/LOAD_USER'
-const LOAD_PROJECT = 'projects/LOAD_PROJECT';
-const LOAD_BACKING = 'backings/LOAD_BACKING';
+
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -19,31 +18,9 @@ const loadUsers = (user) => ({
   user
 })
 
-const loadProject = (project) => ({
-  type: LOAD_PROJECT,
-  project
-});
-
-const loadBackings = (backing) => ({
-  type: LOAD_BACKING,
-  backing
-});
-
 const initialState = { user: null };
 
-export const getProjects = () => async (dispatch) => {
-  const res = await fetch(`/api/auth/projects`)
-  const allProjects = await res.json();
-  dispatch(loadProject(allProjects));
-  return allProjects
-}
 
-export const getbackings = () => async (dispatch) => {
-  const res = await fetch(`/api/auth/backings`)
-  const allbackings = await res.json();
-  dispatch(loadBackings(allbackings));
-  return allbackings;
-}
 
 
 export const authenticate = () => async (dispatch) => {
@@ -154,22 +131,6 @@ export default function reducer(state = initialState, action) {
                 all[oneUser.id] = oneUser;
             });
             return all;
-
-      case LOAD_PROJECT:
-              // console.log('projectjh', action.project)
-              const all1 = {...state};
-              action.project.Projects.forEach((oneProject) => {
-                  all1[oneProject.id] = oneProject;
-              });
-              return all1;
-
-      case LOAD_BACKING:
-                const all2 = {...state};
-                console.log('action', action.backing.users)
-                action.backing.Backings.forEach((oneBacking) => {
-                    all2[oneBacking.id] = oneBacking;
-                });
-                return all2
 
       default:
       return state;

@@ -14,7 +14,7 @@ import { getUsers } from '../../store/session';
 import  { Redirect } from 'react-router-dom'
 import { removeBacking, editBacking } from '../../store/backing';
 import * as projectActions from '../../store/project'
-import { getbackings } from '../../store/session';
+import { getbackings } from '../../store/backing';
 
 const Details = () => {
   const dispatch = useDispatch()

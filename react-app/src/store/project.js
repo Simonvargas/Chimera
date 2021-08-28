@@ -50,11 +50,11 @@ export const createProject = (user_id, category_id, name, image, details, fundin
 }
 
 export const getProjects = () => async (dispatch) => {
-    const res = await fetch(`/api/projects`)
+    const res = await fetch(`/api/auth/projects`)
     const allProjects = await res.json();
     dispatch(loadProject(allProjects));
     return allProjects
-}
+  }
 
 export const getOneProject = (id) => async (dispatch) => {
     // console.log('id', id)

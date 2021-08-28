@@ -44,11 +44,11 @@ export const createBacking = (user_id, project_id, amount, comment) => async (di
 }
 
 export const getbackings = () => async (dispatch) => {
-    const res = await fetch(`/api/backings`)
+    const res = await fetch(`/api/auth/backings`)
     const allbackings = await res.json();
     dispatch(loadBackings(allbackings));
     return allbackings;
-}
+  }
 
 
 export const editBacking = (comment, id) => async (dispatch) => {
