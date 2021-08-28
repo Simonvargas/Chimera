@@ -9,7 +9,7 @@ project_routes = Blueprint('projects', __name__)
 
 
 @project_routes.route('/')
-
+@login_required
 def get_projects():
     projects = Project.query.all()
     return {'Projects' : [project.to_dict() for project in projects]}
