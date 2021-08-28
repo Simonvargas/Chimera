@@ -51,7 +51,7 @@ const SignUpForm = () => {
     <div className={styles.container}>
       <div className={styles.photoContainer}>
       <Link  className={styles.link} to='/'>
-      <img src='https://i.imgur.com/giDqQ9u.png' className={styles.h1}></img>
+      <img alt='Project' src='https://i.imgur.com/giDqQ9u.png' className={styles.h1}></img>
       </Link>
       </div>
       <div className={styles.container2}>

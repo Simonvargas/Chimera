@@ -1,8 +1,8 @@
 
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import styles from './NavBar1.module.css'
 
@@ -26,7 +26,7 @@ const NavBar1 = () => {
          </div>
          <div className={styles.photoContainer}>
       <Link  className={styles.link} to='/'>
-      <img src='https://i.imgur.com/giDqQ9u.png' className={styles.h1}></img>
+      <img alt='Project' src='https://i.imgur.com/giDqQ9u.png' className={styles.h1}></img>
       </Link>
       </div>
          <div className={styles.endContainer}>

@@ -43,7 +43,7 @@ const LoginForm = () => {
     <div className={styles.container}>
      <div className={styles.photoContainer}>
       <Link  className={styles.link} to='/'>
-      <img src='https://i.imgur.com/giDqQ9u.png' className={styles.h1}></img>
+      <img alt='Project' src='https://i.imgur.com/giDqQ9u.png' className={styles.h1}></img>
       </Link>
       </div>
       <div className={styles.container2}>
@@ -59,7 +59,6 @@ const LoginForm = () => {
         <h2 className={styles.h2}>Log In</h2>
         <input
         className={styles.input}
-        placeholder='Email'
           name='email'
           type='text'
           placeholder='Email'
@@ -70,7 +69,6 @@ const LoginForm = () => {
       <div>
         <input
         className={styles.input}
-        placeholder='Password'
           name='password'
           type='password'
           placeholder='Password'

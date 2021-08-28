@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams, Link } from 'react-router-dom';
-import * as sessionActions from '../../store/session'
+import { useHistory, Link } from 'react-router-dom';
 import * as projectActions from '../../store/project'
 
 import styles from './CreateProject.module.css'
@@ -48,7 +47,7 @@ function AddEvent() {
   <div className={styles.container}>
       <div className={styles.photoContainer}>
       <Link  className={styles.link} to='/'>
-      <img src='https://i.imgur.com/giDqQ9u.png' className={styles.h1}></img>
+      <img alt='Project' src='https://i.imgur.com/giDqQ9u.png' className={styles.h1}></img>
       </Link>
       </div>
       <div className={styles.container2}>

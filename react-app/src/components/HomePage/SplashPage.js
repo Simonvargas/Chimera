@@ -1,6 +1,4 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { logout } from '../../store/session';
 import Footer from '../Navigation/Footer';
 
 import styles from './SplashPage.module.css'
@@ -17,13 +15,13 @@ const SplashPage = () => {
                </div>
                </div>
             <div className={styles.right}>
-            <img className={styles.dreamCatcher} src='https://i.imgur.com/EAxJl23.png'></img>
+            <img alt='Project' className={styles.dreamCatcher} src='https://i.imgur.com/EAxJl23.png'></img>
            </div>
            </div>
            <div className={styles.container2}>
            <div className={styles.left}> 
            <div className={styles.containerIn}>
-           <img className={styles.pic2} src='https://i.imgur.com/Nk20Q4P.png'></img>
+           <img alt='Project' className={styles.pic2} src='https://i.imgur.com/Nk20Q4P.png'></img>
             </div>
                </div>
             <div className={styles.right}>
@@ -41,13 +39,13 @@ const SplashPage = () => {
                </div>
                </div>
             <div className={styles.right}>
-            <img className={styles.pic3} src='https://i.imgur.com/x8EVmpz.jpg'></img>
+            <img alt='Project' className={styles.pic3} src='https://i.imgur.com/x8EVmpz.jpg'></img>
            </div>
                        
            </div>
            <div className={styles.container4}>
                <div className={styles.left}>
-               <img className={styles.pic4} src='https://i.imgur.com/GpIKZJ8.png'></img>
+               <img alt='Project' className={styles.pic4} src='https://i.imgur.com/GpIKZJ8.png'></img>
                </div>
                <div className={styles.right}>
                    <div className={styles.containerIn3}>

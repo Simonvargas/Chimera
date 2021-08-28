@@ -1,22 +1,19 @@
 import React, { useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
-import { logout } from '../../store/session';
 import Footer from '../Navigation/Footer';
 import NavBar from '../Navigation/NavBar';
 import styles from './Details.module.css'
 import { useParams } from 'react-router-dom';
-import { removeProject, editProject, getOneProject } from '../../store/project'
+import { removeProject } from '../../store/project'
 import EditForm from './EditForm'
 import BackForm from './BackForm';
-// import { getbackings } from '../../store/backing';
 import { getUsers } from '../../store/session';
-import  { Redirect } from 'react-router-dom'
 import { removeBacking, editBacking } from '../../store/backing';
 import * as projectActions from '../../store/project'
 import { getbackings } from '../../store/backing';
 
-import { ProgressBar, Button } from 'react-bootstrap'
+import { ProgressBar } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Details = () => {
@@ -30,16 +27,13 @@ const Details = () => {
   const [showForm3, setShowForm3] = useState(false)
   const [idOf, setIdOf] = useState(0)
   const [comment, setComment] = useState('')
-  const [amount, setAmount] = useState(0)
 
   
 
   const user = useSelector(state => state.session.user)
   const backings = Object.values(useSelector(state => state.backing))
   const allUsers = Object.values(useSelector(state => state.session))
-  const project1 = useSelector(state => state.project)
   const [toggle, setToggle] = useState(false)
-  const [test, setTest] = useState(backings)
   console.log('backings', backings)
 
   const percentage = project.funding_raised / project.funding_goal * 100
@@ -50,7 +44,7 @@ const Details = () => {
     dispatch(getbackings())
     dispatch(getUsers())
     
-  }, [])
+  }, [dispatch])
 
   useEffect(() => {
     (async function(){
@@ -90,7 +84,6 @@ const Details = () => {
   }
 
   async function deleteBacking(e){
-    // console.log('amount', amount)
     e.preventDefault()
     let answer = window.confirm('Are you sure you want to take your backing back?')
     if (answer) {
@@ -133,7 +126,7 @@ const Details = () => {
         
         <div className={styles.left}>
         <div className={styles.commentsContainer}>
-        <img className={styles.photo} src={project.image}></img>
+        <img alt='Project' className={styles.photo} src={project.image}></img>
         <p className={styles.text}>About dream</p>
         <div className={styles.text}>{project.details}</div>
        
@@ -145,7 +138,7 @@ const Details = () => {
                   return (
                     <div className={styles.commentDiv}>
                       <div className={styles.test3}>
-                      <img className={styles.avatar} src='https://i.imgur.com/gUNurve.png'></img>
+                      <img alt='Project' className={styles.avatar} src='https://i.imgur.com/gUNurve.png'></img>
                     <div className={styles.commentText}>
                     <p>{allUsers[i].username} donated <span className={styles.funded1}>${backing.amount}</span></p>
                     <p >{backing.comment}</p>

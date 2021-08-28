@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../../store/session';
 import Footer from '../Navigation/Footer';
 import { Link } from 'react-router-dom';
 
@@ -20,7 +19,7 @@ const HomePage = () => {
     dispatch(getProjects())
     dispatch(getUsers())
     
-  }, [])
+  }, [dispatch])
  
   useEffect(() => {
     (async function(){
@@ -38,11 +37,10 @@ const HomePage = () => {
     <div className={styles.overall1}>
       
       <div className={styles.mainContent}>
-        {/* <div className={styles.categories}>categories</div> */}
         <div className={styles.overall}>
         <div className={styles.left}>
             <p>SPOTLIGHT</p>
-            <img className={styles.projectImg2} src={numba.image}></img>
+            <img alt='Project' className={styles.projectImg2} src={numba.image}></img>
             <p>{numba.name}</p>
             {allUsers.map(user => {
             if (user.id === numba.user_id) {
@@ -55,13 +53,13 @@ const HomePage = () => {
           <p>ALL</p>
         <div className={styles.projects}>
           {allProjects?.map(projects => 
+          
         <Link className={styles.link} to={`/projects/${projects.id}`}>
           <div className={styles.projectContainer}>
-            <img className={styles.projectImg} src={projects.image}></img>
+            <img alt='Project' className={styles.projectImg} src={projects.image}></img>
             <div>
             <p className={styles.title}>{projects.name}</p>
-            {/* <p className={styles.details}>{projects.details}</p> */}
-            <p className={styles.raised}><span className={styles.span}>${projects.funding_raised} raised</span> of {projects.funding_goal}</p>
+            <p className={styles.raised}><span className={styles.span}>{Math.round(projects.funding_raised / projects.funding_goal * 100)}% raised</span> </p>
             </div>
           </div>
           </Link>
