@@ -53,6 +53,7 @@ export const getProjects = () => async (dispatch) => {
     const res = await fetch(`/api/projects`)
     const allProjects = await res.json();
     dispatch(loadProject(allProjects));
+    return allProjects
 }
 
 export const getOneProject = (id) => async (dispatch) => {
@@ -106,7 +107,7 @@ const initialState = {
 };
 
 const ProjectReducer = (state = initialState, action) => {
-    switch ( action.type ) {
+    switch (action.type) {
         case ADD_PROJECT:
             return {
                 ...state,

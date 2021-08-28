@@ -2,6 +2,7 @@
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 const LOAD_USER = 'session/LOAD_USER'
+const LOAD_PROJECT = 'projects/LOAD_PROJECT';
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -17,7 +18,19 @@ const loadUsers = (user) => ({
   user
 })
 
+const loadProject = (project) => ({
+  type: LOAD_PROJECT,
+  project
+});
+
 const initialState = { user: null };
+
+export const getProjects = () => async (dispatch) => {
+  const res = await fetch(`/api/projects`)
+  const allProjects = await res.json();
+  dispatch(loadProject(allProjects));
+  return allProjects
+}
 
 export const authenticate = () => async (dispatch) => {
   const response = await fetch('/api/auth/', {
@@ -124,6 +137,13 @@ export default function reducer(state = initialState, action) {
                 all[oneUser.id] = oneUser;
             });
             return all;
+            case LOAD_PROJECT:
+              // console.log('projectjh', action.project)
+              const all1 = {...state};
+              action.project.Projects.forEach((oneProject) => {
+                  all1[oneProject.id] = oneProject;
+              });
+              return all1;       
     default:
       return state;
   }

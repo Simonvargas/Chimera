@@ -4,8 +4,7 @@ import { logout } from '../../store/session';
 import Footer from '../Navigation/Footer';
 import { Link } from 'react-router-dom';
 
-import { getProjects } from '../../store/project';
-import { getUsers } from '../../store/session';
+import { getUsers, getProjects } from '../../store/session';
 
 import styles from './HomePage.module.css'
 
