@@ -8,13 +8,13 @@ from app.forms import ProjectForm
 project_routes = Blueprint('projects', __name__)
 
 
-@project_routes.route('/')
+@project_routes.route('/', methods=['GET'])
 def get_projects():
     projects = Project.query.all()
     return {'Projects' : [project.to_dict() for project in projects]}
 # 'watchs' : [watch.to_dict() for watch in watchs]
 
-@project_routes.route('/<int:id>')
+@project_routes.route('/<int:id>', methods=['GET'])
 @login_required
 def one_project(id):
     project = Project.query.get(id)
