@@ -56,15 +56,15 @@ function BackForm({ setShowForm2, project, setToggle, toggle }) {
       <div className={styles.errors1}>
       {errors.map(err =>( <ul><li>{err}</li></ul>))}
       </div>
-     <div className={styles.currencyinput}><span className={styles.monay}>$</span>
+     <span className={styles.currencyinput}>$
       <input 
       placeholder='Amount'
-      className={styles.input}
+      className={styles.input1}
       type='number'
       min='0'
       value={amount}
       onChange={(e) => setAmount(e.target.value)}/>
-      </div>
+      </span>
       <input 
       placeholder='Comment'
       className={styles.input}

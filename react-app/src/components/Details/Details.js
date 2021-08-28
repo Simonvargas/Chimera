@@ -119,7 +119,7 @@ const Details = () => {
     <div className={styles.overall}>
       <div className={styles.mainContent}>
         <div className={styles.categories}>
-        <div>
+        <div className={styles.h2}>
         <h2>{project.name}</h2>
         </div>
         <div>
@@ -132,10 +132,11 @@ const Details = () => {
         </div>
         
         <div className={styles.left}>
+        <div className={styles.commentsContainer}>
         <img className={styles.photo} src={project.image}></img>
         <p className={styles.text}>About dream</p>
         <div className={styles.text}>{project.details}</div>
-        <div className={styles.commentsContainer}>
+       
         <h2>Backers Donations & Comments</h2>
           <div>
             {backings?.map(backing => {
@@ -143,6 +144,7 @@ const Details = () => {
                 if (project.id === backing.project_id && allUsers[i].id === backing.user_id) {
                   return (
                     <div className={styles.commentDiv}>
+                      <div className={styles.test3}>
                       <img className={styles.avatar} src='https://i.imgur.com/gUNurve.png'></img>
                     <div className={styles.commentText}>
                     <p>{allUsers[i].username} donated <span className={styles.funded1}>${backing.amount}</span></p>
@@ -151,6 +153,7 @@ const Details = () => {
                     <div>
                      {user.id === backing.user_id ? <i  onClick={(e) => (show3(), setIdOf(backing.id))}  id={backing.id} className="icon fas fa-edit"></i> : ''}
                      {user.id === backing.user_id ? <i  hello={backing.amount} onClick={deleteBacking} id={backing.id} className="icon fas fa-trash"></i> : ''}
+                    </div>
                     </div>
                     </div>
                   )
@@ -170,7 +173,7 @@ const Details = () => {
         <div className={styles.right}>
           <div className={styles.supportContainer}>
           <div className={styles.progressBar}>
-       <ProgressBar style={ { height: '3rem', backgroundColor: '#08e1ae', backgroundImage: 'linear-gradient(315deg, #08e1ae 0%, #98de5b 74%)'}} now={percentage} label={Math.round(percentage) + '%'} animated />
+       <ProgressBar style={ { height: '3rem', backgroundColor: '#08e1ae', backgroundImage: 'linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%)'}} now={percentage} label={Math.round(percentage) + '%'} animated />
     </div>
    
             <br></br>
