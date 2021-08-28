@@ -171,12 +171,14 @@ const Details = () => {
    
             <br></br>
             <br></br>
+            <div className={styles.words}>
           <div className={styles.funded}>${project.funding_raised}</div>
           <p className={styles.goal}>pledge of {project.funding_goal}</p>
           <br></br>
           <div>{project.backers}</div>
           <p className={styles.goal}>Backers</p>
           <br></br>
+          </div>
           <button className={styles.btn1} onClick={show2}>Support a dream</button>
           </div>
           {showForm ? <EditForm project={project} setShowForm={setShowForm} /> : ''}

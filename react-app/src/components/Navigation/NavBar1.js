@@ -12,6 +12,7 @@ const NavBar1 = () => {
     <nav>
        <div className={styles.container}>
          <div className={styles.startContainer}>
+           
 
 <input
   placeholder='Search..'

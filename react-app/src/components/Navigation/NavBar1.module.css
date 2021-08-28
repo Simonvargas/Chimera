@@ -1,42 +1,19 @@
 .container {
     display: flex;
     justify-content: space-around;
-    border-bottom: 1px solid lightgrey;
-    padding: 5px;
-    height: 60px;
-    box-shadow: 0 0.125rem 0.1875rem -0.125rem rgb(0 0 0 / 20%);
-    font-family: 'Muli', sans-serif;
-    /* font-family: Lato,Trebuchet,Arial,sans-serif */
+    /* box-shadow: 0 0.125rem 0.1875rem -0.125rem rgb(0 0 0 / 20%); */
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset; */
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;    /* font-family: Lato,Trebuchet,Arial,sans-serif */
 
 }   
 
 .start {
     display: inline-block;
     padding: 10px;
-
 }
-
-.endContainer {
-    position: relative;
-    bottom: 5px;
-}
-
-.startContainer {
-    position: relative;
-    bottom: 5px;
-}
-
 .h1 {
-    width: 100px;
+    width: 50%;
 }
-
-.photoContainer {
-    position: relative;
-    bottom: 35px;
-}
-
-
-
 .link {
     text-decoration: none;
     color: black;
@@ -45,7 +22,4 @@
 .searchBar {
     width: 150px;
     height: 20px;
-    position: relative;
-    bottom: 3px;
-
 }
