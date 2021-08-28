@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import User, db
+from app.models import User, db, Project
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
@@ -85,3 +85,8 @@ def unauthorized():
 def get_users():
     users = User.query.all()
     return { 'users': [user.to_dict() for user in users]}
+
+@auth_routes.route('/projects', methods=['GET'])
+def get_projects():
+    projects = Project.query.all()
+    return {'Projects' : [project.to_dict() for project in projects]}

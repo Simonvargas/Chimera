@@ -26,7 +26,7 @@ const loadProject = (project) => ({
 const initialState = { user: null };
 
 export const getProjects = () => async (dispatch) => {
-  const res = await fetch(`/api/projects`)
+  const res = await fetch(`/api/auth/projects`)
   const allProjects = await res.json();
   dispatch(loadProject(allProjects));
   return allProjects
