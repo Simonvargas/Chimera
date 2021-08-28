@@ -11,7 +11,7 @@ import styles from './EditForm.module.css'
 function BackForm({ setShowForm2, project, setToggle, toggle }) {
     const [comment, setComment] = useState('')
     const [amount, setAmount] = useState(1)
-    const [value, setValue] = useState(0)
+    const [errors, setErrors] = useState([])
 
     const dispatch = useDispatch();
     const { id } = useParams() 
@@ -27,6 +27,12 @@ function BackForm({ setShowForm2, project, setToggle, toggle }) {
     async function post(e){
         e.preventDefault()
         const updateAmount = Number(project.funding_raised) + Number(amount)
+        const data = []
+        if (amount < 1) {
+          data.push('Your donation must be at least 1 one dollar')
+        }
+        setErrors(data)
+        if (data.length === 0) {
         await dispatch(backingActions.createBacking(hostId, id, amount, comment))
         await dispatch(projectActions.editProjectFunding(updateAmount, id))
         if (toggle) {
@@ -36,12 +42,16 @@ function BackForm({ setShowForm2, project, setToggle, toggle }) {
         }
         setShowForm2(false)
       }
+    }
   return  (
   <div className={styles.container}>
      
       <div className={styles.container2}>
     <form  className={styles.inputForm}>
       <div className={styles.container3}>
+      <div className={styles.errors1}>
+      {errors.map(err =>( <ul><li>{err}</li></ul>))}
+      </div>
      <div className={styles.currencyinput}><span className={styles.monay}>$</span>
       <input 
       placeholder='Amount'

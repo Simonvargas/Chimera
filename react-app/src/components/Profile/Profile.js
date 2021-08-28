@@ -12,6 +12,8 @@ const HomePage = () => {
     const user = useSelector(state => state.session.user)
     const backings = Object.values(useSelector(state => state.backing))
     const allProjects = Object.values(useSelector(state => state.project))
+
+    console.log('hi',backings)
   console.log('prp', backings)
     useEffect(() => {
       dispatch(getProjects())
@@ -59,6 +61,8 @@ const HomePage = () => {
         <div className={styles.createdProjects}>
         {allProjects.map(project => {
           for (let i = 0; i < backings.length; i++) {
+            if (backings[i].user_id === user.id) {
+            }
             if (project.id === backings[i].project_id && user.id === backings[i].user_id) {
               return (
                 <Link  className={styles.link} to={`/projects/${project.id}`} >
