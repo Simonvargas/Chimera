@@ -3,6 +3,7 @@ const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 const LOAD_USER = 'session/LOAD_USER'
 const LOAD_PROJECT = 'projects/LOAD_PROJECT';
+const LOAD_BACKING = 'backings/LOAD_BACKING';
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -23,6 +24,11 @@ const loadProject = (project) => ({
   project
 });
 
+const loadBackings = (backing) => ({
+  type: LOAD_BACKING,
+  backing
+});
+
 const initialState = { user: null };
 
 export const getProjects = () => async (dispatch) => {
@@ -31,6 +37,14 @@ export const getProjects = () => async (dispatch) => {
   dispatch(loadProject(allProjects));
   return allProjects
 }
+
+export const getbackings = () => async (dispatch) => {
+  const res = await fetch(`/api/auth/backings`)
+  const allbackings = await res.json();
+  dispatch(loadBackings(allbackings));
+  return allbackings;
+}
+
 
 export const authenticate = () => async (dispatch) => {
   const response = await fetch('/api/auth/', {
@@ -127,24 +141,37 @@ export const getUsers = () => async (dispatch) => {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
+    
     case SET_USER:
       return { user: action.payload }
-    case REMOVE_USER:
+    
+      case REMOVE_USER:
       return { user: null }
-    case LOAD_USER:
+    
+      case LOAD_USER:
             const all = {...state};
             action.user.users.forEach((oneUser) => {
                 all[oneUser.id] = oneUser;
             });
             return all;
-            case LOAD_PROJECT:
+
+      case LOAD_PROJECT:
               // console.log('projectjh', action.project)
               const all1 = {...state};
               action.project.Projects.forEach((oneProject) => {
                   all1[oneProject.id] = oneProject;
               });
-              return all1;       
-    default:
+              return all1;
+
+      case LOAD_BACKING:
+                const all2 = {...state};
+                console.log('action', action.backing.users)
+                action.backing.Backings.forEach((oneBacking) => {
+                    all2[oneBacking.id] = oneBacking;
+                });
+                return all2
+
+      default:
       return state;
   }
 }

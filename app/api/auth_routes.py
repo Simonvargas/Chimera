@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import User, db, Project
+from app.models import User, db, Project, Backing
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
@@ -90,3 +90,10 @@ def get_users():
 def get_projects():
     projects = Project.query.all()
     return {'Projects' : [project.to_dict() for project in projects]}
+
+@auth_routes.route('/backings')
+# @login_required
+def get_backings():
+    backings = Backing.query.all()
+    users = User.query.all()
+    return {'Backings' : [backing.to_dict() for backing in backings], 'users': [user.to_dict() for user in users]}

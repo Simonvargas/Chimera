@@ -9,12 +9,12 @@ import { useParams } from 'react-router-dom';
 import { removeProject, editProject, getOneProject } from '../../store/project'
 import EditForm from './EditForm'
 import BackForm from './BackForm';
-import { getbackings } from '../../store/backing';
+// import { getbackings } from '../../store/backing';
 import { getUsers } from '../../store/session';
 import  { Redirect } from 'react-router-dom'
 import { removeBacking, editBacking } from '../../store/backing';
 import * as projectActions from '../../store/project'
-
+import { getbackings } from '../../store/session';
 
 const Details = () => {
   const dispatch = useDispatch()
@@ -37,7 +37,7 @@ const Details = () => {
   const project1 = useSelector(state => state.project)
   const [toggle, setToggle] = useState(false)
   const [test, setTest] = useState(backings)
-
+  console.log('backings', backings)
 
   useEffect(() => {
     dispatch(getbackings())

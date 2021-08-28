@@ -29,7 +29,6 @@ const deleteBacking = (backingId) => ({
 });
 
 
-
 // thunk
 
 export const createBacking = (user_id, project_id, amount, comment) => async (dispatch) => {
@@ -89,8 +88,10 @@ const BackingReducer = (state = initialState, action) => {
             }
         case LOAD_BACKING:
             const all = {...state};
+            console.log('action', action.backing.users)
             action.backing.Backings.forEach((oneBacking) => {
                 all[oneBacking.id] = oneBacking;
+                
             });
             return all;
         case UPDATE_BACKING:

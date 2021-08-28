@@ -8,7 +8,7 @@ from app.forms import BackingForm
 backing_routes = Blueprint('backings', __name__)
 
 
-@backing_routes.route('/', methods=['GET'])
+@backing_routes.route('/')
 # @login_required
 def get_backings():
     backings = Backing.query.all()
