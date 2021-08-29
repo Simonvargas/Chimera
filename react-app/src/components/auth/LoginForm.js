@@ -50,12 +50,9 @@ const LoginForm = () => {
     <form  onSubmit={onLogin}>
       <div className={styles.container3}>
       <div className={styles.errors}>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+     {errors.map(err =>( <ul><li>{err}</li></ul>))}
       </div>
       
-      <div>
         <h2 className={styles.h2}>Log In</h2>
         <input
         className={styles.input}
@@ -65,8 +62,6 @@ const LoginForm = () => {
           value={email}
           onChange={updateEmail}
         />
-      </div>
-      <div>
         <input
         className={styles.input}
           name='password'
@@ -75,16 +70,12 @@ const LoginForm = () => {
           value={password}
           onChange={updatePassword}
         />
-        <div>
         <button className={styles.btn} type='submit'>Login</button>
-        </div>
+        
         <p className={styles.p}><span className={styles.span}>Or</span></p>
         <button onClick={loginDemoUser} className={styles.btn2}>Log in as Demo User</button>
         <p>Log in and being creating wonderful projects</p>
-        <div className={styles.new}>
-          New to Chimera? <Link to='/sign-up'>Sign up!</Link>
-        </div>
-        </div>
+        <p className={styles.new}>New to Chimera? <Link to='/sign-up'>Sign up!</Link></p>
       </div>
     </form>
     </div>
