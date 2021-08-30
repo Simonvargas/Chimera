@@ -28,6 +28,8 @@ const Details = () => {
   const [idOf, setIdOf] = useState(0)
   const [comment, setComment] = useState('')
 
+
+  const [value, setValue] = useState('')
   const format = amount => {
     return Number(amount)
       .toFixed(2)
@@ -45,7 +47,6 @@ const Details = () => {
   useEffect(() => {
     dispatch(getbackings())
     dispatch(getUsers())
-    
   }, [dispatch])
 
   useEffect(() => {
@@ -79,7 +80,7 @@ const Details = () => {
     setShowForm2(true)
   }
 
-  function show3() {
+  function show3(e) {
     setShowForm(false)
     setShowForm2(false)
     setShowForm3(true)
@@ -146,9 +147,12 @@ const Details = () => {
                     <p>{allUsers[i].username} donated <span className={styles.funded1}>${format(backing.amount)}</span></p>
                     <p >{backing.comment}</p>
                     </div>
-                    <div>
-                     {user.id === backing.user_id ? <i  onClick={(e) => (show3(), setIdOf(backing.id))}  id={backing.id} className="icon fas fa-edit"></i> : ''}
+                    <div  value={backing.id} className='hi'>
+                     {user.id === backing.user_id ? <i  onClick={(e) => (show3(e), setIdOf(backing.id))}  id={backing.id} className="icon fas fa-edit"></i> : ''}
                      {user.id === backing.user_id ? <i  hello={backing.amount} onClick={deleteBacking} id={backing.id} className="icon fas fa-trash"></i> : ''}
+                     
+               
+
                     </div>
                     </div>
                     </div>
