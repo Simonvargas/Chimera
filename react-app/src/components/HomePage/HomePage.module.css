@@ -116,6 +116,11 @@
     position: relative;
     
 }
+.progressBar {
+    position:absolute;
+    bottom: 0;
+    width: 60%;
+}
 
 .h2 {
     /* font-size: 1.75rem;
