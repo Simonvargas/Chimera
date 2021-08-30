@@ -112,7 +112,7 @@ const SignUpForm = ({setShowModal2, setShowModal1}) => {
       </div>
       
       <div className={styles.new}>
-          Already have an account? <span onClick={OpenClose}>Log in!</span>
+          Already have an account? <span className={styles.span} onClick={OpenClose}>Log in!</span>
         </div>
     </form>
     </div>

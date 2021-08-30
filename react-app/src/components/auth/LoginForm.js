@@ -80,7 +80,7 @@ const LoginForm = ({setShowModal2, setShowModal1}) => {
         <p className={styles.p}><span className={styles.span}>Or</span></p>
         <button onClick={loginDemoUser} className={styles.btn2}>Log in as Demo User</button>
         <p>Log in and being creating wonderful projects</p>
-        <p className={styles.new}>New to Chimera? <span onClick={OpenClose}>Sign up!</span></p>
+        <p className={styles.new}>New to Chimera? <span className={styles.span} onClick={OpenClose}>Sign up!</span></p>
       </div>
     </form>
     </div>

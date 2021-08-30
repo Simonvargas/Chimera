@@ -1,6 +1,6 @@
 .container {
     display: block;
-    width: 98%;
+    width: 100%;
     margin: auto;
  
 }
@@ -125,4 +125,8 @@
     justify-content: center;
     position: relative;
     bottom: 90px
+}
+
+.span {
+    color: blue;
 }
