@@ -35,31 +35,9 @@ function App() {
 
     <BrowserRouter>
       <Switch>
-
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
-
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-
         <Route path='/' exact={true} >
           <Home />
         </Route>
-
-        <ProtectedRoute path='/create'>
-        <CreateProject />
-      </ProtectedRoute>
-
       <ProtectedRoute path='/profile'>
         <Profile />
       </ProtectedRoute>
