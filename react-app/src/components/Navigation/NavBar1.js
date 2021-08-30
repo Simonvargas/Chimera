@@ -14,7 +14,7 @@ const NavBar1 = () => {
   return (
     <nav>
       <div className={styles.container}>
-        <div className={styles.startContainer}>
+        {/* <div className={styles.startContainer}>
 
 
           <input
@@ -27,7 +27,7 @@ const NavBar1 = () => {
             <p className={styles.start}>Explore Projects</p>
           </Link>
 
-        </div>
+        </div> */}
 
         <div className={styles.photoContainer}>
           <Link className={styles.link} to='/'>
