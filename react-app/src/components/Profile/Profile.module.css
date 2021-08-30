@@ -20,8 +20,8 @@
     width: 100%;
     position: relative;
     margin-top: 8px;
-    width: 100%;
-    overflow: scroll;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 /* .profileInfo {
