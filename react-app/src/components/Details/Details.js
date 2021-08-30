@@ -28,6 +28,11 @@ const Details = () => {
   const [idOf, setIdOf] = useState(0)
   const [comment, setComment] = useState('')
 
+  const format = amount => {
+    return Number(amount)
+      .toFixed(2)
+      .replace(/\d(?=(\d{3})+\.)/g, '$&,');
+};
   
 
   const user = useSelector(state => state.session.user)
@@ -140,7 +145,7 @@ const Details = () => {
                       <div className={styles.test3}>
                       <img alt='Project' className={styles.avatar} src='https://i.imgur.com/gUNurve.png'></img>
                     <div className={styles.commentText}>
-                    <p>{allUsers[i].username} donated <span className={styles.funded1}>${backing.amount}</span></p>
+                    <p>{allUsers[i].username} donated <span className={styles.funded1}>${format(backing.amount)}</span></p>
                     <p >{backing.comment}</p>
                     </div>
                     <div>
@@ -172,8 +177,8 @@ const Details = () => {
             <br></br>
             <br></br>
             <div className={styles.words}>
-          <div className={styles.funded}>${project.funding_raised}</div>
-          <p className={styles.goal}>pledge of {project.funding_goal}</p>
+          <div className={styles.funded}>${format(project.funding_raised)}</div>
+          <p className={styles.goal}>pledge of ${format(project.funding_goal)}</p>
           <br></br>
           <div>{project.backers}</div>
           <p className={styles.goal}>Backers</p>

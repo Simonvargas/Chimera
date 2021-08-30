@@ -19,7 +19,11 @@ const HomePage = () => {
       dispatch(getbackings())
     }, [dispatch])
   
-
+    const format = amount => {
+      return Number(amount)
+        .toFixed(2)
+        .replace(/\d(?=(\d{3})+\.)/g, '$&,');
+  };
   
   return (
     <div>
@@ -61,8 +65,8 @@ const HomePage = () => {
                 <div className={styles.createdProjectsContainer}>
             <img alt='Project' className={styles.image} src={project.image}></img>
             <p>{project.name}</p>
-            <p>Backing amount: ${backings[i].amount}</p>
-            <p>Funding Raised: ${project.funding_raised}</p>
+            <p>Backing amount: ${format(backings[i].amount)}</p>
+            <p>Funding Raised: ${format(project.funding_raised)}</p>
             <ProgressBar style={{ height: '1rem', backgroundColor: '#08e1ae', backgroundImage: 'linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%)' }} now={Math.round(project.funding_raised / project.funding_goal * 100)} label={Math.round(project.funding_raised / project.funding_goal * 100) + '%'} animated />
                 </div>
                 </Link>
