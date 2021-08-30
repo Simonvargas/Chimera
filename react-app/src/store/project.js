@@ -81,11 +81,12 @@ export const editProject = (user_id, category_id, name, image, details, funding_
 }
 
 
-export const editProjectFunding = (funding_raised, id) => async (dispatch) => {
+export const editProjectFunding = (funding_raised, backers, id) => async (dispatch) => {
+    console.log('backers', backers)
     const response = await fetch(`/api/projects/editfunds/${id}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({funding_raised}),
+        body: JSON.stringify({funding_raised, backers}),
     });
     if(!response.ok) throw response
     const editedProject = await response.json();

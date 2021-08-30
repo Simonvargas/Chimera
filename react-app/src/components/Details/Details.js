@@ -39,11 +39,8 @@ const Details = () => {
   const backings = Object.values(useSelector(state => state.backing))
   const allUsers = Object.values(useSelector(state => state.session))
   const [toggle, setToggle] = useState(false)
-  console.log('backings', backings)
 
   const percentage = project.funding_raised / project.funding_goal * 100
-  console.log('percentage', Math.round(percentage))
-  console.log('hello')
 
   useEffect(() => {
     dispatch(getbackings())
@@ -93,8 +90,9 @@ const Details = () => {
     let answer = window.confirm('Are you sure you want to take your backing back?')
     if (answer) {
     const updateAmount = Number(project.funding_raised) - Number(e.target.getAttribute('hello'))
+    const minus =  Number(project.backers) - 1
     await dispatch(removeBacking(Number(e.target.id)))
-    await dispatch(projectActions.editProjectFunding(updateAmount, id))
+    await dispatch(projectActions.editProjectFunding(updateAmount, minus, id))
     if (toggle) {
     setToggle(false)
     } else {
@@ -181,7 +179,7 @@ const Details = () => {
           <p className={styles.goal}>pledge of ${format(project.funding_goal)}</p>
           <br></br>
           <div>{project.backers}</div>
-          <p className={styles.goal}>Backers</p>
+          <p className={styles.goal}>Donations</p>
           <br></br>
           </div>
           <button className={styles.btn1} onClick={show2}>Support a dream</button>

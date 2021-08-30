@@ -25,6 +25,7 @@ function BackForm({ setShowForm2, project, setToggle, toggle }) {
     async function post(e){
         e.preventDefault()
         const updateAmount = Number(project.funding_raised) + Number(amount)
+        const updateBackers = Number(project.backers + 1)
         const data = []
         if (amount < 1 || amount.toString()[0] == 0) {
           data.push('Your donation must be at least 1 one dollar')
@@ -36,7 +37,7 @@ function BackForm({ setShowForm2, project, setToggle, toggle }) {
         
         if (data.length === 0) {
         await dispatch(backingActions.createBacking(hostId, id, amount, comment))
-        await dispatch(projectActions.editProjectFunding(updateAmount, id))
+        await dispatch(projectActions.editProjectFunding(updateAmount, updateBackers, id))
         if (toggle) {
           setToggle(false)
         } else {

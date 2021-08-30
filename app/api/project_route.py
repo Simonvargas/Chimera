@@ -79,6 +79,7 @@ def update_funding(id):
     form = ProjectForm()
 
     res.funding_raised = form.data['funding_raised']
+    res.backers = form.data['backers']
     db.session.commit()
     return res.to_dict()
 
