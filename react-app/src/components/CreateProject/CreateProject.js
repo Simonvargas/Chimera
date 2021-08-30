@@ -33,7 +33,7 @@ function AddEvent() {
          if (details === '')  {
           data.push('Description field is empty')
          }
-         if (funding === '' || funding < 1) {
+         if (funding === '' || funding < 1 || funding.toString()[0] == 0) {
            data.push('Amount funding has to be greater than 0') 
          } 
          setErrors(data)
