@@ -9,7 +9,7 @@ function AddEvent() {
     const [image, setImage] = useState('')
     const [details, setDetails] = useState('')
     const [categoryId, setCategory] = useState(1)
-    const [funding, setFunding] = useState(0)
+    const [funding, setFunding] = useState('')
     const [raised, setRaised] = useState(0)
     const [backers, setBackers] = useState(0)
 
@@ -91,6 +91,7 @@ function AddEvent() {
       className={styles.input}
       type='number'
       value={funding}
+      id='number1'
       onChange={(e) => setFunding(e.target.value)}/>
       
         <select className={`${styles.input} ${styles.select}`} onChange={(e) => setCategory(+e.target.value)} defaultValue={categoryId}>
