@@ -65,7 +65,7 @@ function BackForm({ setShowForm2, project, setToggle, toggle }) {
       onChange={(e) => setAmount(e.target.value)}/>
       </span>
       <input 
-      placeholder='Comment'
+      placeholder='Comment Optional'
       className={styles.input}
       type='text'
       value={comment}
