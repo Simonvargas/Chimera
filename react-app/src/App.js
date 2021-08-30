@@ -11,6 +11,7 @@ import Home from './components/HomePage/Home';
 import CreateProject from './components/CreateProject/CreateProject'
 import Profile from './components/Profile/Profile'
 import Details from './components/Details/Details'
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -62,6 +63,10 @@ function App() {
       <ProtectedRoute path='/projects/:id' exact={true}>
         <Details />
       </ProtectedRoute>
+
+      <Route to='/'>
+    <NotFound />
+      </Route>
 
       </Switch>
     </BrowserRouter>
