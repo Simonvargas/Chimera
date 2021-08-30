@@ -22,10 +22,10 @@ const NavBar2 = () => {
 
           <div>
           <button className={styles.btn} onClick={() => setShowModal1(true)}>Log In</button>
-          {showModal1 && (<Modal onClose={() => setShowModal1(false)}> <LoginForm />  </Modal>)}
+          {showModal1 && (<Modal onClose={() => setShowModal1(false)}> <LoginForm setShowModal1={setShowModal1} setShowModal2={setShowModal2} />  </Modal>)}
 
           <button className={styles.btn} onClick={() => setShowModal2(true)}>Sign Up</button>
-          {showModal2 && (<Modal onClose={() => setShowModal2(false)}> <SignUpForm />  </Modal>)}
+          {showModal2 && (<Modal onClose={() => setShowModal2(false)}> <SignUpForm setShowModal1={setShowModal1} setShowModal2={setShowModal2}/>  </Modal>)}
           </div>
 
       </div>

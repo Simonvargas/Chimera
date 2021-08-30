@@ -5,7 +5,7 @@ import { signUp } from '../../store/session';
 
 import styles from './SignUp.module.css'
 
-const SignUpForm = ({setSignUp, setIsOpen}) => {
+const SignUpForm = ({setShowModal2, setShowModal1}) => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -47,8 +47,8 @@ const SignUpForm = ({setSignUp, setIsOpen}) => {
   }
   
   function OpenClose() {
-    setSignUp(false)
-    setIsOpen(true)
+    setShowModal2(false)
+    setShowModal1(true)
   }
 
   console.log(errors)

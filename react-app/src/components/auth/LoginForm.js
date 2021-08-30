@@ -5,7 +5,7 @@ import { login } from '../../store/session';
 
 import styles from './LoginForm.module.css'
 
-const LoginForm = ({setIsOpen, setSignUp}) => {
+const LoginForm = ({setShowModal2, setShowModal1}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -38,11 +38,12 @@ const LoginForm = ({setIsOpen, setSignUp}) => {
     const password = "password"
     await dispatch(login(email, password))
   }
-
   function OpenClose() {
-    setIsOpen(false)
-    setSignUp(true)
+    setShowModal1(false)
+    setShowModal2(true)
+
   }
+  
   return (
     <div className={styles.container}>
      <div className={styles.photoContainer}>
