@@ -47,6 +47,7 @@ const HomePage = () => {
       </Link>
       <div className={styles.mainContent}>
         <h2 className={styles.h2}>Spotlight</h2>
+        <Link className={styles.link} to={`/projects/${numba.id}`}>
         <div className={styles.spotlight}>
           <div className={styles.left}>
             <img alt='Project' className={styles.projectImg2} src={numba.image}></img>
@@ -60,10 +61,12 @@ const HomePage = () => {
                 )
               }
             })}
-
           </div>
+          
 
         </div>
+</Link>
+
         <br></br>
         <h2 className={styles.h2} >Start fundraising today</h2>
         <div className={styles.projects}>
