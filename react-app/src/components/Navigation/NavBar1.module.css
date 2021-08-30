@@ -2,16 +2,18 @@
     display: flex;
     justify-content: space-around;
     /* box-shadow: 0 0.125rem 0.1875rem -0.125rem rgb(0 0 0 / 20%); */
-    /* box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset; */
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;    /* font-family: Lato,Trebuchet,Arial,sans-serif */
+     font-family: Lato,Trebuchet,Arial,sans-serif;
+     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     height: 70px;
+    /* box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px; */
+    /* background-color: #f6f6f6;
+background-image: linear-gradient(315deg, #f6f6f6 0%, #e9e9e9 74%); */
 }   
 
 .start {
     display: inline-block;
     padding: 10px;
     position: relative;
-    /* top: 10px; */
 }
 
 

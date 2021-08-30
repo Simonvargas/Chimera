@@ -28,6 +28,7 @@
     max-width: 100%;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
     max-height: 100%;
+   
     
 }
 
@@ -73,9 +74,24 @@
     flex-direction: column;
     justify-content:center;
     box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-
+    transform: translatey(0px);
+	animation: float 6s ease-in-out infinite;
 }
 
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-20px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+}
 .btn {
     border:greenyellow;
     background-color: #08e1ae;
@@ -216,3 +232,6 @@
     justify-content: space-between;
     height: 80px;
 } 
+
+
+

@@ -186,7 +186,9 @@ const Details = () => {
         </div>
       </div>  
       </div>
+      <div className={styles.footer}>
       <Footer />
+      </div>
       </>
   )
 };

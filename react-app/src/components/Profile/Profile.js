@@ -6,6 +6,7 @@ import { getProjects } from '../../store/project';
 import { getbackings } from '../../store/backing';
 import styles from './Profile.module.css'
 import { Link } from 'react-router-dom';
+import { ProgressBar } from 'react-bootstrap'
 
 const HomePage = () => {
     const dispatch = useDispatch()
@@ -18,24 +19,21 @@ const HomePage = () => {
       dispatch(getbackings())
     }, [dispatch])
   
-  
-
 
   
   return (
     <div>
       <NavBar />
       <div className={styles.mainContent}>
-          <div className={styles.profileInfo}>
+          {/* <div className={styles.profileInfo}>
               <h1 className={styles.text}>Dreams can become reality</h1>
               <p className={styles.text}>Welcome to your profile page, {user.username} </p>
               <p className={styles.text}>Email: {user.email}</p>
-          </div>
+          </div> */}
           <div className={styles.projects}>
-        <h2>Created Dreams</h2>
+        <h2 className={styles.h2}>Created Dreams</h2>
         <div className={styles.createdProjects}>
           
-        <div className={styles.test1}>
         {allProjects?.map(project => {
           if (user.id === project.user_id)
           return (
@@ -45,17 +43,18 @@ const HomePage = () => {
             <p>{project.name}</p>
             <p>Funding Goal: ${project.funding_goal}</p>
             <p>Funding Raised: ${project.funding_raised}</p>
+            <ProgressBar style={{ height: '1rem', backgroundColor: '#08e1ae', backgroundImage: 'linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%)' }} now={Math.round(project.funding_raised / project.funding_goal * 100)} label={Math.round(project.funding_raised / project.funding_goal * 100) + '%'} animated />
           </div>
           </Link>
         )})}
         </div>
-        </div>
-        <h2>Dreams Backed</h2>
+        <h2 className={styles.h2}>Dreams Backed</h2>
         <div className={styles.createdProjects}>
         {allProjects.map(project => {
           for (let i = 0; i < backings.length; i++) {
-            if (backings[i].user_id === user.id) {
-            }
+            let total = 0
+          
+            console.log('total', total)
             if (project.id === backings[i].project_id && user.id === backings[i].user_id) {
               return (
                 <Link  className={styles.link} to={`/projects/${project.id}`} >
@@ -64,7 +63,7 @@ const HomePage = () => {
             <p>{project.name}</p>
             <p>Backing amount: ${backings[i].amount}</p>
             <p>Funding Raised: ${project.funding_raised}</p>
-          
+            <ProgressBar style={{ height: '1rem', backgroundColor: '#08e1ae', backgroundImage: 'linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%)' }} now={Math.round(project.funding_raised / project.funding_goal * 100)} label={Math.round(project.funding_raised / project.funding_goal * 100) + '%'} animated />
                 </div>
                 </Link>
               )

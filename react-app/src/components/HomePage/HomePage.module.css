@@ -1,63 +1,82 @@
-.overall {
-
-}
-
 .mainContent {
         width: 80%;
-        display: block;
+        /* display: flex; */
+        /* flex-direction: column; */
         position: relative;
         margin: auto;
         font-family: 'Muli', sans-serif;
 }
 
-.categories {
-    /* border-bottom: 1px solid lightgrey; */
+
+.buildDreamBtn {
+    position: relative;
+  bottom: 120px;
+  left: 50px;
+  border:greenyellow;
+  background-color: #08e1ae;
+  background-image: linear-gradient(315deg, #08e1ae 0%, #98de5b 74%);
+  /* background-color: #045de9;
+  background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%); */
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 150px;
+  transition: all ease 0.3s;
+  color: white;
+  height: 35px;
+  margin: 5px;
+      transform: translatey(0px);
+	animation: float 6s ease-in-out infinite;
+}
+
+.buildDreamBtn:hover {
+    color: #ffffff !important;
+    background-color: #fce043;
+    background-image: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);
+    transition: all 0.4s ease 0s; 
+    -webkit-transform: rotate(15deg) scale(1.4);
+	transform: rotate(0deg) scale(1.02);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+   
+}
+
+.photoDiv {
+    width: 100%;
+    height: 450px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 3px;
+}
+
+.img1 {
+    width: 100%;
+    max-height: 100%;;
+    background-image: cover;
 }
 
 .projectImg {
-    width: 180px;
-    height: 100px;
-    position: relative;
-    right: 5px;
-    bottom: 5px;
-    border-radius: 3px;;
+    width: 100%;
+    height: 200px;
 }
 
 .projectContainer {
-    /* display: inline-block;
-    padding: 15px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 280px;
-    height: 280px;
-    padding: 5px;
-    margin: 10px;
+    /* display: flex; */
+    width: 30.7%;
     position: relative;
-    font-family: 'Muli', sans-serif; */
-    display: flex;
-    padding: 15px;
-    height: 120px;
-    /* width: 150px; */
-    /* flex-direction: row; */
-    /* justify-content: space-between; */
-    align-items: center;
-    border-top: 1px solid #E3E9ED;
-    border-bottom: 1px solid #E3E9ED;
+    font-family: 'Muli', sans-serif;
+    display: inline-block;
+    margin: 15px;
+    /* box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px; */
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 
-    
 }
 
-.title {
-    /* text-align: center; */
-}
+
 
 .span {
     font-weight: 700;
 }
 
-.raised {
 
-}
 
 .details {
     overflow: hidden;
@@ -75,37 +94,62 @@
 
 .left {
         float: left;
-        width: 45%;
+        width: 40%;
 }
 
 .right {
-  overflow: hidden;
-  /* padding: 5px; */
-  max-height: 630px;
-  max-width: 55%;
-  display: flex; /*added*/
-  flex-direction: column; /*added*/
+    float: right;
+    width: 60%;
 }
 
 .projectImg2 {
     max-width: 100%;
     max-height: 100%;
+    border-radius: 3px;
 }
 
 .projects {
     position: relative;
     width: 100%;
-    height: 456px;
+    height: 370px;
     overflow: scroll;
     position: relative;
+    
 }
 
-.overall {
+.h2 {
+    /* font-size: 1.75rem;
+    line-height: 2.5rem;
+    font-weight: bold;
+    font-family: 'Muli', sans-serif; */
+    font-family:Georgia,serif;
+    color: black;
+	font-variant: small-caps; text-transform: none; font-weight: 700; margin-bottom: 0;
+    margin-left: 12px;
+    /* border-bottom: 1px solid lightgray; */
+}
+
+.spotlight {
+    width: 70%;
     position: relative;
-    top: 50px;
+    display: flex;
+    font-family: 'Muli', sans-serif;
+    margin: auto;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
-/* .left:hover {
-    text-decoration: underline greenyellow;
-    color: red;
-} */
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-20px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+}
