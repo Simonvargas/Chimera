@@ -1,10 +1,16 @@
 
-import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
-
+import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 import styles from './NavBar2.module.css'
+import { Modal } from '../../ModalContext/ModalContext';
+import LoginForm from '../auth/LoginForm';
+import SignUpForm from '../auth/SignUpForm';
+
 
 const NavBar2 = () => {
+  const [showModal1, setShowModal1] = useState(false);
+  const [showModal2, setShowModal2] = useState(false)
+
   return (
     <nav>
       <div className={styles.container}>
@@ -15,12 +21,11 @@ const NavBar2 = () => {
       </div>
 
           <div>
-          <NavLink to='/login'>
-          <button className={styles.btn}>Log in</button>
-          </NavLink>
-          <NavLink to='/sign-up'>
-          <button className={styles.btn}>Sign up</button>
-          </NavLink>
+          <button className={styles.btn} onClick={() => setShowModal1(true)}>Log In</button>
+          {showModal1 && (<Modal onClose={() => setShowModal1(false)}> <LoginForm />  </Modal>)}
+
+          <button className={styles.btn} onClick={() => setShowModal2(true)}>Sign Up</button>
+          {showModal2 && (<Modal onClose={() => setShowModal2(false)}> <SignUpForm />  </Modal>)}
           </div>
 
       </div>

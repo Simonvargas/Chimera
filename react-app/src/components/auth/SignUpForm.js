@@ -5,7 +5,7 @@ import { signUp } from '../../store/session';
 
 import styles from './SignUp.module.css'
 
-const SignUpForm = () => {
+const SignUpForm = ({setSignUp, setIsOpen}) => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -45,13 +45,18 @@ const SignUpForm = () => {
   if (user) {
     return <Redirect to='/' />;
   }
+  
+  function OpenClose() {
+    setSignUp(false)
+    setIsOpen(true)
+  }
 
   console.log(errors)
   return (
     <div className={styles.container}>
       <div className={styles.photoContainer}>
       <Link  className={styles.link} to='/'>
-      <img alt='Project' src='https://i.imgur.com/giDqQ9u.png' className={styles.h1}></img>
+      {/* <img alt='Project' src='https://i.imgur.com/giDqQ9u.png' className={styles.h1}></img> */}
       </Link>
       </div>
       <div className={styles.container2}>
@@ -107,7 +112,7 @@ const SignUpForm = () => {
       </div>
       
       <div className={styles.new}>
-          Already have an account? <Link to='/login'>Log in!</Link>
+          Already have an account? <span onClick={OpenClose}>Log in!</span>
         </div>
     </form>
     </div>

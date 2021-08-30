@@ -1,10 +1,9 @@
 import React from 'react';
 import Footer from '../Navigation/Footer';
-
 import styles from './SplashPage.module.css'
 
 const SplashPage = () => {
-
+  
   return (
        <div>
            <div className={styles.container1}>

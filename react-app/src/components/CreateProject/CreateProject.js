@@ -4,7 +4,7 @@ import { useHistory, Link } from 'react-router-dom';
 import * as projectActions from '../../store/project'
 
 import styles from './CreateProject.module.css'
-function AddEvent() {
+function AddEvent({setShowModal}) {
     const [name, setName] = useState('')
     const [image, setImage] = useState('')
     const [details, setDetails] = useState('')
@@ -16,7 +16,6 @@ function AddEvent() {
     const [errors, setErrors] = useState([])
 
     const dispatch = useDispatch();
-    const history = useHistory()
     const sessionUser = useSelector(state => state.session.user);
 
     const hostId = sessionUser?.id
@@ -39,7 +38,7 @@ function AddEvent() {
          setErrors(data)
          if (data.length === 0) {
          await dispatch(projectActions.createProject(hostId, categoryId, name, image, details, funding, raised, backers))
-         history.push('/')
+         setShowModal(false)
          }
     }
   
@@ -47,7 +46,7 @@ function AddEvent() {
   <div className={styles.container}>
       <div className={styles.photoContainer}>
       <Link  className={styles.link} to='/'>
-      <img alt='Project' src='https://i.imgur.com/giDqQ9u.png' className={styles.h1}></img>
+      {/* <img alt='Project' src='https://i.imgur.com/giDqQ9u.png' className={styles.h1}></img> */}
       </Link>
       </div>
       <div className={styles.container2}>

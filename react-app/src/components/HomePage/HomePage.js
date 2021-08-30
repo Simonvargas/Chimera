@@ -2,21 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Footer from '../Navigation/Footer';
 import { Link } from 'react-router-dom';
-
 import { getUsers } from '../../store/session';
 import { getProjects } from '../../store/project';
-
+import CreateProject from '../CreateProject/CreateProject'
 import styles from './HomePage.module.css'
-
+import { Modal } from '../../ModalContext/ModalContext';
 import { ProgressBar } from 'react-bootstrap'
 
 
 const HomePage = () => {
   const allProjects = Object.values(useSelector(state => state.project))
   const allUsers = Object.values(useSelector(state => state.session))
-
-
   const dispatch = useDispatch()
+  const [showModal, setShowModal] = useState(false);
+
   const [numba, setNumba] = useState([])
   useEffect(() => {
     dispatch(getProjects())
@@ -42,10 +41,8 @@ const HomePage = () => {
         <img className={styles.img1} src='https://i.imgur.com/0YABWBD.jpg'></img>
 
       </div>
-      <Link to='/create'>
-        <button className={styles.buildDreamBtn}>Start Project</button>
-      </Link>
-      <div className={styles.mainContent}>
+        <button onClick={() => setShowModal(true)} className={styles.buildDreamBtn }>Start Project</button>
+        {showModal && (<Modal onClose={() => setShowModal(false)} > <CreateProject setShowModal={setShowModal} />  </Modal>)}      <div className={styles.mainContent}>
         <h2 className={styles.h2}>Spotlight</h2>
         <Link className={styles.link} to={`/projects/${numba.id}`}>
         <div className={styles.spotlight}>

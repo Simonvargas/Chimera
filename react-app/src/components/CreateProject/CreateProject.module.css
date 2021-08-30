@@ -1,4 +1,4 @@
-.container {
+/* .container {
     width: 98%;
     display: block;
     margin: auto;
@@ -7,7 +7,7 @@
     margin-top: 20px;
      background-color: #f8f9d2;
      background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
-}
+} */
 
 .container2 {
     display: flex;
@@ -15,11 +15,6 @@
     justify-content: center;
     position: relative;
     margin: 0 auto;
-    bottom: 35px;
-;   border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
-    border-left: 1px solid black;
     background-color: white;
     width: 400px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 

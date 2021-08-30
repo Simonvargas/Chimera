@@ -5,7 +5,7 @@ import { login } from '../../store/session';
 
 import styles from './LoginForm.module.css'
 
-const LoginForm = () => {
+const LoginForm = ({setIsOpen, setSignUp}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -39,11 +39,15 @@ const LoginForm = () => {
     await dispatch(login(email, password))
   }
 
+  function OpenClose() {
+    setIsOpen(false)
+    setSignUp(true)
+  }
   return (
     <div className={styles.container}>
      <div className={styles.photoContainer}>
       <Link  className={styles.link} to='/'>
-      <img alt='Project' src='https://i.imgur.com/giDqQ9u.png' className={styles.h1}></img>
+      {/* <img alt='Project' src='https://i.imgur.com/giDqQ9u.png' className={styles.h1}></img> */}
       </Link>
       </div>
       <div className={styles.container2}>
@@ -75,7 +79,7 @@ const LoginForm = () => {
         <p className={styles.p}><span className={styles.span}>Or</span></p>
         <button onClick={loginDemoUser} className={styles.btn2}>Log in as Demo User</button>
         <p>Log in and being creating wonderful projects</p>
-        <p className={styles.new}>New to Chimera? <Link to='/sign-up'>Sign up!</Link></p>
+        <p className={styles.new}>New to Chimera? <span onClick={OpenClose}>Sign up!</span></p>
       </div>
     </form>
     </div>

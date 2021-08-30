@@ -13,6 +13,8 @@ import Profile from './components/Profile/Profile'
 import Details from './components/Details/Details'
 import NotFound from './components/NotFound/NotFound';
 
+import { ModalProvider } from './ModalContext/ModalContext'
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -29,6 +31,8 @@ function App() {
   }
 
   return (
+    <ModalProvider>
+
     <BrowserRouter>
       <Switch>
 
@@ -70,6 +74,7 @@ function App() {
 
       </Switch>
     </BrowserRouter>
+    </ModalProvider>
   );
 }
 
