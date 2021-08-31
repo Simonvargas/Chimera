@@ -115,7 +115,6 @@
 .projectImg2 {
     max-width: 100%;
     max-height: 100%;
-    border-radius: 3px;
 }
 
 .projects {
@@ -130,7 +129,7 @@
 .progressBar {
     position:absolute;
     bottom: 0;
-    width: 60%;
+    width: 60.1%;
 }
 
 .h2 {
@@ -151,7 +150,6 @@
     display: flex;
     font-family: 'Muli', sans-serif;
     margin: auto;
-    border-radius: 6px;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
