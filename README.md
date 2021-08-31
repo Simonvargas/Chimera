@@ -50,21 +50,21 @@ Be able to view specific projects and its details
 Add a new Projects to the database
 ![Add Project](./readme-assets/images/project-add.jpg)
 
-### Update && Delete Projects
+### Update & Delete Projects
 On a specific project page, if you own the project, you are able to update your project details or delete the project.
-![Project](./readme-assets/images/updateProject.png)
+![update a project](./readme-assets/images/updateProject.jpg)
 
 ### Support a Project
 You can give to support to project by hitting the support button, specifying an amount and leaving an optional comment. 
-![Project](./readme-assets/images/support.png)
+![Project](./readme-assets/images/support.jpg)
 
 ### View your support
 Donations and comments will populate in the backers & donations section in the project page
-![Donations & Comments](./readme-assets/images/comments.png)
+![Donations & Comments](./readme-assets/images/comments.jpg)
 
 ## Edit and Delete your support
 In the backers & donations section, one can hit either the trash can icon to delete support or edit to update the comment posted.
-![Donations & Comments](./readme-assets/images/edit&delete.png)
+![Donations & Comments](./readme-assets/images/edit&delete.jpg)
 
 
 ## Installation
