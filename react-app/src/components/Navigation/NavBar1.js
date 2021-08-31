@@ -35,7 +35,7 @@ const NavBar1 = () => {
           </Link>
         </div>
         <div className={styles.endContainer}>
-        <button className={styles.btn} onClick={() => setShowModal(true)}>Start a Project</button>
+        <button className={styles.btn} onClick={() => setShowModal(true)}>Start Project</button>
           {showModal && (<Modal onClose={() => setShowModal(false)}> <CreateProject setShowModal={setShowModal}/>  </Modal>)}
           
           <Link className={styles.link} to='/profile'>
