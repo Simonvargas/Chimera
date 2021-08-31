@@ -7,9 +7,16 @@ const Footer = () => {
     <div>
        <div className={styles.container}>
          <div className={styles.startContainer}>
-         <p className={styles.start}>Github</p>
-         <p className={styles.start}>LinkedIn</p>
-         <p className={styles.start}>Angel's List</p>
+            <a target="_blank" className={styles.items} href="https://www.linkedin.com/in/simon-vargas-aa0b6a14b/"> Linkedin 
+            <span className={styles.items2} ><i class="fab fa-linkedin"></i></span>
+            </a>
+            <a target="_blank" className={styles.items} href="https://github.com/Simonvargas">Github 
+            <span className={styles.items2}><i class="fab fa-github-alt"></i></span>
+            </a>
+          
+            <a target="_blank" className={styles.items} href="https://angel.co/u/simon-vargas">Angellist 
+           <span className={styles.items2}><i  class="fab fa-angellist"></i></span> 
+            </a>
          </div>
         </div>
     </div>
