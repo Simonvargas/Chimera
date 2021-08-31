@@ -34,7 +34,7 @@ Chimera is a platform that allows people to raise money for events ranging from 
 ## Features
 
 ### Sign In and Sign Up
-![Sign Up](./readme-assets/images/signup.jpg)
+![Sign Up](./readme-assets/images/sign.jpg)
 ![Login](./readme-assets/images/login.jpg)
 
 ### Feed Page
