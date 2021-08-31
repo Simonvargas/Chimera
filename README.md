@@ -187,7 +187,7 @@ The donation post also updates the project funding amount which will automatical
 
 ## Contact
 
-### {Your Name}
+### Simon Vargas
 <a href="https://www.linkedin.com/in/simon-vargas-aa0b6a14b/"><img src="./readme-assets/logos/linkedin-logo.png" height="28" align="middle" /></a>
 <a href="https://angel.co/u/simon-vargas"><img src="./readme-assets/logos/angellist-logo.png" height="28" align="middle" /></a>
 <a href="https://github.com/Simonvargas"><img src="./readme-assets/logos/github-logo.png" height="38" align="middle" /></a>
