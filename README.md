@@ -44,19 +44,19 @@ Discover and search for new projects to help build
 
 ### View Projects
 Be able to view specific projects and its details
-![{resource-1} Page](./readme-assets/images/project.jpg)
+![Project Page](./readme-assets/images/project.jpg)
 
 ### Add Projects
 Add a new Projects to the database
-![Add {resource-1}](./readme-assets/images/project-add.jpg)
+![Add Project](./readme-assets/images/project-add.jpg)
 
 ### Update && Delete Projects
 On a specific project page, if you own the project, you are able to update your project details or delete the project.
-![{resource-2-plural}](./readme-assets/images/updateProject.png)
+![Project](./readme-assets/images/updateProject.png)
 
 ### Support a Project
 You can give to support to project by hitting the support button, specifying an amount and leaving an optional comment. 
-[{resource-2-plural}](./readme-assets/images/support.png)
+[Project](./readme-assets/images/support.png)
 
 ### View your support
 Donations and comments will populate in the backers & donations section in the project page
