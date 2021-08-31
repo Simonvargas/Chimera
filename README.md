@@ -56,15 +56,15 @@ On a specific project page, if you own the project, you are able to update your 
 
 ### Support a Project
 You can give to support to project by hitting the support button, specifying an amount and leaving an optional comment. 
-[Project](./readme-assets/images/support.png)
+![Project](./readme-assets/images/support.png)
 
 ### View your support
 Donations and comments will populate in the backers & donations section in the project page
-[{resource-2-plural}](./readme-assets/images/comments.png)
+![Donations & Comments](./readme-assets/images/comments.png)
 
 ## Edit and Delete your support
 In the backers & donations section, one can hit either the trash can icon to delete support or edit to update the comment posted.
-[{resource-2-plural}](./readme-assets/images/edit&delete.png)
+![Donations & Comments](./readme-assets/images/edit&delete.png)
 
 
 ## Installation
