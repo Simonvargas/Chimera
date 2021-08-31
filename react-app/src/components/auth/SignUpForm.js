@@ -22,7 +22,7 @@ const SignUpForm = ({setShowModal2, setShowModal1}) => {
         setErrors(data)
       }
     } else {
-      setErrors(["Passwords do no match!"]);
+      setErrors(["Passwords do not match!"]);
     }
   };
 
