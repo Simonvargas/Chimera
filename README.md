@@ -3,7 +3,7 @@
 </p>
 
 # Chimeras
-Chimera is a short description of the app. It is a fullstack React App made with a Redux state manager and a backend using Python, Flask, SQL-Alchemy, and PostgresSQL and any other technologies. 
+Chimera is a platform that allows people to raise money for events ranging from life events such as celebrations and graduations to challenging circumstances like accidents and illnesses.. It is a fullstack React App made with a Redux state manager and a backend using Python, Flask, SQL-Alchemy, and PostgresSQL and any other technologies. 
 
 * View the <a href='https://chimeras-app.herokuapp.com/'>Chimeras</a> App Live
 
@@ -42,24 +42,30 @@ Chimera feed displays all projects and situations people need aid for.
 Discover and search for new projects to help build
 ![Feed Page](./readme-assets/images/feed.jpg)
 
-### View {resource-1}
-Single {resource-1} of name, photos, {resource-2-plural}
-![{resource-1} Page](./readme-assets/images/{resource-1}-page.jpg)
+### View Projects
+Be able to view specific projects and its details
+![{resource-1} Page](./readme-assets/images/project.jpg)
 
-### Add {resource-1}
-Add a new {resource-1} to the database
-![Add {resource-1}](./readme-assets/images/{resource-1}-add.jpg)
-Cancel adding {resource-1}
-![Cancel Add {resource-1}](./readme-assets/images/{resource-1}-add-cancel.jpg)
+### Add Projects
+Add a new Projects to the database
+![Add {resource-1}](./readme-assets/images/project-add.jpg)
 
-### Create, Read, Update, Delete {resource-1} {resource-2-plural}
-View {resource-2-plural}
-![{resource-2-plural}](./readme-assets/images/{resource-2-plural}.png)
-Edit and Add {resource-2-plural} in the database
-![Edit {resource-2-plural}](./readme-assets/images/{resource-2-plural}-edit.png)
-![Add {resource-2-plural}](./readme-assets/images/{resource-2-plural}-add.png)
+### Update && Delete Projects
+On a specific project page, if you own the project, you are able to update your project details or delete the project.
+![{resource-2-plural}](./readme-assets/images/updateProject.png)
 
-* Add any more features here
+### Support a Project
+You can give to support to project by hitting the support button, specifying an amount and leaving an optional comment. 
+[{resource-2-plural}](./readme-assets/images/support.png)
+
+### View your support
+Donations and comments will populate in the backers & donations section in the project page
+[{resource-2-plural}](./readme-assets/images/comments.png)
+
+## Edit and Delete your support
+In the backers & donations section, one can hit either the trash can icon to delete support or edit to update the comment posted.
+[{resource-2-plural}](./readme-assets/images/edit&delete.png)
+
 
 ## Installation
 To build/run project locally, please follow these steps:
