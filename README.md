@@ -127,13 +127,11 @@ npm start
 ## Technical Implementation Details
 
 ### Update
-Description 1
 
-Part of code is shown below:
+Put is working by information being sent over through our store and updating our tables with the associated ID that has been sent over.
 
 ```python
-print
-(@project_routes.route('/edit/<int:id>', methods=['PUT'])
+@project_routes.route('/edit/<int:id>', methods=['PUT'])
 @login_required
 def update_project(id):
     res = Project.query.get(id)
@@ -149,21 +147,36 @@ def update_project(id):
     return res.to_dict())
 ```
 
-Description 2
+## Posting Donations
+
+The donation post also updates the project funding amount which will automatically update the progress bar to reflect the change in the added amount
 
 ```javascript
-print('add code snippet 2 here')
+ async function post(e){
+        e.preventDefault()
+        const updateAmount = Number(project.funding_raised) + Number(amount)
+        const updateBackers = Number(project.backers + 1)
+        const data = []
+        if (amount < 1 || amount.toString()[0] == 0) {
+          data.push('Your donation must be at least 1 one dollar')
+        } 
+        if (hostId === project.user_id) {
+          data.push('You cannot donate to your own cause')
+        }
+        setErrors(data)
+        
+        if (data.length === 0) {
+        await dispatch(backingActions.createBacking(hostId, id, amount, comment))
+        await dispatch(projectActions.editProjectFunding(updateAmount, updateBackers, id))
+        if (toggle) {
+          setToggle(false)
+        } else {
+          setToggle(true)
+        }
+        setShowForm2(false)
+      }
+    }
 ```
-
-### {Detail 2}
-Description 1
-
-Code snippet is shown here:
-
-```javascript
-print('add code snippet 1 here')
-```
-
 
 ## Future Features
 
