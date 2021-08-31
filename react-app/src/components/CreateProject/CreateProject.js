@@ -17,7 +17,7 @@ function AddEvent({setShowModal}) {
 
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-
+  const history = useHistory()
     const hostId = sessionUser?.id
     
     const projectCreate = async (e) => {
@@ -39,6 +39,11 @@ function AddEvent({setShowModal}) {
          if (data.length === 0) {
          await dispatch(projectActions.createProject(hostId, categoryId, name, image, details, funding, raised, backers))
          setShowModal(false)
+         setName('')
+         setImage('')
+         setDetails('')
+         setCategory(1)
+         setFunding('')
          }
     }
   

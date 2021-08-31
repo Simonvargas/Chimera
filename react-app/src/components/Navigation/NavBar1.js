@@ -7,9 +7,19 @@ import styles from './NavBar1.module.css'
 import { Modal } from '../../ModalContext/ModalContext';
 import CreateProject from '../CreateProject/CreateProject'
 
+import Rodal from 'rodal';
+
 const NavBar1 = () => {
   const user = useSelector(state => state.session.user)
   const [showModal, setShowModal] = useState(false);
+
+  function show(){
+    setShowModal(true)
+  }
+  function hide() {
+    setShowModal(false)
+  }
+
 
   return (
     <nav>
@@ -35,9 +45,13 @@ const NavBar1 = () => {
           </Link>
         </div>
         <div className={styles.endContainer}>
-        <button className={styles.btn} onClick={() => setShowModal(true)}>Start a Project</button>
-          {showModal && (<Modal onClose={() => setShowModal(false)}> <CreateProject setShowModal={setShowModal}/>  </Modal>)}
-          
+          <button className={styles.btn} onClick={show}>Start Project</button>
+
+          <Rodal showCloseButton={false} className={styles.rodal} animation='rotate' visible={showModal} onClose={hide}>
+            <div className={styles.rodal}>
+              <CreateProject setShowModal={setShowModal} />
+            </div>
+          </Rodal>
           <Link className={styles.link} to='/profile'>
             <p className={styles.start}>Welcome, {user.username}! </p>
           </Link>

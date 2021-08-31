@@ -9,6 +9,7 @@ import styles from './HomePage.module.css'
 import { Modal } from '../../ModalContext/ModalContext';
 import { ProgressBar } from 'react-bootstrap'
 
+import Rodal from 'rodal';
 
 const HomePage = () => {
   const allProjects = Object.values(useSelector(state => state.project))
@@ -34,6 +35,12 @@ const HomePage = () => {
     })()
   }, [])
 
+  function show(){
+    setShowModal(true)
+  }
+  function hide() {
+    setShowModal(false)
+  }
 
   return (
     <div className={styles.overall1}>
@@ -41,8 +48,16 @@ const HomePage = () => {
         <img className={styles.img1} src='https://i.imgur.com/0YABWBD.jpg'></img>
 
       </div>
-        <button onClick={() => setShowModal(true)} className={styles.buildDreamBtn }>Start Project</button>
-        {showModal && (<Modal onClose={() => setShowModal(false)} > <CreateProject setShowModal={setShowModal} />  </Modal>)}      <div className={styles.mainContent}>
+      <button className={styles.buildDreamBtn} onClick={show}>Start Project</button>
+
+          <Rodal showCloseButton={false} className={styles.rodal} animation='rotate' visible={showModal} onClose={hide}>
+            <div className={styles.rodal}>
+              <CreateProject setShowModal={setShowModal} />
+            </div>
+          </Rodal>
+        {/* <button onClick={() => setShowModal(true)} className={styles.buildDreamBtn }>Start Project</button> */}
+        {/* {showModal && (<Modal onClose={() => setShowModal(false)} > <CreateProject setShowModal={setShowModal} />  </Modal>)}       */}
+        <div className={styles.mainContent}>
         <h2 className={styles.h2}>Spotlight</h2>
         <Link className={styles.link} to={`/projects/${numba.id}`}>
         <div className={styles.spotlight}>

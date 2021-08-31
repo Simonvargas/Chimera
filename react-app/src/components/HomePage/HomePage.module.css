@@ -159,3 +159,10 @@
 		transform: translatey(0px);
 	}
 }
+
+.rodal {
+    position: relative;
+    top: -90px;
+    right: 15px;
+    padding: -40px;
+}
