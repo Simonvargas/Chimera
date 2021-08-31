@@ -126,13 +126,27 @@ npm start
 
 ## Technical Implementation Details
 
-### {Detail 1}
+### Update
 Description 1
 
 Part of code is shown below:
 
 ```python
-print('add code snippet 1 here')
+print
+(@project_routes.route('/edit/<int:id>', methods=['PUT'])
+@login_required
+def update_project(id):
+    res = Project.query.get(id)
+    form = ProjectForm()
+
+    res.user_id = form.data['user_id']
+    res.category_id = form.data['category_id']
+    res.name = form.data['name']
+    res.image = form.data['image']
+    res.details = form.data['details']
+    res.funding_goal = form.data['funding_goal']
+    db.session.commit()
+    return res.to_dict())
 ```
 
 Description 2
