@@ -112,7 +112,8 @@
     position: relative;
     width: 100%;
     height: 370px;
-    overflow: scroll;
+    overflow-x: auto;
+    white-space: nowrap;
     position: relative;
     
 }
