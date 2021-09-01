@@ -50,7 +50,7 @@ const HomePage = () => {
       </div>
       <button className={styles.buildDreamBtn} onClick={show}>Start Project</button>
 
-          <Rodal showCloseButton={false} className={styles.rodal} animation='rotate' visible={showModal} onClose={hide}>
+          <Rodal showCloseButton={false} className={styles.rodal} animation='door' visible={showModal} onClose={hide}>
             <div className={styles.rodal}>
               <CreateProject setShowModal={setShowModal} />
             </div>

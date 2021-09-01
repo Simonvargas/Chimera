@@ -50,7 +50,7 @@ const NavBar1 = ({isVisible}) => {
           
         <button className={styles.btn} onClick={show}>Start Project</button>
         
-        <Rodal closeOnEsc={true} clasName={styles.ro} showCloseButton={false} className={styles.rodal} animation='rotate' visible={showModal} onClose={hide}>
+        <Rodal closeOnEsc={true} clasName={styles.ro} showCloseButton={false} className={styles.rodal} animation='door' visible={showModal} onClose={hide}>
             <div className={styles.rodal}>
               <CreateProject />
             </div>
