@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import {  Link } from 'react-router-dom';
 import * as projectActions from '../../store/project'
-import NavBar
- from '../Navigation/NavBar';
 import styles from './CreateProject.module.css'
 function AddEvent({setShowModal, showModal}) {
     const [name, setName] = useState('')

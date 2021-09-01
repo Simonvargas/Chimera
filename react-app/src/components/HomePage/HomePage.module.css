@@ -111,7 +111,7 @@
 
 .right {
     float: right;
-    width: 50%;
+    width: 58%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -140,7 +140,7 @@
 .progressBar {
     position:absolute;
     bottom: 0;
-    width: 50%;
+    width: 53.7%;
 }
 
 .h2 {
