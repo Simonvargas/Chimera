@@ -29,7 +29,6 @@ const Details = () => {
   const [comment, setComment] = useState('')
 
 
-  const [value, setValue] = useState('')
   const format = amount => {
     return Number(amount)
       .toFixed(2)
@@ -64,7 +63,6 @@ const Details = () => {
   async function deleteProject(){
     await dispatch(removeProject(Number(id)))
     history.push('/')
-    // await dispatch(projectActions.getProjects())
     
   }
 
@@ -113,6 +111,7 @@ const Details = () => {
   return (
     <>
     <NavBar />
+    <br></br>
     <div className={styles.overall}>
       <div className={styles.mainContent}>
         <div className={styles.categories}>
@@ -127,13 +126,16 @@ const Details = () => {
         : ''}
         </div>
         </div>
-        
+        <br></br>
         <div className={styles.left}>
         <div className={styles.commentsContainer}>
         <img alt='Project' className={styles.photo} src={project.image}></img>
+        <br></br>
+        <br></br>
+        <br></br>
         <p className={styles.text}>About dream</p>
         <div className={styles.text}>{project.details}</div>
-       
+       <br></br>
         <h2>Backers Donations & Comments</h2>
           <div>
             {backings?.map(backing => {
@@ -148,8 +150,8 @@ const Details = () => {
                     <p >{backing.comment}</p>
                     </div>
                     <div  value={backing.id} className='hi'>
-                     {user.id === backing.user_id ? <i  onClick={(e) => (show3(e), setIdOf(backing.id))}  id={backing.id} className="icon fas fa-edit"></i> : ''}
-                     {user.id === backing.user_id ? <i  hello={backing.amount} onClick={deleteBacking} id={backing.id} className="icon fas fa-trash"></i> : ''}
+                     {user.id === backing.user_id ? <span className={styles.items}><i  onClick={(e) => (show3(e), setIdOf(backing.id))}  id={backing.id} className="icon fas fa-edit fa-lg"></i></span> : ''}
+                     {user.id === backing.user_id ? <span className={styles.items}><i  hello={backing.amount} onClick={deleteBacking} id={backing.id} className="icon fas fa-trash fa-lg"></i> </span>: ''}
                      
                
 
@@ -161,8 +163,8 @@ const Details = () => {
 })}
                    {showForm3 ? <div className={styles.inputBox}>
                     <input className={styles.input} onChange={(e) => setComment(e.target.value)} value={comment} placeholder="comment"></input>
-                    <button className={styles.btn3} onClick={update}><i class="fas fa-paper-plane"></i></button>
-                    <button className={styles.btn3} onClick={() => setShowForm3(false)}><i class="fas fa-trash"></i></button>
+                    <button className={styles.btn3} onClick={update}><i className="fas fa-paper-plane"></i></button>
+                    <button className={styles.btn3} onClick={() => setShowForm3(false)}><i className="fas fa-trash"></i></button>
                     </div> : ''}
           </div>
          

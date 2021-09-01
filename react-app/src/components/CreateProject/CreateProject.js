@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, Link } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 import * as projectActions from '../../store/project'
 
 import styles from './CreateProject.module.css'
@@ -17,7 +17,6 @@ function AddEvent({setShowModal}) {
 
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-  const history = useHistory()
     const hostId = sessionUser?.id
     
     const projectCreate = async (e) => {
@@ -55,7 +54,7 @@ function AddEvent({setShowModal}) {
       </Link>
       </div>
       <div className={styles.container2}>
-    <form  onclassName={styles.inputForm}>
+    <form  className={styles.inputForm}>
     <div className={styles.errors1}>
       {errors.map(err =>( <ul><li>{err}</li></ul>))}
       </div>

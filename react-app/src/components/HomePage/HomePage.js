@@ -65,11 +65,12 @@ const HomePage = () => {
             <img alt='Project' className={styles.projectImg2} src={numba.image}></img>
           </div>
           <div className={styles.right}>
-            <p>{numba.name}</p>
+            <p className={styles.title}>{numba.name}</p>
+            {/* <p className={styles.details}>{numba.details}</p> */}
             {allUsers.map(user => {
               if (user.id === numba.user_id) {
                 return (
-                  <p>by {user.username}</p>
+                  <p key={user.id} className={styles.spotlightWords}>by {user.username[0].toUpperCase() + user.username.slice(1)}</p>
                 )
               }
             })}
@@ -87,7 +88,7 @@ const HomePage = () => {
         <div className={styles.projects}>
           {allProjects?.map(projects =>
 
-            <Link className={styles.link} to={`/projects/${projects.id}`}>
+            <Link key={projects.id} className={styles.link} to={`/projects/${projects.id}`}>
               <div className={styles.projectContainer}>
                 <img alt='Project' className={styles.projectImg} src={projects.image}></img>
                 <p className={styles.title}>{projects.name}</p>

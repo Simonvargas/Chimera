@@ -13,8 +13,8 @@
   bottom: 120px;
   left: 50px;
   border:greenyellow;
-  background-color: #08e1ae;
-  background-image: linear-gradient(315deg, #08e1ae 0%, #98de5b 74%);
+  background-color: #fce043;
+  background-image: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);
   /* background-color: #045de9;
   background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%); */
   font-size: 16px;
@@ -31,8 +31,9 @@
 
 .buildDreamBtn:hover {
     color: #ffffff !important;
-    background-color: #fce043;
-    background-image: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);
+   
+     background-color: #045de9;
+    background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%); 
     transition: all 0.4s ease 0s; 
     -webkit-transform: rotate(15deg) scale(1.4);
 	transform: rotate(0deg) scale(1.02);
@@ -59,15 +60,22 @@
 }
 
 .projectContainer {
-    /* display: flex; */
     width: 30.7%;
     position: relative;
     font-family: 'Muli', sans-serif;
     display: inline-block;
     margin: 15px;
-    /* box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px; */
-        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+     background-color: #f8f9d2;
+     background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
 
+}
+
+.projectContainer:hover {
+    -webkit-transform: rotate(15deg) scale(1.4);
+	transform: rotate(0deg) scale(1.02);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
 }
 
 
@@ -82,7 +90,7 @@
     overflow: hidden;
    text-overflow: ellipsis;
    display: -webkit-box;
-   -webkit-line-clamp: 1; /* number of lines to show */
+   -webkit-line-clamp: .5; /* number of lines to show */
    -webkit-box-orient: vertical;
 
 }
@@ -91,21 +99,32 @@
     text-decoration: none;
     color: black;
 }
-
+.link:hover {
+    text-decoration: none;
+    color: black;
+   
+}
 .left {
         float: left;
-        width: 40%;
+        width: 50%;
 }
 
 .right {
     float: right;
-    width: 60%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: #d5fefd;
+    background-image: linear-gradient(315deg, #d5fefd 0%, #fffcff 74%); */
+    /* background-color: #f8f9d2;
+    background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%); */
 }
 
 .projectImg2 {
     max-width: 100%;
-    max-height: 100%;
-    border-radius: 3px;
+    height: 300px
 }
 
 .projects {
@@ -116,11 +135,12 @@
     white-space: nowrap;
     position: relative;
     
+    
 }
 .progressBar {
     position:absolute;
     bottom: 0;
-    width: 60%;
+    width: 50%;
 }
 
 .h2 {
@@ -131,20 +151,31 @@
     font-family:Georgia,serif;
     color: black;
 	font-variant: small-caps; text-transform: none; font-weight: 700; margin-bottom: 0;
-    margin-left: 12px;
+    /* margin-left: 12px; */
     /* border-bottom: 1px solid lightgray; */
+    text-align: center;
+    padding: 20px;
 }
 
 .spotlight {
-    width: 70%;
+    width: 75%;
+    height: 300px; 
     position: relative;
     display: flex;
     font-family: 'Muli', sans-serif;
     margin: auto;
-    border-radius: 6px;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; */
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    background-color: #f8f9d2;
+    background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
 }
 
+.spotlight:hover {
+    -webkit-transform: rotate(15deg) scale(1.4);
+	transform: rotate(0deg) scale(1.02);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
 @keyframes float {
 	0% {
 		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
@@ -160,9 +191,18 @@
 	}
 }
 
-.rodal {
-    position: relative;
-    top: -90px;
-    right: 15px;
-    padding: -40px;
+.title {
+  font-family: 'Trocchi', serif; 
+  font-size: 23px; 
+  font-weight: normal; 
+  line-height: 48px; 
+  margin: 0;
+}
+
+.right > .title{
+  text-align: center;
+  }
+
+.spotlightWords {
+    text-align: center;
 }

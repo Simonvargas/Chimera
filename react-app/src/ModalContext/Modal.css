@@ -19,11 +19,6 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.7);
   }
-  
-  #modal-content {
-    position: absolute;
-    background-color:white;
-  }
 
   #modal-background.onClose {
     animation: 1s slideDown;
@@ -42,4 +37,15 @@
     }
   }
   
+  @keyframes modalSlide1 {
+    from {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  
+    to {
+      transform: translateY(50%);
+      opacity: 0;
+    }
+  }
   

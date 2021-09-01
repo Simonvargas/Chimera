@@ -7,8 +7,14 @@
     height: 70px;
     padding: 10px;
     /* box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px; */
-    /* background-color: #f6f6f6;
-background-image: linear-gradient(315deg, #f6f6f6 0%, #e9e9e9 74%); */
+    /* background-color: #bbf0f3;
+    background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%); */
+    /* background-color: #d5fefd;
+    background-image: linear-gradient(315deg, #d5fefd 0%, #fffcff 74%); */
+    background-color: #f8f9d2;
+    background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
+
+    
 }   
 
 .start {
@@ -37,9 +43,12 @@ background-image: linear-gradient(315deg, #f6f6f6 0%, #e9e9e9 74%); */
 
 .btn {
     border:greenyellow;
-    background-color: #f8f9d2;
-    background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
+    /* background-color: #f8f9d2;
+    background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%); */
+    background-color: #fce043;
+  background-image: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);
     color: black;
+    /* color: white; */
     font-size: 16px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -51,8 +60,8 @@ background-image: linear-gradient(315deg, #f6f6f6 0%, #e9e9e9 74%); */
 
 .btn:hover {
     color: #ffffff !important;
-    background-color: #08e1ae;
-    background-image: linear-gradient(315deg, #08e1ae 0%, #98de5b 74%);
+    background-color: #045de9;
+    background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
     transition: all 0.4s ease 0s;
 }
 

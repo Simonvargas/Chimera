@@ -10,7 +10,7 @@ const LogoutButton = () => {
     await dispatch(logout());
   };
 
-  return <Link className={styles.btn3} onClick={onLogout}>Logout</Link>;
+  return <Link to='/' className={styles.btn3} onClick={onLogout}>Logout</Link>;
 };
 
 export default LogoutButton;

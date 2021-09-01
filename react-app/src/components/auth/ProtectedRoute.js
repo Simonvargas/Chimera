@@ -7,7 +7,7 @@ const ProtectedRoute = props => {
   
   return (
     <Route {...props}>
-      {(user)? props.children  : <Redirect to='/' />}
+      {(user)? props.children  : <Redirect to='/git' />}
     </Route>
   )
 };
