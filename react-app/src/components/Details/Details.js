@@ -64,7 +64,6 @@ const Details = () => {
   async function deleteProject(){
     await dispatch(removeProject(Number(id)))
     history.push('/')
-    // await dispatch(projectActions.getProjects())
     
   }
 

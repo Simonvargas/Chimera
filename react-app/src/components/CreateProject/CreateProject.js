@@ -50,7 +50,7 @@ function AddEvent({setShowModal}) {
       </Link>
       </div>
       <div className={styles.container2}>
-    <form  onclassName={styles.inputForm}>
+    <form  className={styles.inputForm}>
     <div className={styles.errors1}>
       {errors.map(err =>( <ul><li>{err}</li></ul>))}
       </div>
