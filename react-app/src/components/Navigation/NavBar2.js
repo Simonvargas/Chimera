@@ -19,11 +19,11 @@ const NavBar2 = () => {
 
 
   function show() {
-    setShow(true)
+    setShowModal1(true)
   }
 
   function hide() {
-    setShow(false)
+    setShowModal1(false)
   }
 
   function show1() {
@@ -46,7 +46,7 @@ const NavBar2 = () => {
         <div>
           <button className={styles.btn} onClick={show}>Log In</button>
 
-          <Rodal closeOnEsc={true} clasName={styles.ro} showCloseButton={false} className={styles.rodal} animation='rotate' visible={shows} onClose={hide}>
+          <Rodal closeOnEsc={true} clasName={styles.ro} showCloseButton={false} className={styles.rodal} animation='rotate' visible={showModal1} onClose={hide}>
             <div className={styles.rodal}>
               <LoginForm setShowModal2={setShowModal2} setShowModal1={setShowModal1}/>
             </div>
