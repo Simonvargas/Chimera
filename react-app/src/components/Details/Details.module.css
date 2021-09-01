@@ -168,12 +168,13 @@
 }
 
 .input {
-    background-color: #eee;
+    background-color: lightgray;
 	border: none;
 	/* border-radius: 5px; */
 	padding: 8px 10px;
-	margin: 8px 0;
-	width: 80%;
+	/* margin: 8px 0; */
+	width: 95%;
+    margin-left: 2px;
 }
 
 .btn3 {
@@ -216,6 +217,9 @@
 
 .inputBox {
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .h2 {
@@ -248,4 +252,15 @@
 .items:hover {
    color: red !important;
 
+}
+
+.rodal {
+    position: relative;
+    width: 150%;
+    /* margin: auto; */
+    /* z-index: 101; */
+    /* padding: 0px !important; */
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
+    background-color: white
 }

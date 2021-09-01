@@ -40,6 +40,16 @@ const HomePage = () => {
   function hide() {
     setShowModal(false)
   }
+  // {showForm3 ?
+  //   <Rodal showCloseButton={false} className={styles.rodal} animation='door' visible={showForm3} onClose={setShowForm3(false)}>
+  //     <div className={styles.rodal}>
+  //       {/* <div className={styles.inputBox}> */}
+  //         <input value={comment} className={styles.input} onChange={(e) => setComment(e.target.value)}  ></input>
+  //         <button className={styles.btn3} onClick={update}><i className="fas fa-paper-plane"></i></button>
+  //         <button className={styles.btn3} onClick={() => setShowForm3(false)}><i className="fas fa-trash"></i></button>
+  //       {/* </div> */}
+  //     </div>
+  //   </Rodal> : ''}
 
   return (
     <div className={styles.overall1}>

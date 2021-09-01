@@ -19,7 +19,6 @@ function AddEvent({setShowModal, showModal}) {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const hostId = sessionUser?.id
-  console.log('showmodal,', showModal)
     
     useEffect(() => {
       const data = []
