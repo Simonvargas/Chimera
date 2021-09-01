@@ -88,7 +88,6 @@ const BackingReducer = (state = initialState, action) => {
             }
         case LOAD_BACKING:
             const all = {...state};
-            console.log('action', action.backing.users)
             action.backing.Backings.forEach((oneBacking) => {
                 all[oneBacking.id] = oneBacking;
                 
