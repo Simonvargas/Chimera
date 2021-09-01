@@ -52,7 +52,7 @@ const NavBar1 = ({isVisible}) => {
         
         <Rodal closeOnEsc={true} clasName={styles.ro} showCloseButton={false} className={styles.rodal} animation='door' visible={showModal} onClose={hide}>
             <div className={styles.rodal}>
-              <CreateProject />
+              <CreateProject setShowModal={setShowModal}/>
             </div>
           </Rodal>
 
