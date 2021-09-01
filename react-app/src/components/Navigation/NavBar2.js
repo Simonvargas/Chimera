@@ -47,7 +47,7 @@ const NavBar2 = () => {
 
           <Rodal closeOnEsc={true} clasName={styles.ro} showCloseButton={false} className={styles.rodal} animation='rotate' visible={showModal1} onClose={hide}>
             <div className={styles.rodal}>
-              <LoginForm setShowModal2={setShowModal2} setShowModal1={setShowModal1}/>
+              <LoginForm showModal1={showModal1} setShowModal2={setShowModal2} setShowModal1={setShowModal1}/>
             </div>
           </Rodal>
 
@@ -55,7 +55,7 @@ const NavBar2 = () => {
 
           <Rodal showCloseButton={false}  animation='rotate' visible={showModal2} onClose={hide1}>
             <div className={styles.rodal}>
-              <SignUpForm setShowModal2={setShowModal2} setShowModal1={setShowModal1}/>
+              <SignUpForm showModal2={showModal2} setShowModal2={setShowModal2} setShowModal1={setShowModal1}/>
             </div>
           </Rodal>
         </div>

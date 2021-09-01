@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, Link } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
 import styles from './SignUp.module.css'
 
-const SignUpForm = ({setShowModal2, setShowModal1}) => {
+const SignUpForm = ({showModal2, setShowModal2, setShowModal1}) => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -25,6 +25,12 @@ const SignUpForm = ({setShowModal2, setShowModal1}) => {
       setErrors(["Passwords do not match!"]);
     }
   };
+
+  useEffect(() => {
+    const data = []
+    if (!showModal2)
+    setErrors(data)
+  }, [showModal2])
 
   const updateUsername = (e) => {
     setUsername(e.target.value);

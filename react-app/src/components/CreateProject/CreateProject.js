@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import {  Link } from 'react-router-dom';
 import * as projectActions from '../../store/project'
 import NavBar
  from '../Navigation/NavBar';
 import styles from './CreateProject.module.css'
-function AddEvent({setShowModal}) {
+function AddEvent({setShowModal, showModal}) {
     const [name, setName] = useState('')
     const [image, setImage] = useState('')
     const [details, setDetails] = useState('')
@@ -19,6 +19,13 @@ function AddEvent({setShowModal}) {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const hostId = sessionUser?.id
+  console.log('showmodal,', showModal)
+    
+    useEffect(() => {
+      const data = []
+      if (showModal === false) {
+        setErrors(data)
+   }}, [showModal])
     
     const projectCreate = async (e) => {
          e.preventDefault()
@@ -51,6 +58,7 @@ function AddEvent({setShowModal}) {
          setCategory(1)
          setFunding('')
          }
+
     }
   
   return  (

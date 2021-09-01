@@ -51,7 +51,7 @@ const NavBar1 = () => {
         
         <Rodal closeOnEsc={true} clasName={styles.ro} showCloseButton={false} className={styles.rodal} animation='door' visible={showModal} onClose={hide}>
             <div className={styles.rodal}>
-              <CreateProject setShowModal={setShowModal}/>
+              <CreateProject showModal={showModal} setShowModal={setShowModal}/>
             </div>
           </Rodal>
 

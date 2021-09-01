@@ -16,7 +16,6 @@ const HomePage = () => {
   const allUsers = Object.values(useSelector(state => state.session))
   const dispatch = useDispatch()
   const [showModal, setShowModal] = useState(false);
-  const [errors, setErrors] = useState([])
   const [numba, setNumba] = useState([])
   useEffect(() => {
     dispatch(getProjects())
@@ -52,7 +51,7 @@ const HomePage = () => {
 
           <Rodal showCloseButton={false} className={styles.rodal} animation='door' visible={showModal} onClose={hide}>
             <div className={styles.rodal}>
-              <CreateProject errors={errors} setErrors={setErrors} setShowModal={setShowModal} />
+              <CreateProject showModal={showModal} setShowModal={setShowModal} />
             </div>
           </Rodal>
         {/* <button onClick={() => setShowModal(true)} className={styles.buildDreamBtn }>Start Project</button> */}

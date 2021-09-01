@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import { login } from '../../store/session';
@@ -6,7 +6,7 @@ import { login } from '../../store/session';
 import styles from './LoginForm.module.css'
 
 
-const LoginForm = ({setShowModal2, setShowModal1}) => {
+const LoginForm = ({showModal1, setShowModal2, setShowModal1}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,6 +20,14 @@ const LoginForm = ({setShowModal2, setShowModal1}) => {
       setErrors(data);
     }
   };
+
+
+  useEffect(() => {
+    const data = []
+    if (!showModal1)
+    setErrors(data)
+  }, [showModal1])
+
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
