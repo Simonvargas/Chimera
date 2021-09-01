@@ -12,7 +12,6 @@ import { getUsers } from '../../store/session';
 import { removeBacking, editBacking } from '../../store/backing';
 import * as projectActions from '../../store/project'
 import { getbackings } from '../../store/backing';
-
 import { ProgressBar } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -27,7 +26,8 @@ const Details = () => {
   const [showForm3, setShowForm3] = useState(false)
   const [idOf, setIdOf] = useState(0)
   const [comment, setComment] = useState('')
-
+  const [backs, setBacks] = useState('')
+  const [preFilled, setPrefilled] = useState('')
 
   const format = amount => {
     return Number(amount)
@@ -150,10 +150,10 @@ const Details = () => {
                     <p >{backing.comment}</p>
                     </div>
                     <div  value={backing.id} className='hi'>
-                     {user.id === backing.user_id ? <span className={styles.items}><i  onClick={(e) => (show3(e), setIdOf(backing.id))}  id={backing.id} className="icon fas fa-edit fa-lg"></i></span> : ''}
-                     {user.id === backing.user_id ? <span className={styles.items}><i  hello={backing.amount} onClick={deleteBacking} id={backing.id} className="icon fas fa-trash fa-lg"></i> </span>: ''}
                      
-               
+                     {user.id === backing.user_id ? <span className={styles.items}><i  onClick={(e) => (show3(e), setIdOf(backing.id), setComment(backing.comment))}  id={backing.id} className="icon fas fa-edit fa-lg"></i></span> : ''}
+
+                     {user.id === backing.user_id ? <span className={styles.items}><i  hello={backing.amount} onClick={deleteBacking} id={backing.id} className="icon fas fa-trash fa-lg"></i> </span>: ''}
 
                     </div>
                     </div>
@@ -161,8 +161,10 @@ const Details = () => {
                   )
       }}
 })}
+                    {/* {showForm3 ? <EditComment preFilled={preFilled} setComment={setComment} comment={comment}  setShowForm3={setShowForm3} /> : ''} */}
+
                    {showForm3 ? <div className={styles.inputBox}>
-                    <input className={styles.input} onChange={(e) => setComment(e.target.value)} value={comment} placeholder="comment"></input>
+                    <input value={comment} className={styles.input} onChange={(e) => setComment(e.target.value)}  ></input>
                     <button className={styles.btn3} onClick={update}><i className="fas fa-paper-plane"></i></button>
                     <button className={styles.btn3} onClick={() => setShowForm3(false)}><i className="fas fa-trash"></i></button>
                     </div> : ''}
