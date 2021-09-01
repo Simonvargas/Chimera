@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, Link } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 import * as projectActions from '../../store/project'
 
 import styles from './CreateProject.module.css'

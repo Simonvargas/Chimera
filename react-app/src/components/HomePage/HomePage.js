@@ -55,7 +55,7 @@ const HomePage = () => {
             {allUsers.map(user => {
               if (user.id === numba.user_id) {
                 return (
-                  <p className={styles.spotlightWords}>by {user.username[0].toUpperCase() + user.username.slice(1)}</p>
+                  <p key={user.id} className={styles.spotlightWords}>by {user.username[0].toUpperCase() + user.username.slice(1)}</p>
                 )
               }
             })}
@@ -73,7 +73,7 @@ const HomePage = () => {
         <div className={styles.projects}>
           {allProjects?.map(projects =>
 
-            <Link className={styles.link} to={`/projects/${projects.id}`}>
+            <Link key={projects.id} className={styles.link} to={`/projects/${projects.id}`}>
               <div className={styles.projectContainer}>
                 <img alt='Project' className={styles.projectImg} src={projects.image}></img>
                 <p className={styles.title}>{projects.name}</p>

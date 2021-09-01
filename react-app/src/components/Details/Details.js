@@ -29,7 +29,6 @@ const Details = () => {
   const [comment, setComment] = useState('')
 
 
-  const [value, setValue] = useState('')
   const format = amount => {
     return Number(amount)
       .toFixed(2)
@@ -164,8 +163,8 @@ const Details = () => {
 })}
                    {showForm3 ? <div className={styles.inputBox}>
                     <input className={styles.input} onChange={(e) => setComment(e.target.value)} value={comment} placeholder="comment"></input>
-                    <button className={styles.btn3} onClick={update}><i class="fas fa-paper-plane"></i></button>
-                    <button className={styles.btn3} onClick={() => setShowForm3(false)}><i class="fas fa-trash"></i></button>
+                    <button className={styles.btn3} onClick={update}><i className="fas fa-paper-plane"></i></button>
+                    <button className={styles.btn3} onClick={() => setShowForm3(false)}><i className="fas fa-trash"></i></button>
                     </div> : ''}
           </div>
          
