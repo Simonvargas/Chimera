@@ -48,18 +48,7 @@ const NavBar1 = ({isVisible}) => {
         <div className={styles.endContainer}>
           
         <button className={styles.btn} onClick={() => setShowModal(true)}>Start Project</button>
-        <AnimatePresence>
-    {isVisible && (
-      <motion.div
-        key="modal"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-        <p>hello</p>
-      </motion.div>
-    )}
-  </AnimatePresence>
+      
           {showModal && (<Modal onClose={() => setShowModal(false)}> <CreateProject setShowModal={setShowModal}/>  </Modal>)}
           
           <Link className={styles.link} to='/profile'>
