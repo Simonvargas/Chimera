@@ -7,7 +7,8 @@ import styles from './NavBar1.module.css'
 import { Modal } from '../../ModalContext/ModalContext';
 import CreateProject from '../CreateProject/CreateProject'
 
-import { motion, AnimatePresence } from "framer-motion"
+import Rodal from 'rodal';
+import 'rodal/lib/rodal.css';
 
 
 const NavBar1 = ({isVisible}) => {
@@ -47,9 +48,14 @@ const NavBar1 = ({isVisible}) => {
         </div>
         <div className={styles.endContainer}>
           
-        <button className={styles.btn} onClick={() => setShowModal(true)}>Start Project</button>
-      
-          {showModal && (<Modal onClose={() => setShowModal(false)}> <CreateProject setShowModal={setShowModal}/>  </Modal>)}
+        <button className={styles.btn} onClick={show}>Start Project</button>
+        
+        <Rodal closeOnEsc={true} clasName={styles.ro} showCloseButton={false} className={styles.rodal} animation='rotate' visible={showModal} onClose={hide}>
+            <div className={styles.rodal}>
+              <CreateProject />
+            </div>
+          </Rodal>
+
           
           <Link className={styles.link} to='/profile'>
             <p className={styles.start}>Welcome, {user.username}! </p>

@@ -15,7 +15,6 @@ const NavBar2 = () => {
 
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false)
-  const [shows, setShow] = useState(false)
 
 
   function show() {
