@@ -6,7 +6,7 @@ import { getUsers } from '../../store/session';
 import { getProjects } from '../../store/project';
 import CreateProject from '../CreateProject/CreateProject'
 import styles from './HomePage.module.css'
-import { Modal } from '../../ModalContext/ModalContext';
+// import { Modal } from '../../ModalContext/ModalContext';
 import { ProgressBar } from 'react-bootstrap'
 
 import Rodal from 'rodal';
@@ -16,7 +16,7 @@ const HomePage = () => {
   const allUsers = Object.values(useSelector(state => state.session))
   const dispatch = useDispatch()
   const [showModal, setShowModal] = useState(false);
-
+  const [errors, setErrors] = useState([])
   const [numba, setNumba] = useState([])
   useEffect(() => {
     dispatch(getProjects())
@@ -52,7 +52,7 @@ const HomePage = () => {
 
           <Rodal showCloseButton={false} className={styles.rodal} animation='door' visible={showModal} onClose={hide}>
             <div className={styles.rodal}>
-              <CreateProject setShowModal={setShowModal} />
+              <CreateProject errors={errors} setErrors={setErrors} setShowModal={setShowModal} />
             </div>
           </Rodal>
         {/* <button onClick={() => setShowModal(true)} className={styles.buildDreamBtn }>Start Project</button> */}

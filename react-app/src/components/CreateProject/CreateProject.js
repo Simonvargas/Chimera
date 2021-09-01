@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import {  Link } from 'react-router-dom';
 import * as projectActions from '../../store/project'
-
+import NavBar
+ from '../Navigation/NavBar';
 import styles from './CreateProject.module.css'
 function AddEvent({setShowModal}) {
     const [name, setName] = useState('')
@@ -12,7 +13,7 @@ function AddEvent({setShowModal}) {
     const [funding, setFunding] = useState('')
     const [raised, setRaised] = useState(0)
     const [backers, setBackers] = useState(0)
-
+// 
     const [errors, setErrors] = useState([])
 
     const dispatch = useDispatch();
@@ -34,6 +35,12 @@ function AddEvent({setShowModal}) {
          if (funding === '' || funding < 1 || funding.toString()[0] == 0) {
            data.push('Amount funding has to be greater than 0') 
          } 
+         if (name.length > 50) {
+           data.push('Title cannot be longer than 50 characters')
+         }
+         if (details.length > 1000) {
+           data.push('details cannot be longer than 1000 characters')
+         }
          setErrors(data)
          if (data.length === 0) {
          await dispatch(projectActions.createProject(hostId, categoryId, name, image, details, funding, raised, backers))
@@ -48,10 +55,11 @@ function AddEvent({setShowModal}) {
   
   return  (
   <div className={styles.container}>
+    
       <div className={styles.photoContainer}>
       <Link  className={styles.link} to='/'>
       {/* <img alt='Project' src='https://i.imgur.com/giDqQ9u.png' className={styles.h1}></img> */}
-      </Link>
+      </Link>gi
       </div>
       <div className={styles.container2}>
     <form  className={styles.inputForm}>

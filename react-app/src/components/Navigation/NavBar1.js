@@ -10,8 +10,7 @@ import CreateProject from '../CreateProject/CreateProject'
 import Rodal from 'rodal';
 import 'rodal/lib/rodal.css';
 
-
-const NavBar1 = ({isVisible}) => {
+const NavBar1 = () => {
   const user = useSelector(state => state.session.user)
   const [showModal, setShowModal] = useState(false);
 
