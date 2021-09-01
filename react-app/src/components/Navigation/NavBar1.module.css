@@ -7,8 +7,14 @@
     height: 70px;
     padding: 10px;
     /* box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px; */
-    /* background-color: #f6f6f6;
-background-image: linear-gradient(315deg, #f6f6f6 0%, #e9e9e9 74%); */
+    /* background-color: #bbf0f3;
+    background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%); */
+    /* background-color: #d5fefd;
+    background-image: linear-gradient(315deg, #d5fefd 0%, #fffcff 74%); */
+    background-color: #f8f9d2;
+    background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
+
+    
 }   
 
 .start {

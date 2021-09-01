@@ -7,7 +7,10 @@ import styles from './NavBar1.module.css'
 import { Modal } from '../../ModalContext/ModalContext';
 import CreateProject from '../CreateProject/CreateProject'
 
-const NavBar1 = () => {
+import { motion, AnimatePresence } from "framer-motion"
+
+
+const NavBar1 = ({isVisible}) => {
   const user = useSelector(state => state.session.user)
   const [showModal, setShowModal] = useState(false);
 
@@ -35,7 +38,20 @@ const NavBar1 = () => {
           </Link>
         </div>
         <div className={styles.endContainer}>
+          
         <button className={styles.btn} onClick={() => setShowModal(true)}>Start Project</button>
+        <AnimatePresence>
+    {isVisible && (
+      <motion.div
+        key="modal"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <p>hello</p>
+      </motion.div>
+    )}
+  </AnimatePresence>
           {showModal && (<Modal onClose={() => setShowModal(false)}> <CreateProject setShowModal={setShowModal}/>  </Modal>)}
           
           <Link className={styles.link} to='/profile'>

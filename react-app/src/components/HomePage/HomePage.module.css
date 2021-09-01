@@ -66,6 +66,8 @@
     display: inline-block;
     margin: 15px;
      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+     background-color: #f8f9d2;
+     background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
 
 }
 
@@ -104,17 +106,25 @@
 }
 .left {
         float: left;
-        width: 40%;
+        width: 50%;
 }
 
 .right {
     float: right;
-    width: 60%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: #d5fefd;
+    background-image: linear-gradient(315deg, #d5fefd 0%, #fffcff 74%); */
+    background-color: #f8f9d2;
+    background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
 }
 
 .projectImg2 {
     max-width: 100%;
-    max-height: 100%;
+    height: 300px
 }
 
 .projects {
@@ -125,11 +135,12 @@
     white-space: nowrap;
     position: relative;
     
+    
 }
 .progressBar {
     position:absolute;
     bottom: 0;
-    width: 60.1%;
+    width: 50%;
 }
 
 .h2 {
@@ -140,12 +151,14 @@
     font-family:Georgia,serif;
     color: black;
 	font-variant: small-caps; text-transform: none; font-weight: 700; margin-bottom: 0;
-    margin-left: 12px;
+    /* margin-left: 12px; */
     /* border-bottom: 1px solid lightgray; */
+    text-align: center;
 }
 
 .spotlight {
-    width: 70%;
+    width: 75%;
+    height: 300px; 
     position: relative;
     display: flex;
     font-family: 'Muli', sans-serif;
