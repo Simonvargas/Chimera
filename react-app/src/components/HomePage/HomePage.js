@@ -25,7 +25,7 @@ const HomePage = () => {
 
   useEffect(() => {
     (async function () {
-      const res = await fetch(`/api/projects/${3}`)
+      const res = await fetch(`/api/projects/${16}`)
 
       if (res.ok) {
         const oneProject = await res.json()

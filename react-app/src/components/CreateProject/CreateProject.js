@@ -86,6 +86,7 @@ function AddEvent({setShowModal, showModal}) {
       className={styles.input}
       type='text'
       value={name}
+      maxlength="50"
       onChange={(e) => setName(e.target.value)}/>
 
       <input 
@@ -93,6 +94,7 @@ function AddEvent({setShowModal, showModal}) {
       className={styles.input}
       type='text'
       value={image}
+      maxlength="1000"
       onChange={(e) => setImage(e.target.value)}/>
    
      <textarea
@@ -100,6 +102,7 @@ function AddEvent({setShowModal, showModal}) {
       className={styles.input}
       type='text'
       value={details}
+      maxlength="1000"
       onChange={(e) => setDetails(e.target.value)}/>
      
       <input 
