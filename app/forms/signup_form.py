@@ -19,9 +19,12 @@ def username_exists(form, field):
     if user:
         raise ValidationError('Username is already in use.')
 
-def email_valid(form, field):
+# def email_valid(form, field):
     
-    email = field.data
+#     email = field.data
+    
+#     if '@' not in email:
+#         raise ValidationError('Email must have @ symbol')
     
 
 

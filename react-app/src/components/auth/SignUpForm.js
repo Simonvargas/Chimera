@@ -55,6 +55,10 @@ const SignUpForm = ({showModal2, setShowModal2, setShowModal1}) => {
   function OpenClose() {
     setShowModal2(false)
     setShowModal1(true)
+    setUsername('')
+    setEmail('')
+    setPassword('')
+    setRepeatPassword('')
   }
 
   console.log(errors)
@@ -80,6 +84,7 @@ const SignUpForm = ({showModal2, setShowModal2, setShowModal1}) => {
           name='username'
           onChange={updateUsername}
           value={username}
+          maxLength='20'
         ></input>
       </div>
       <div>

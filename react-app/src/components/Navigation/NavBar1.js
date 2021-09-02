@@ -54,7 +54,6 @@ const NavBar1 = () => {
               <CreateProject showModal={showModal} setShowModal={setShowModal}/>
             </div>
           </Rodal>
-
           
           <Link className={styles.link} to='/profile'>
             <p className={styles.start}>Welcome, {user.username}! </p>
