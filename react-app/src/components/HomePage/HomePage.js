@@ -25,7 +25,7 @@ const HomePage = () => {
 
   useEffect(() => {
     (async function () {
-      const res = await fetch(`/api/projects/${16}`)
+      const res = await fetch(`/api/projects/${19}`)
 
       if (res.ok) {
         const oneProject = await res.json()
@@ -83,9 +83,7 @@ const HomePage = () => {
                 )
               }
             })}
-            <div className={styles.progressBar}>
-      <ProgressBar style={{ height: '2rem', backgroundColor: '#08e1ae', backgroundImage: 'linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%)' }} now={Math.round(numba.funding_raised / numba.funding_goal * 100)} label={Math.round(numba.funding_raised / numba.funding_goal * 100) + '%'} animated />
-      </div>
+      <ProgressBar style={{  bottom: '0', position:'absolute', width:'100%',height: '2rem', backgroundColor: '#08e1ae', backgroundImage: 'linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%)' }} now={Math.round(numba.funding_raised / numba.funding_goal * 100)} label={Math.round(numba.funding_raised / numba.funding_goal * 100) + '%'} animated />
           </div>
 
 
