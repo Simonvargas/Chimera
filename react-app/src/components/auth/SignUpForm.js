@@ -20,6 +20,7 @@ const SignUpForm = ({showModal2, setShowModal2, setShowModal1}) => {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         setErrors(data)
+        
       }
     } else {
       setErrors(["Passwords do not match!"]);
@@ -29,7 +30,12 @@ const SignUpForm = ({showModal2, setShowModal2, setShowModal1}) => {
   useEffect(() => {
     const data = []
     if (!showModal2)
+    setUsername('')
+    setEmail('')
+    setPassword('')
+    setRepeatPassword('')
     setErrors(data)
+    
   }, [showModal2])
 
   const updateUsername = (e) => {

@@ -26,6 +26,8 @@ const LoginForm = ({showModal1, setShowModal2, setShowModal1}) => {
     const data = []
     if (!showModal1)
     setErrors(data)
+    setEmail('')
+    setPassword('')
   }, [showModal1])
 
 

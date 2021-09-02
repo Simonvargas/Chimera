@@ -22,6 +22,11 @@ function AddEvent({setShowModal, showModal}) {
       const data = []
       if (showModal === false) {
         setErrors(data)
+        setName('')
+         setImage('')
+         setDetails('')
+         setCategory(1)
+         setFunding('')
    }}, [showModal])
     
     const projectCreate = async (e) => {
