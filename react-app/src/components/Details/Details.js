@@ -28,8 +28,6 @@ const Details = () => {
   const [showForm3, setShowForm3] = useState(false)
   const [idOf, setIdOf] = useState(0)
   const [comment, setComment] = useState('')
-  const [backs, setBacks] = useState('')
-  const [preFilled, setPrefilled] = useState('')
 
   const format = amount => {
     return Number(amount)
