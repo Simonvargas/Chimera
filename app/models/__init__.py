@@ -4,3 +4,4 @@ from .backing import Backing
 from .category import Category
 from .reward import Reward
 from .project import Project
+from .image import Image

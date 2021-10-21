@@ -13,6 +13,11 @@ function AddEvent({setShowModal, showModal}) {
     const [funding, setFunding] = useState('')
     const [raised, setRaised] = useState(0)
     const [backers, setBackers] = useState(0)
+
+
+    const [url, setUrl] = useState('')
+    const [disableState, setDisableState] = useState(false)
+
 // 
     const [errors, setErrors] = useState([])
 
@@ -24,10 +29,13 @@ function AddEvent({setShowModal, showModal}) {
       const data = []
       if (showModal === false) {
         setErrors(data)
+        const inputfile = document.querySelector('.file')
+         inputfile.value = ''
    }}, [showModal])
     
     const projectCreate = async (e) => {
          e.preventDefault()
+         
          const data = []
          if (name === '') {
            data.push('Name Field is empty')
@@ -49,15 +57,54 @@ function AddEvent({setShowModal, showModal}) {
          }
          setErrors(data)
          if (data.length === 0) {
-         await dispatch(projectActions.createProject(hostId, categoryId, name, image, details, funding, raised, backers))
+          let image_url = url;
+          console.log(url)
+          if (url !== 'https://i.imgur.com/BPOYKBx.png') {
+            const formData = new FormData()
+            console.log('image', image)
+            formData.append('image', image)
+            console.log('form', formData)
+            const res = await fetch('/api/images/', {
+              method: "POST",
+              body: formData,
+            });
+            const x = await res.json()
+            console.log('res', x)
+            image_url = x['url']
+            
+          }
+         await dispatch(projectActions.createProject(hostId, categoryId, name, image_url, details, funding, raised, backers))
          setShowModal(false)
          setName('')
          setImage('')
          setDetails('')
          setCategory(1)
          setFunding('')
+         const inputfile = document.querySelector('.file')
+         inputfile.value = ''
          }
 
+    }
+
+    const updateImage = (e) => {
+      const file = e.target.files[0];
+  
+      if (!file) {
+          setUrl(url);
+          setImage(image);
+  
+      } else {
+          const ext = file.type.split('/')
+          const extensions = "pdf, png, jpg, jpeg, gif"
+          if (extensions.includes(ext[1])) {
+              setUrl(URL.createObjectURL(file))
+              setImage(file);
+              setDisableState(true);
+  
+          } else {
+              setErrors({filetype: 'Filetype not supported, please upload a pdf, png, jpg, jpeg, or gif file.'})
+          }
+      }
     }
   
   return  (
@@ -75,7 +122,20 @@ function AddEvent({setShowModal, showModal}) {
       </div>
         <h2 className={styles.h2}>Create an Event!</h2>
       <div className={styles.container3}>
-        
+      <div className='upload-container'>
+        <form>
+          <input
+          className='file'
+            type='file'
+            accept="image/png, image/gif, image/jpeg, image/pdf, image/jpg"
+            id="imgInp"
+            onChange={updateImage}
+            placeholder={image}
+            // disabled={disableState}
+            
+          />
+        </form>
+        </div>
       <input
       placeholder={sessionUser.username}
       className={styles.input}
@@ -93,7 +153,7 @@ function AddEvent({setShowModal, showModal}) {
       <input 
       placeholder='Image Url'
       className={styles.input}
-      type='text'
+      type='hidden'
       value={image}
       onChange={(e) => setImage(e.target.value)}/>
    
