@@ -104,6 +104,8 @@ hurt to run it again.
       heroku run -a {NAME_OF_HEROKU_APP} flask seed all
       ```
 
+      heroku run -a chimeras flask seed all
+
 11. Under Settings find "Config Vars" and add any additional/secret .env
 variables.
 
