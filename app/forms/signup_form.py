@@ -23,10 +23,14 @@ def email_valid(form, field):
     
     email = field.data
     
+    if ('@') not in email:
+        raise ValidationError('Please provide valid email format')
+
+    
 
 
 class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(), username_exists])
-    email = StringField('email', validators=[DataRequired(), user_exists])
+    email = StringField('email', validators=[DataRequired(), user_exists, email_valid])
     password = StringField('password', validators=[DataRequired()])
