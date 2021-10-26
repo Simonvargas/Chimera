@@ -25,8 +25,8 @@ const SplashPage = () => {
                </div>
             <div className={styles.right}>
                 <div className={styles.containerIn2}>
-                <h2>Reap the rewards</h2>
-                <p>Pledge on an project and have the ability to receive rewards depending on how much you play! Helping fufill someone's dream and getting rewarded for it! Sweet!</p>
+                <h2>Help other succeed</h2>
+                <p>Pledge on an project or cause knowing that you'll helping fufill someone's dream and getting rewarded for it! Changing the world by helping others.!</p>
                 </div>
            </div>
            </div>
@@ -42,16 +42,7 @@ const SplashPage = () => {
            </div>
                        
            </div>
-           <div className={styles.container4}>
-               <div className={styles.left}>
-               <img alt='Project' className={styles.pic4} src='https://i.imgur.com/GpIKZJ8.png'></img>
-               </div>
-               <div className={styles.right}>
-                   <div className={styles.containerIn3}>
-                   <h1>Soon coming on your smartphone!</h1>
-                   </div>
-               </div>
-           </div>
+        
            <Footer />
        </div>
   )

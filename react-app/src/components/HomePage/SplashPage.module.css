@@ -11,15 +11,18 @@
     height: 400px;
     font-family: 'Muli', sans-serif;
     /* border-bottom: 1px solid black; */
-    background-color: #f8f9d2;
-    background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
+    /* background-color: #f8f9d2;
+    background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%); */
+    background-color: #fefefe;
+background-image: linear-gradient(315deg, #fefefe 0%, #00a4e4 74%);
+
 }
 
 .container3 {
     width: 100%;
     height: 350px;
     font-family: 'Muli', sans-serif;
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
     /* background-color: #e7eff9;
     background-image: linear-gradient(315deg, #e7eff9 0%, #cfd6e6 74%); */
 }

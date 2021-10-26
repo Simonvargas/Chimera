@@ -52,30 +52,13 @@ const HomePage = () => {
   //   </Rodal> : ''}
 
   return (
-    <div className={styles.overall1}>
-      <div className={styles.photoDiv}>
-        <img className={styles.img1} src='https://i.imgur.com/0YABWBD.jpg'></img>
-
-      </div>
-      <button className={styles.buildDreamBtn} onClick={show}>Start Project</button>
-
-          <Rodal showCloseButton={false} className={styles.rodal} animation='door' visible={showModal} onClose={hide}>
-            <div className={styles.rodal}>
-              <CreateProject showModal={showModal} setShowModal={setShowModal} />
-            </div>
-          </Rodal>
-        {/* <button onClick={() => setShowModal(true)} className={styles.buildDreamBtn }>Start Project</button> */}
-        {/* {showModal && (<Modal onClose={() => setShowModal(false)} > <CreateProject setShowModal={setShowModal} />  </Modal>)}       */}
-        <div className={styles.mainContent}>
-        <h2 className={styles.h2}>Spotlight</h2>
+    <>
+      
+      <div className={styles.spotlight1}>
+      <h2 className={styles.h2}>Spotlight</h2>
         <Link className={styles.link} to={`/projects/${numba.id}`}>
-        <div className={styles.spotlight}>
-          <div className={styles.left}>
-            <img alt='Project' className={styles.projectImg2} src={numba.image}></img>
-          </div>
-          <div className={styles.right}>
-            <p className={styles.title}>{numba.name}</p>
-            {/* <p className={styles.details}>{numba.details}</p> */}
+        <div className={styles.spotlight}><div className={styles.left}><img alt='Project' className={styles.projectImg2} src={numba.image}></img></div>
+          <div className={styles.right}><p className={styles.title}>{numba.name}</p>
             {allUsers.map(user => {
               if (user.id === numba.user_id) {
                 return (
@@ -83,18 +66,28 @@ const HomePage = () => {
                 )
               }
             })}
-            <div className={styles.progressBar}>
-      <ProgressBar style={{ height: '2rem', backgroundColor: '#08e1ae', backgroundImage: 'linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%)' }} now={Math.round(numba.funding_raised / numba.funding_goal * 100)} label={Math.round(numba.funding_raised / numba.funding_goal * 100) + '%'} animated />
-      </div>
+            <div className={styles.progressBar}><ProgressBar style={{ height: '2rem', backgroundColor: '#08e1ae', backgroundImage: 'linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%)' }} now={Math.round(numba.funding_raised / numba.funding_goal * 100)} label={Math.round(numba.funding_raised / numba.funding_goal * 100) + '%'} animated /></div>
           </div>
-
-
         </div>
 </Link>
+</div>
 
-        <br></br>
-        <h2 className={styles.h2} >Start fundraising today</h2>
-        <div className={styles.projects}>
+      <div className={styles.photoDiv}><img className={styles.img1} src='https://i.imgur.com/0YABWBD.jpg'></img></div>
+      
+      
+      <button className={styles.buildDreamBtn} onClick={show}>Start Project</button>
+
+          <Rodal showCloseButton={false} className={styles.rodal} animation='door' visible={showModal} onClose={hide}>
+            <div className={styles.rodal}>
+              <CreateProject showModal={showModal} setShowModal={setShowModal} />
+            </div>
+          </Rodal>
+
+
+      
+
+        <div className={styles.cont}>
+        <h2 className={styles.h2} >Start fundraising today</h2><div className={styles.projects}>
           {allProjects?.map(projects =>
 
             <Link key={projects.id} className={styles.link} to={`/projects/${projects.id}`}>
@@ -111,7 +104,7 @@ const HomePage = () => {
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   )
 };
 

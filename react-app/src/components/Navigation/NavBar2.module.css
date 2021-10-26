@@ -1,17 +1,18 @@
 .container {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid lightgrey;
+    /* border-bottom: 1px solid lightgrey; */
     padding: 5px;
     height: 70px;
-    box-shadow: 0 0.125rem 0.1875rem -0.125rem rgb(0 0 0 / 20%);
-    
+    /* box-shadow: 0 0.125rem 0.1875rem -0.125rem rgb(0 0 0 / 20%); */
+    /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+    /* box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px; */
 }
 
 .btn {
     border:greenyellow;
-    background-color: #f8f9d2;
-    background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
+    background-color: #fefefe;
+background-image: linear-gradient(315deg, #fefefe 0%, #00a4e4 74%);
     color: black;
     font-size: 16px;
     letter-spacing: 1px;
