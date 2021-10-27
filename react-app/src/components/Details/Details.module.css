@@ -94,8 +94,8 @@
 }
 .btn {
     border:greenyellow;
-    background-color: #fefefe;
-background-image: linear-gradient(315deg, #fefefe 0%, #00a4e4 74%);
+    background-color: #08e1ae;
+    background-image: linear-gradient(315deg, #08e1ae 0%, #98de5b 74%);
     font-size: 16px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -111,8 +111,8 @@ background-image: linear-gradient(315deg, #fefefe 0%, #00a4e4 74%);
 
 .btn:hover {
     color: #ffffff !important;
-    background-color: #f8f9d2;
-    background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
+    background-color: #fefefe;
+    background-image: linear-gradient(315deg, #fefefe 0%, #00a4e4 74%);
     transition: all 0.4s ease 0s;
 }
 
@@ -131,8 +131,9 @@ background-image: linear-gradient(315deg, #fefefe 0%, #00a4e4 74%);
 
 .btn1 {
     border:greenyellow;
-    background-color: #fefefe;
-    background-image: linear-gradient(315deg, #fefefe 0%, #00a4e4 74%);
+    
+    background-color: #08e1ae;
+    background-image: linear-gradient(315deg, #08e1ae 0%, #98de5b 74%);
     font-size: 16px;
     letter-spacing: 1px;
     text-transform: uppercase;
