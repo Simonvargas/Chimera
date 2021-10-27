@@ -98,7 +98,9 @@ const HomePage = () => {
                 <p className={styles.raised}><span className={styles.span}>{Math.round(projects.funding_raised / projects.funding_goal * 100)}% raised</span> </p>
                 <ProgressBar style={{ height: '1rem', backgroundColor: '#08e1ae', backgroundImage: 'linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%)' }} now={Math.round(projects.funding_raised / projects.funding_goal * 100)} label={Math.round(projects.funding_raised / projects.funding_goal * 100) + '%'} animated />
               </div>
+              
             </Link>
+
           )}
 
         </div>
