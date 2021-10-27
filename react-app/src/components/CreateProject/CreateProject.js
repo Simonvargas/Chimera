@@ -122,6 +122,7 @@ function AddEvent({setShowModal, showModal}) {
       </div>
         <h2 className={styles.h2}>Create an Event!</h2>
       <div className={styles.container3}>
+      <div>Upload your spot's image!</div>
       <div className='upload-container'>
         <form>
           <input
