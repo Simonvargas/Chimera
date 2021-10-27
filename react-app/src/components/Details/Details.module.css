@@ -94,8 +94,8 @@
 }
 .btn {
     border:greenyellow;
-    background-color: #08e1ae;
-    background-image: linear-gradient(315deg, #08e1ae 0%, #98de5b 74%);
+    background-color: #fefefe;
+background-image: linear-gradient(315deg, #fefefe 0%, #00a4e4 74%);
     font-size: 16px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -106,7 +106,7 @@
     margin: 5px;
     bottom: 10px;
     position: relative;
-    /* padding: 10px; */
+    color: black;
 }
 
 .btn:hover {
@@ -131,14 +131,14 @@
 
 .btn1 {
     border:greenyellow;
-    background-color: #08e1ae;
-    background-image: linear-gradient(315deg, #08e1ae 0%, #98de5b 74%);
+    background-color: #fefefe;
+    background-image: linear-gradient(315deg, #fefefe 0%, #00a4e4 74%);
     font-size: 16px;
     letter-spacing: 1px;
     text-transform: uppercase;
     width: 100%;
     transition: all ease 0.3s;
-    color: white;
+    /* color: white; */
     padding: 10px;
 }
 

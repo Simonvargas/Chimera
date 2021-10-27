@@ -71,7 +71,7 @@ function EditForm({ setShowForm, project }) {
       <input 
       placeholder='Image Url'
       className={styles.input}
-      type='text'
+      type='hidden'
       value={image}
       onChange={(e) => setImage(e.target.value)}/>
    
